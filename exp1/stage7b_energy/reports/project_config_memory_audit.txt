@@ -1,0 +1,34 @@
+PROJECT CONFIG MEMORY AUDIT
+===========================
+
+Original files inspected (not modified):
+- exp1/scalesim/configs/config_16pe_v2.cfg
+- exp1/scalesim/configs/config_32pe_v2.cfg
+- exp1/scalesim/configs/config_64pe_v2.cfg
+
+All three project configurations contain the same memory organization:
+- Ifmap SRAM: 64 KiB
+- Filter SRAM: 64 KiB
+- Ofmap SRAM: 64 KiB
+- MemoryBanks: 1
+- Bandwidth: 10
+- Dataflow: ws (weight stationary)
+- SRAM bank bandwidth: 10 for ifmap and filter
+- SRAM bank count: 10 for ifmap and filter layout settings
+- SRAM bank port: 2 for ifmap and filter layout settings
+- InterfaceBandwidth: CALC
+- UseRamulatorTrace: False
+
+Array mappings:
+- config_16pe_v2.cfg: ArrayHeight 4, ArrayWidth 4 = 16 PE
+- config_32pe_v2.cfg: ArrayHeight 4, ArrayWidth 8 = 32 PE
+- config_64pe_v2.cfg: ArrayHeight 8, ArrayWidth 8 = 64 PE
+
+Energy-specific fields currently present in original project configs:
+- SRAM_row_size: absent
+- SRAM_bank_size: absent
+- DRAM_row_size: absent
+- DRAM_bank_size: absent
+
+The original files remain unchanged. Energy-only copies are created separately
+under stage7b_energy/project_inputs/.

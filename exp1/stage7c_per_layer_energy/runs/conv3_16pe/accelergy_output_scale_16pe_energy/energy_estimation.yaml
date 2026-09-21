@@ -1,0 +1,144 @@
+energy_estimation:
+    version: '0.4'
+    components:
+      - name: systolic_array.ifmap_dram
+        energy: 2048.0
+      - name: systolic_array.weights_dram
+        energy: 18432.0
+      - name: systolic_array.psum_dram
+        energy: 165891.0
+      - name: systolic_array.ifmap_glb
+        energy: 875492.0
+      - name: systolic_array.weights_glb
+        energy: 285528.0
+      - name: systolic_array.psum_glb
+        energy: 875492.0
+      - name: systolic_array.PE[0].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[1].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[2].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[3].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[4].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[5].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[6].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[7].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[8].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[9].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[10].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[11].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[12].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[13].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[14].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[15].weights_spad
+        energy: 46080.0
+      - name: systolic_array.PE[0].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[1].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[2].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[3].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[4].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[5].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[6].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[7].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[8].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[9].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[10].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[11].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[12].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[13].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[14].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[15].ifmap_spad
+        energy: 114048.0
+      - name: systolic_array.PE[0].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[1].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[2].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[3].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[4].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[5].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[6].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[7].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[8].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[9].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[10].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[11].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[12].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[13].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[14].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[15].psum_spad
+        energy: 72576.0
+      - name: systolic_array.PE[0].mac
+        energy: 52991.0
+      - name: systolic_array.PE[1].mac
+        energy: 52991.0
+      - name: systolic_array.PE[2].mac
+        energy: 52991.0
+      - name: systolic_array.PE[3].mac
+        energy: 52991.0
+      - name: systolic_array.PE[4].mac
+        energy: 52991.0
+      - name: systolic_array.PE[5].mac
+        energy: 52991.0
+      - name: systolic_array.PE[6].mac
+        energy: 52991.0
+      - name: systolic_array.PE[7].mac
+        energy: 52991.0
+      - name: systolic_array.PE[8].mac
+        energy: 52991.0
+      - name: systolic_array.PE[9].mac
+        energy: 52991.0
+      - name: systolic_array.PE[10].mac
+        energy: 52991.0
+      - name: systolic_array.PE[11].mac
+        energy: 52991.0
+      - name: systolic_array.PE[12].mac
+        energy: 52991.0
+      - name: systolic_array.PE[13].mac
+        energy: 52991.0
+      - name: systolic_array.PE[14].mac
+        energy: 52991.0
+      - name: systolic_array.PE[15].mac
+        energy: 52991.0
+    Total: 6794003.0

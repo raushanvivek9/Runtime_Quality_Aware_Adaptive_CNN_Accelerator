@@ -1,0 +1,76 @@
+Stage 8B Adaptive PE Array RTL Prototype
+Date: 2026-09-20
+
+1. Objective
+   PASS. Demonstrate an actual RTL PE-enable mechanism driven by a Stage 8A-
+   compatible resource_cfg input, without duplicating the Stage 8A estimator.
+
+2. Architecture
+   One captured resource_cfg drives adaptive_pe_controller, which generates a
+   64-bit enable mask and active count for adaptive_compute_top and pe_array.
+   The array schedules deterministic 8x8 GEMM output elements to enabled PEs.
+
+3. PE organization
+   PASS. pe_array contains one generate loop of exactly 64 registered pe_mac
+   instances. There are no separate physical 16-, 32-, or 64-PE arrays.
+
+4. Resource configurations
+   PASS. 2'b00 enables PE 0..15; 2'b01 enables PE 0..31; 2'b10 enables all
+   64 PEs. Unsupported encoding defaults conservatively to 64 enabled PEs.
+
+5. Scheduler
+   The scheduler assigns C[batch_base + pe_index] to each active PE. Each PE
+   performs eight signed MAC cycles over k=0..7, then the batch advances by
+   the active PE count. Every output element is assigned exactly once.
+
+6. Test workload
+   Deterministic signed-integer 8x8 GEMM: A[i][k]=i+k+2 and B[k][j]=j-k+8.
+   The independent Python golden matrix has C[0][0]=156 and C[7][7]=1108.
+
+7. Simulation environment
+   PASS. Icarus Verilog 13.0 and vvp from the neural_acc Conda environment.
+
+8. Compilation result
+   PASS. iverilog -g2012 -Wall compiled pe_mac.sv, pe_array.sv,
+   adaptive_pe_controller.sv, adaptive_compute_top.sv, and tb_adaptive_compute.sv
+   with no warnings or errors.
+
+9. Simulation result
+   PASS. The scripted Icarus run completed all self-checks and called $finish.
+
+10. Result correctness
+    PASS. All 64 C entries match the independently calculated testbench golden
+    result for 16, 32, and 64 active PEs. Python produces the same workload
+    golden output.
+
+11. Active PE validation
+    PASS. The testbench checks active_pe_count=16/32/64 and each bit of the
+    debug enable mask for all three resource configurations.
+
+12. Disabled PE validation
+    PASS. On reset-based 16- and 32-PE workloads, every inactive PE remains at
+    accumulator zero and has pe_valid_debug=0. Active PE accumulators update.
+
+13. Reconfiguration validation
+    PASS. resource_cfg is captured at start. Changing its input while busy does
+    not change the captured configuration, count, or enable mask. Sequential
+    boundary workloads complete correctly in 16 -> 32 -> 64 order.
+
+14. Cycle measurements
+    PASS. The measured scheduler MAC cycles are 16 PE=32, 32 PE=16, and
+    64 PE=8. These are prototype simulation counts, not physical performance
+    or energy measurements.
+
+15. Limitations
+    The 64-PE physical array and logical active modes are a prototype. This is
+    not complete Eyeriss RTL, SCALE-Sim RTL, a final dataflow, synthesis, timing
+    closure, FPGA/ASIC implementation, area/power/energy measurement, or an
+    accuracy-adaptive neural accelerator. No neural-network accuracy improvement
+    or lower-resource scientific result is claimed.
+
+16. Stage 8C recommendation
+    Stage 8B is ready for a scoped Stage 8C integration experiment: connect
+    Stage 8A decision_valid/resource_cfg to this top-level start/configuration
+    boundary, while retaining the existing research constraint that 64 PE is
+    the only jointly feasible validated configuration. Do not infer energy,
+    timing, area, or accuracy conclusions from this prototype alone.

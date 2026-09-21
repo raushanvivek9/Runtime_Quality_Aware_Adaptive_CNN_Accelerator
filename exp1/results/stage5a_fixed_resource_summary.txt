@@ -1,0 +1,22 @@
+Stage 5A fixed-resource validation summary
+========================================
+
+Scope:
+- This stage converts the abstract resource levels 16/32/64 into physically
+  meaningful PE-array configurations for SCALE-Sim.
+- The work is a hardware mapping and simulator validation step only.
+- It does not claim energy savings, latency reduction, or accelerator speedup.
+
+Fixed-resource results:
+- 16 PE / 4x4: total_cycles=137797, avg_util=89.59%, avg_mapping_eff=98.81%, layer_cycles=[25479, 59327, 52991]
+- 32 PE / 4x8: total_cycles=71833, avg_util=86.77%, avg_mapping_eff=98.81%, layer_cycles=[12795, 30239, 28799]
+- 64 PE / 8x8: total_cycles=39773, avg_util=78.12%, avg_mapping_eff=94.79%, layer_cycles=[7375, 15695, 16703]
+
+Interpretation:
+- 16 PE (4x4) has the highest total cycles and lowest throughput from the available
+  fixed-resource configurations.
+- 32 PE (4x8) reduces cycles materially while keeping high utilization.
+- 64 PE (8x8) yields the lowest total cycles for this topology but also lowers
+  mapping efficiency and utilization relative to the 32 PE design.
+
+The mapping remains a modeling bridge and not a final hardware claim.

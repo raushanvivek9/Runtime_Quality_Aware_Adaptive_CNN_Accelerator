@@ -1,0 +1,11 @@
+Stage 3 V2 - Prediction Monotonicity Report
+============================================
+Estimator: random_forest
+Expected ordering: D16 >= D32 >= D64.
+Predictions are raw estimator outputs and were not modified or sorted.
+Total test cases: 76
+Relationship violations: 0
+Test cases with one or more violations: 0
+Violations by layer: none
+
+No prediction monotonicity violations found.

@@ -1,0 +1,82 @@
+Stage 6 report (quality-constrained performance-aware resource controller)
+====================================================================
+
+1. Objective
+Stage 6 selects the lowest simulated cycle cost among resources whose predicted degradation satisfies D_hat <= 0.05, using the saved Random Forest and the verified SCALE-Sim cycle table.
+
+2. Stage 4 controller decisions (unchanged)
+- Test samples: 19
+- Convolution decisions evaluated: 57
+- Stage 4 selected resource distribution: 16=0, 32=19, 64=38
+
+3. Hardware resource mapping
+- 16 -> 4x4 PE array
+- 32 -> 4x8 PE array
+- 64 -> 8x8 PE array
+
+4. Fixed 64 baseline
+- Total cycles: 755687
+- Average cycles/sample: 39773.0
+- Average selected resource: 64.0
+- Resource reduction: 0.0%
+
+5. Stage 4 baseline
+- Total cycles: 858667
+- Average cycles/sample: 45193.0
+- Average selected resource: 53.333333333333336
+- Resource reduction: 16.6667%
+- Average actual degradation: 0.01362585184866922
+- Threshold violation rate: 0.0000%
+
+6. Stage 6 decision rule
+- Predict D_hat_16, D_hat_32, D_hat_64 for each sample/layer using the saved RF.
+- Restrict to feasible resources where D_hat <= 0.05.
+- Select the feasible resource with the smallest SCALE-Sim cycles.
+- If no feasible resource exists, select 64.
+
+7. Stage 6 results
+- Total cycles: 755687
+- Average cycles/sample: 39773.0
+- Average selected resource: 64.0
+- Resource reduction: 0.0000%
+- Average actual degradation: 0.0
+- Maximum actual degradation: 0.0
+- Threshold violation rate: 0.0000%
+
+8. Comparison
+- Stage 4 vs Fixed64 cycle change: 102980 cycles
+- Stage 6 vs Fixed64 cycle change: 0 cycles
+- Stage 6 vs Stage4 cycle change: -102980 cycles
+- Stage 4 resource reduction: 16.6667%
+- Stage 6 resource reduction: 0.0000%
+- Stage 4 threshold violations: 0
+- Stage 6 threshold violations: 0
+
+9. Per-layer summary
+- conv1:
+  Stage 4: 16=0, 32=19, 64=0
+  Stage 6: 16=0, 32=0, 64=19
+  Stage 4 average actual degradation: 0.04087755554600766
+  Stage 6 average actual degradation: 0.0
+- conv2:
+  Stage 4: 16=0, 32=0, 64=19
+  Stage 6: 16=0, 32=0, 64=19
+  Stage 4 average actual degradation: 0.0
+  Stage 6 average actual degradation: 0.0
+- conv3:
+  Stage 4: 16=0, 32=0, 64=19
+  Stage 6: 16=0, 32=0, 64=19
+  Stage 4 average actual degradation: 0.0
+  Stage 6 average actual degradation: 0.0
+
+10. Scientific interpretation
+The quality-constrained performance-aware controller chooses the minimum-cycle feasible resource under the predicted degradation constraint, using the saved RF and verified SCALE-Sim cycle table. In this experiment, the feasible set for the evaluated convolution layers is dominated by 64-PE choices, so Stage 6 collapses to the fixed 64-PE policy for the held-out test set.
+
+11. Limitations
+- SCALE-Sim is convolution-only and does not include the classifier.
+- No validated energy model was used.
+- No RTL or physical hardware measurements exist.
+- Resource reconfiguration overhead is not modeled.
+- PE configurations are simulator abstractions, not real fabricated hardware.
+- Cycle results are simulated execution costs, not actual end-to-end runtime measurements.
+- The controller is evaluated offline, not as a runtime hardware controller.

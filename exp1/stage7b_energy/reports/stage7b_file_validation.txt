@@ -1,0 +1,17 @@
+STAGE 7B FILE VALIDATION: BLOCKED
+
+No SCALE-Sim or Accelergy outputs were generated because the official energy preprocessor stopped before SCALE-Sim execution.
+
+16 PE / 4x4:
+  DETAILED_ACCESS_REPORT.csv: NOT GENERATED
+  action_count.yaml: NOT GENERATED
+  energy_estimation.yaml: NOT GENERATED
+
+32 PE / 4x8:
+  NOT RUN after the 16 PE preprocessor blocker.
+
+64 PE / 8x8:
+  NOT RUN after the 16 PE preprocessor blocker.
+
+16 PE log:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe/stage7b_16pe.log

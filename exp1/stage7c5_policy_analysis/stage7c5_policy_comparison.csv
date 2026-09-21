@@ -1,0 +1,6 @@
+policy,mean_energy,mean_cycles,active_pe,active_pe_reduction_percent,degradation_violations,number_of_feasible_configurations,configurations,notes
+Fixed-64,17428277.0,39773.0,192,0.0,0,1,"[64,64,64]",Accelergy output units; physical unit not specified in YAML
+Stage-4 adaptive,17500885.0,45193.0,160.0,16.666666666666668,0,,19 sample-specific decisions,Validated Stage 4 policy
+Performance-constrained feasible set,,,,,,1,"[64,64,64]",No arbitrary set average
+Energy-constrained feasible set,,,,,,1,"[64,64,64]",Accelergy output-unit constraint; no arbitrary set average
+Joint performance+energy feasible set,,,,,,1,"[64,64,64]",No arbitrary set average

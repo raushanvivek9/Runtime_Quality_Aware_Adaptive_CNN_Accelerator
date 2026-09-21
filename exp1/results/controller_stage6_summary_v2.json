@@ -1,0 +1,39 @@
+{
+  "d_max": 0.05,
+  "test_samples": 19,
+  "convolution_decisions": 57,
+  "classifier_simulated": false,
+  "stage6_policy": {
+    "selected_resource_distribution": {
+      "64": 57
+    },
+    "total_cycles": 755687,
+    "avg_cycles_per_sample": 39773.0,
+    "average_selected_resource": 64.0,
+    "resource_reduction_percent": 0.0,
+    "average_actual_degradation": 0.0,
+    "maximum_actual_degradation": 0.0,
+    "threshold_violations": 0,
+    "threshold_violation_rate_percent": 0.0
+  },
+  "fixed64_policy": {
+    "total_cycles": 755687,
+    "avg_cycles_per_sample": 39773.0,
+    "average_selected_resource": 64.0,
+    "resource_reduction_percent": 0.0,
+    "average_actual_degradation": 0.0,
+    "maximum_actual_degradation": 0.0,
+    "threshold_violations": 0,
+    "threshold_violation_rate_percent": 0.0
+  },
+  "stage4_policy": {
+    "total_cycles": 858667,
+    "avg_cycles_per_sample": 45193.0,
+    "average_selected_resource": 53.333333333333336,
+    "resource_reduction_percent": 16.666666666666664,
+    "average_actual_degradation": 0.01362585184866922,
+    "maximum_actual_degradation": 0.045584678649902344,
+    "threshold_violations": 0,
+    "threshold_violation_rate_percent": 0.0
+  }
+}

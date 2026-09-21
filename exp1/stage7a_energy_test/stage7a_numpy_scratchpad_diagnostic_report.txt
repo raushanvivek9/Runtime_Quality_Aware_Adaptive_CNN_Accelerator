@@ -1,0 +1,119 @@
+STAGE 7A STATUS: PASS (isolated diagnostic fix only)
+
+A. Current Python version
+-------------------------
+Python 3.11.16
+
+B. Current NumPy version
+-----------------------
+NumPy 2.4.6
+
+C. SCALE-Sim package version
+----------------------------
+Installed package metadata: scalesim 2.0.2
+Imported source: /home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy/scalesim/__init__.py
+
+D. SCALE-Sim git commit
+-----------------------
+f79d7bc39a80a21fc35bc667967b76a15b311f49
+
+E. Exact failing source line
+----------------------------
+Original source file:
+    scalesim/memory/double_buffered_scratchpad_mem.py:307
+
+    self.total_cycles = int(max(ofmap_serviced_cycles))
+
+F. ofmap_serviced_cycles characteristics
+------------------------------------------
+The variable is initialized as a Python list:
+
+    ofmap_serviced_cycles = []
+
+Each loop iteration appends ofmap_cycle_out[0]. The write buffer returns a
+NumPy array shaped (num_lines, 1), so each appended element is a NumPy array,
+not a scalar.
+
+Observed diagnostic values:
+    container type: list
+    length: 77112
+    element type: numpy.ndarray
+    element shape: (1,)
+    element dtype: float64
+    first elements: array([0.]), array([1.]), array([2.]), array([3.]), array([4.])
+
+The trace conversion correctly reshapes the list into a 2-D array. The failing
+line instead applies Python max() to the original list, which returns one
+shape-(1,) array, and then passes that array to int().
+
+G. Root cause assessment
+------------------------
+This is a SCALE-Sim source-level scalar-extraction bug. The code assumes that
+the one-element NumPy array returned by the write buffer can be passed directly
+to int(). The intended computation is the maximum of the scalar cycle values,
+not conversion of a one-dimensional array.
+
+H. NumPy compatibility assessment
+----------------------------------
+NumPy compatibility is involved, but the source assumption is the defect.
+With the active NumPy 2.4.6, int(numpy.array([1.])) raises:
+
+    TypeError: only 0-dimensional arrays can be converted to Python scalars
+
+The repository has no NumPy version constraint: setup.py and requirements.txt
+both request numpy without a version. Therefore the checkout does not declare
+an expected compatible NumPy version. The source relies on implicit conversion
+that is not valid for the current NumPy behavior.
+
+I. Isolated fix tested
+----------------------
+No original repository file was patched. In a disposable copy only, the
+failing line was changed to:
+
+    self.total_cycles = int(max(cycle[0] for cycle in ofmap_serviced_cycles))
+
+This compares the scalar value contained in each one-element array and
+preserves the original max-over-all-service-cycles semantics.
+
+The official example was rerun in that disposable copy with input type conv.
+The complete pipeline succeeded:
+
+    SCALE-Sim -> create_action_count.sh -> Accelergy
+
+J. DETAILED_ACCESS_REPORT.csv
+------------------------------
+YES
+
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/
+    scalar_fix_output/scale_sim_output_scale_example_run_32x32_ws/
+    DETAILED_ACCESS_REPORT.csv
+
+K. Action counts
+----------------
+YES
+
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/
+    scalar_fix_output/scale_sim_output_scale_example_run_32x32_ws/
+    action_count.yaml
+
+L. energy_estimation.yaml
+------------------------
+YES
+
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/
+    scalar_fix_output/accelergy_output_scale_example_run_32x32_ws/
+    energy_estimation.yaml
+
+COMPUTE_REPORT.csv was also generated in the same SCALE-Sim output directory.
+The complete isolated output directory is:
+
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/scalar_fix_output
+
+M. Final status
+---------------
+STAGE 7A STATUS: PASS (isolated diagnostic fix only)
+
+This PASS applies only to the disposable diagnostic copy. The original
+SCALE-Sim-v3-energy checkout, its run_all.sh, and the protected
+/home/cs25m115/Neural_Acc/SCALE-Sim checkout were not modified. Stage 7B and
+the real 16/32/64 PE experiment were not run.

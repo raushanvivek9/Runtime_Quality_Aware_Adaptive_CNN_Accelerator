@@ -1,0 +1,58 @@
+==================================================
+Stage 7A - Energy Toolchain Setup & Validation
+==================================================
+Date: Saturday 19 September 2026 07:46:16 PM IST
+Project: /home/cs25m115/Neural_Acc
+
+[1] Checking Python environment...
+
+[2] Checking existing energy tools...
+accelergy: NOT_FOUND
+gem5: NOT_FOUND
+ngspice: NOT_FOUND
+vcd2saif: NOT_FOUND
+
+[3] Inspecting existing SCALE-Sim...
+
+[4] Preparing Accelergy...
+
+[5] Installing Accelergy into current environment...
+Accelergy installation command completed.
+
+[6] Verifying Accelergy executable...
+accelergy executable FOUND.
+Path: /home/cs25m115/anaconda3/envs/neural_acc/bin/accelergy
+
+[7] Recording Accelergy version...
+
+[8] Inspecting Accelergy examples...
+
+[9] Preparing separate SCALE-Sim v3 energy checkout...
+[10] Installing SCALE-Sim v3 into current environment...
+SCALE-Sim v3 installation completed.
+
+[11] Final tool availability check...
+accelergy: FOUND -> /home/cs25m115/anaconda3/envs/neural_acc/bin/accelergy
+scalesim: NOT_FOUND
+
+==================================================
+Stage 7A preliminary status
+==================================================
+Accelergy installation: PASS
+
+IMPORTANT:
+Accelergy executable availability does NOT yet validate
+the complete SCALE-Sim -> activity -> Accelergy -> energy flow.
+
+Next step: identify and execute the official Accelergy
+architecture/component example and then establish the
+SCALE-Sim workload-to-energy mapping.
+
+Generated files:
+  /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/stage7a_report.txt
+  /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/stage7a_environment_summary.txt
+  /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/stage7a_accelergy_installation.txt
+  /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/stage7a_scalesim_accelergy_mapping.txt
+  /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/stage7a_accelergy_smoke_test.txt
+
+Stage 7A setup script completed.

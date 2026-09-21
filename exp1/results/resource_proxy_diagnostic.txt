@@ -1,0 +1,192 @@
+Stage 4.5 - Resource Proxy Diagnostic
+======================================
+
+Scope
+-----
+This diagnostic directly runs the existing Stage-2 deterministic software proxy.
+It does not retrain the Random Forest, regenerate the quality dataset, modify the
+Stage-4 controller threshold, modify the existing monitor, or run SCALE-Sim.
+
+Current proxy implementation
+----------------------------
+selected_output_indices(total_outputs, resource) computes:
+  retained = min(max(1, round(total_outputs * resource / 64)), total_outputs)
+  selected[k] = floor(k * total_outputs / retained), for k = 0..retained-1
+
+Conv2d: the proxy selects filter rows and bias elements for the chosen output
+channels, runs F.conv2d only for those channels, creates a zero tensor with the
+full output shape, then index-copies the computed channels into it. Omitted output
+channels are exactly zero.
+
+Linear: the proxy selects weight rows and bias elements for chosen output features,
+runs F.linear only for those features, creates a zero tensor with the full output
+shape, then index-copies computed features into it. For classifier, these output
+features are class logits; omitted class logits are exactly zero.
+
+Retained output mapping
+-----------------------
+layer       type    resource  original  retained  fraction  selected output indices
+conv1       Conv2d        16        16         4     0.250  [0, 4, 8, 12]
+conv1       Conv2d        32        16         8     0.500  [0, 2, 4, 6, 8, 10, 12, 14]
+conv1       Conv2d        64        16        16     1.000  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+conv2       Conv2d        16        32         8     0.250  [0, 4, 8, 12, 16, 20, 24, 28]
+conv2       Conv2d        32        32        16     0.500  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+conv2       Conv2d        64        32        32     1.000  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+conv3       Conv2d        16        64        16     0.250  [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60]
+conv3       Conv2d        32        64        32     0.500  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
+conv3       Conv2d        64        64        64     1.000  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+classifier  Linear        16        10         2     0.200  [0, 5]
+classifier  Linear        32        10         5     0.500  [0, 2, 4, 6, 8]
+classifier  Linear        64        10        10     1.000  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Direct classifier experiment (all 19 held-out samples; no Random Forest for actual loss)
+------------------------------------------------------------------------------------------
+sample_id  resource  baseline_loss  actual_loss  actual_degradation  predicted_degradation
+        8        16     2.09309888   2.29177570          0.19867682             0.20225776
+        8        32     2.09309888   2.30789709          0.21479821             0.21750708
+        8        64     2.09309888   2.09309888          0.00000000             0.00000000
+       12        16     2.09319639   2.29326272          0.20006633             0.19792321
+       12        32     2.09319639   2.30801058          0.21481419             0.21338041
+       12        64     2.09319639   2.09319639          0.00000000             0.00000000
+       13        16     2.09758425   2.29227757          0.19469333             0.19787469
+       13        32     2.09758425   2.30742955          0.20984530             0.21302624
+       13        64     2.09758425   2.09758425          0.00000000             0.00000000
+       14        16     2.09104061   2.29158545          0.20054483             0.20308462
+       14        32     2.09104061   2.30662799          0.21558738             0.21814197
+       14        64     2.09104061   2.09104061          0.00000000             0.00000000
+       19        16     2.08712626   2.29190850          0.20478225             0.20047913
+       19        32     2.08712626   2.30755377          0.22042751             0.21602561
+       19        64     2.08712626   2.08712626          0.00000000             0.00000000
+       22        16     2.09198785   2.29265356          0.20066571             0.20092821
+       22        32     2.09198785   2.30807638          0.21608853             0.21630446
+       22        64     2.09198785   2.09198785          0.00000000             0.00000000
+       35        16     2.09064174   2.29294848          0.20230675             0.19693783
+       35        32     2.09064174   2.30735445          0.21671271             0.21210531
+       35        64     2.09064174   2.09064174          0.00000000             0.00000000
+       36        16     2.09389830   2.29254413          0.19864583             0.19590159
+       36        32     2.09389830   2.30726719          0.21336889             0.21214729
+       36        64     2.09389830   2.09389830          0.00000000             0.00000000
+       41        16     2.08554292   2.29207349          0.20653057             0.20013362
+       41        32     2.08554292   2.30696177          0.22141886             0.21524959
+       41        64     2.08554292   2.08554292          0.00000000             0.00000000
+       47        16     2.08613396   2.29138494          0.20525098             0.20373787
+       47        32     2.08613396   2.30689454          0.22076058             0.21922589
+       47        64     2.08613396   2.08613396          0.00000000             0.00000000
+       53        16     2.09733725   2.29249978          0.19516253             0.19451546
+       53        32     2.09733725   2.30783701          0.21049976             0.20998441
+       53        64     2.09733725   2.09733725          0.00000000             0.00000000
+       64        16     2.08999133   2.29223275          0.20224142             0.20167936
+       64        32     2.08999133   2.30738688          0.21739554             0.21703762
+       64        64     2.08999133   2.08999133          0.00000000             0.00000000
+       65        16     2.08977222   2.29099917          0.20122695             0.20428168
+       65        32     2.08977222   2.30651236          0.21674013             0.21975022
+       65        64     2.08977222   2.08977222          0.00000000             0.00000000
+       66        16     2.09178090   2.29245996          0.20067906             0.20032422
+       66        32     2.09178090   2.30756426          0.21578336             0.21550267
+       66        64     2.09178090   2.09178090          0.00000000             0.00000000
+       77        16     2.09325433   2.29214597          0.19889164             0.19805776
+       77        32     2.09325433   2.30763817          0.21438384             0.21333788
+       77        64     2.09325433   2.09325433          0.00000000             0.00000000
+       97        16     2.08558893   2.29096937          0.20538044             0.20481814
+       97        32     2.08558893   2.30599904          0.22041011             0.22007591
+       97        64     2.08558893   2.08558893          0.00000000             0.00000000
+      107        16     2.10384440   2.29278064          0.18893623             0.19538995
+      107        32     2.10384440   2.30851173          0.20466733             0.21102917
+      107        64     2.10384440   2.10384440          0.00000000             0.00000000
+      109        16     2.08960772   2.29182172          0.20221400             0.20047915
+      109        32     2.08960772   2.30685282          0.21724510             0.21600759
+      109        64     2.08960772   2.08960772          0.00000000             0.00000000
+      113        16     2.08732820   2.29237342          0.20504522             0.20053981
+      113        32     2.08732820   2.30741191          0.22008371             0.21592775
+      113        64     2.08732820   2.08732820          0.00000000             0.00000000
+
+A. Actual degradation monotonicity
+----------------------------------
+Expected order: D16 >= D32 >= D64.
+Relationship violations: 19
+Violations by layer: {'classifier': 19}
+  sample_id  layer       relation     D16          D32          D64
+          8  classifier  D16 < D32     0.19867682   0.21479821   0.00000000
+         12  classifier  D16 < D32     0.20006633   0.21481419   0.00000000
+         13  classifier  D16 < D32     0.19469333   0.20984530   0.00000000
+         14  classifier  D16 < D32     0.20054483   0.21558738   0.00000000
+         19  classifier  D16 < D32     0.20478225   0.22042751   0.00000000
+         22  classifier  D16 < D32     0.20066571   0.21608853   0.00000000
+         35  classifier  D16 < D32     0.20230675   0.21671271   0.00000000
+         36  classifier  D16 < D32     0.19864583   0.21336889   0.00000000
+         41  classifier  D16 < D32     0.20653057   0.22141886   0.00000000
+         47  classifier  D16 < D32     0.20525098   0.22076058   0.00000000
+         53  classifier  D16 < D32     0.19516253   0.21049976   0.00000000
+         64  classifier  D16 < D32     0.20224142   0.21739554   0.00000000
+         65  classifier  D16 < D32     0.20122695   0.21674013   0.00000000
+         66  classifier  D16 < D32     0.20067906   0.21578336   0.00000000
+         77  classifier  D16 < D32     0.19889164   0.21438384   0.00000000
+         97  classifier  D16 < D32     0.20538044   0.22041011   0.00000000
+        107  classifier  D16 < D32     0.18893623   0.20466733   0.00000000
+        109  classifier  D16 < D32     0.20221400   0.21724510   0.00000000
+        113  classifier  D16 < D32     0.20504522   0.22008371   0.00000000
+
+B. Random Forest predicted degradation monotonicity
+----------------------------------------------------
+Predictions use the unmodified persisted RF and raw feature order:
+[sparsity, mean, variance, layer_position, resource_level].
+Relationship violations: 19
+Violations by layer: {'classifier': 19}
+  sample_id  layer       relation     D16          D32          D64
+          8  classifier  D16 < D32     0.20225776   0.21750708   0.00000000
+         12  classifier  D16 < D32     0.19792321   0.21338041   0.00000000
+         13  classifier  D16 < D32     0.19787469   0.21302624   0.00000000
+         14  classifier  D16 < D32     0.20308462   0.21814197   0.00000000
+         19  classifier  D16 < D32     0.20047913   0.21602561   0.00000000
+         22  classifier  D16 < D32     0.20092821   0.21630446   0.00000000
+         35  classifier  D16 < D32     0.19693783   0.21210531   0.00000000
+         36  classifier  D16 < D32     0.19590159   0.21214729   0.00000000
+         41  classifier  D16 < D32     0.20013362   0.21524959   0.00000000
+         47  classifier  D16 < D32     0.20373787   0.21922589   0.00000000
+         53  classifier  D16 < D32     0.19451546   0.20998441   0.00000000
+         64  classifier  D16 < D32     0.20167936   0.21703762   0.00000000
+         65  classifier  D16 < D32     0.20428168   0.21975022   0.00000000
+         66  classifier  D16 < D32     0.20032422   0.21550267   0.00000000
+         77  classifier  D16 < D32     0.19805776   0.21333788   0.00000000
+         97  classifier  D16 < D32     0.20481814   0.22007591   0.00000000
+        107  classifier  D16 < D32     0.19538995   0.21102917   0.00000000
+        109  classifier  D16 < D32     0.20047915   0.21600759   0.00000000
+        113  classifier  D16 < D32     0.20053981   0.21592775   0.00000000
+
+Root-cause evidence
+-------------------
+Held-out baseline pseudo-label distribution: {9: 19}
+Classifier selected output indices: 16 -> [0, 5], 32 -> [0, 2, 4, 6, 8], 64 -> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Held-out targets retained by classifier proxy: 16 -> 0/19, 32 -> 0/19, 64 -> 19/19
+Actual classifier relationship violations: 19
+RF classifier relationship violations: 19
+
+The source implementation is functioning as written: its resource level maps to
+the number of *output* features. For the terminal Linear layer, output features
+are class logits. At 16 and 32 resources, omitted logits are replaced by exact
+zeros, including every held-out target logit when the retained-target count is zero.
+The remaining non-target logits differ between 16 and 32, changing the softmax
+denominator while the target logit remains zero. Cross-entropy can therefore be
+higher at 32 than at 16. This is an actual proxy behavior, not a correction made
+or invented by the Random Forest. It is a semantic mismatch in applying an
+output-channel-masking proxy to a final classifier, not an arithmetic error in
+the selected-index formula or loss calculation.
+
+Proposed correction (not implemented)
+-------------------------------------
+Keep all classifier output logits/classes, and reduce classifier computation by
+selecting input-feature columns instead. For this 64-input, 10-output Linear
+layer, use 16, 32, and 64 evenly spaced input features respectively; apply the
+corresponding weight columns to the selected activation features, while retaining
+all ten weight rows and the original bias. This reduces classifier MACs without
+removing class semantics or zeroing a target logit. It makes larger resource
+levels algorithmically meaningful; it does not mathematically force monotonic
+loss. Because it changes the proxy definition, it would require a new dataset and
+estimator training in a later, explicitly authorized stage. No correction is
+implemented by this diagnostic.
+
+Research limitation
+-------------------
+This remains an offline/PyTorch software diagnostic. Resources 16/32/64 are
+abstractions, not cycle-accurate PE counts. No hardware energy or latency claim
+can be made from this result, and SCALE-Sim is intentionally deferred.

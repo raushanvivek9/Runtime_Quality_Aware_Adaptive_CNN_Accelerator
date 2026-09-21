@@ -1,0 +1,102 @@
+STAGE 7B FIXED-RESOURCE ENERGY REPORT
+=====================================
+
+Status
+------
+STAGE 7B STATUS: PASS
+
+All three fixed-resource configurations completed:
+SCALE-Sim -> DETAILED_ACCESS_REPORT.csv -> action_count.yaml -> Accelergy -> energy_estimation.yaml.
+
+Inputs and source
+-----------------
+Project topology:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/project_inputs/cnn_v2.csv
+
+16 PE config: config_16pe_energy.cfg (4x4)
+32 PE config: config_32pe_energy.cfg (4x8)
+64 PE config: config_64pe_energy.cfg (8x8)
+
+All runs used -i conv and the isolated Stage 7B SCALE-Sim source copy with
+the previously validated scalar conversion fix. The protected checkout and
+original Stage 5/6 inputs were not modified.
+
+Artifact validation
+-------------------
+16 PE / 4x4:
+- SCALE-Sim log: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/stage7b_16pe_memory_validated.log
+- DETAILED_ACCESS_REPORT.csv: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/scale_sim_output_scale_16pe_energy/DETAILED_ACCESS_REPORT.csv
+- action_count.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/scale_sim_output_scale_16pe_energy/action_count.yaml
+- energy_estimation.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/accelergy_output_scale_16pe_energy/energy_estimation.yaml
+
+32 PE / 4x8:
+- SCALE-Sim log: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/32pe/stage7b_32pe.log
+- DETAILED_ACCESS_REPORT.csv: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/32pe/scale_sim_output_scale_32pe_energy/DETAILED_ACCESS_REPORT.csv
+- action_count.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/32pe/scale_sim_output_scale_32pe_energy/action_count.yaml
+- energy_estimation.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/32pe/accelergy_output_scale_32pe_energy/energy_estimation.yaml
+
+64 PE / 8x8:
+- SCALE-Sim log: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/64pe/stage7b_64pe.log
+- DETAILED_ACCESS_REPORT.csv: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/64pe/scale_sim_output_scale_64pe_energy/DETAILED_ACCESS_REPORT.csv
+- action_count.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/64pe/scale_sim_output_scale_64pe_energy/action_count.yaml
+- energy_estimation.yaml: /home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/64pe/accelergy_output_scale_64pe_energy/energy_estimation.yaml
+
+Actual Accelergy results
+------------------------
+The YAML structure is energy_estimation -> Total and components. The YAML
+contains numeric totals but does not declare an energy unit. Values below are
+therefore reported as Accelergy output units, with no unit invented.
+
+Resource | PE array | Total estimated energy | Unit
+16 PE    | 4x4      | 19272461.0             | not specified in YAML
+32 PE    | 4x8      | 18411333.0             | not specified in YAML
+64 PE    | 8x8      | 17428229.0             | not specified in YAML
+
+Direct component aggregates from actual YAML entries:
+Resource | MAC | GLB SRAM | DRAM | PE scratchpads
+16 PE    | 2204752.0 | 5668132.0 | 525177.0 | 10874400.0
+32 PE    | 2298656.0 | 4468648.0 | 525189.0 | 11118840.0
+64 PE    | 2545472.0 | 3029832.0 | 286149.0 | 11566776.0
+
+These four aggregates sum exactly to each YAML Total. No missing category was
+filled with a fabricated zero; the available component names were mapped only
+to MAC, GLB, DRAM, and scratchpad categories.
+
+Actual SCALE-Sim performance results
+------------------------------------
+The summaries use the sum across the three generated layer rows for Total
+Cycles and the arithmetic mean of the generated Overall Util % and Mapping
+Efficiency % columns.
+
+Resource | PE array | Total cycles | Utilization (%) | Mapping efficiency (%)
+16 PE    | 4x4      | 137797.0     | 89.59408036    | 98.80952381
+32 PE    | 4x8      | 71833.0      | 86.76596276    | 98.80952381
+64 PE    | 8x8      | 39773.0      | 78.11984942    | 94.79166667
+
+Fixed-resource model comparisons
+---------------------------------
+Relative to the actual 64 PE output, not physical measurements:
+- 16 PE energy: 1.10581867x, or 10.5819% above 64 PE.
+- 32 PE energy: 1.05640871x, or 5.6409% above 64 PE.
+- 16 PE cycles: 3.46458653x, or 246.4587% above 64 PE.
+- 32 PE cycles: 1.80607447x, or 80.6074% above 64 PE.
+
+Scientific limitations
+----------------------
+- Accelergy results are estimated/simulated values, not physical measurements.
+- No RTL synthesis was performed.
+- No fabricated pJ/MAC values were used.
+- No arbitrary PE power was used.
+- No energy value was inferred from cycle count.
+- The topology is convolution-only.
+- The classifier is not included in SCALE-Sim.
+- Results correspond to fixed 16/32/64 PE configurations only.
+- The adaptive energy controller has not been evaluated.
+- No Stage 4/Stage 6 adaptive energy savings claim is made.
+
+Final status
+------------
+STAGE 7B STATUS: PASS
+
+This completes fixed-resource energy validation only. No adaptive controller,
+Stage 7C work, or energy-savings claim was started.

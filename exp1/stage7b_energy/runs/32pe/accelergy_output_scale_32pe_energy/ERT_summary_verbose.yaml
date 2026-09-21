@@ -1,0 +1,3302 @@
+ERT_summary:
+    version: '0.4'
+    table_summary:
+      - name: systolic_array.PE[0..31].mac
+        actions:
+          - name: mac_gated
+            energy: 1.0
+          - name: mult_gated
+            energy: 1.0
+          - name: mult_reused
+            energy: 1.0
+          - name: mac_random
+            energy: 1.0
+          - name: idle
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: mac_gated
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: intmac
+                subaction_name: mac_gated
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: mult_gated
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: intmac
+                subaction_name: mult_gated
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: mult_reused
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: intmac
+                subaction_name: mult_reused
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: mac_random
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: intmac
+                subaction_name: mac_random
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: intmac
+                subaction_name: idle
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.PE[0..31].ifmap_spad
+        actions:
+          - name: leak
+            average_energy: 0.0
+            max_energy: 0.0
+            min_energy: 0.0
+          - name: read
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+          - name: write
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+        primitive_estimation(s):
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.PE[0..31].weights_spad
+        actions:
+          - name: leak
+            average_energy: 0.0
+            max_energy: 0.0
+            min_energy: 0.0
+          - name: read
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+          - name: write
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+        primitive_estimation(s):
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.PE[0..31].psum_spad
+        actions:
+          - name: leak
+            average_energy: 0.0
+            max_energy: 0.0
+            min_energy: 0.0
+          - name: read
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+          - name: write
+            average_energy: 1.0
+            max_energy: 1.0
+            min_energy: 1.0
+        primitive_estimation(s):
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: regfile
+                subaction_name: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.weights_glb
+        actions:
+          - name: fill
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: read
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: update
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: idle
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0..0].scoreboard
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].data_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].addr_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+      - name: systolic_array.ifmap_glb
+        actions:
+          - name: fill
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: read
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: update
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: idle
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0..0].scoreboard
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].data_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].addr_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+      - name: systolic_array.psum_glb
+        actions:
+          - name: fill
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: read
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: update
+            average_energy: 5.0
+            max_energy: 5.0
+            min_energy: 5.0
+          - name: idle
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[1]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0].scoreboard
+                subaction_name: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].data_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.buffet[0].addr_fifos[0]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[2]
+                subaction_name: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 20.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: buffet_collection.buffet[0..0].scoreboard
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].data_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: 
+                    buffet_collection.buffet[0..0].addr_fifos[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+              - subcomponent_name: buffet_collection.storage
+                subaction_name: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+              - subcomponent_name: address_generators[0..2]
+                subaction_name: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0.0%
+                estimator: dummy
+      - name: systolic_array.weights_dram
+        actions:
+          - name: read
+            energy: 1.0
+          - name: idle
+            energy: 0.0
+          - name: update
+            energy: 1.0
+          - name: write
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: read
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: update
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.ifmap_dram
+        actions:
+          - name: read
+            energy: 1.0
+          - name: idle
+            energy: 0.0
+          - name: update
+            energy: 1.0
+          - name: write
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: read
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: update
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+      - name: systolic_array.psum_dram
+        actions:
+          - name: read
+            energy: 1.0
+          - name: idle
+            energy: 0.0
+          - name: update
+            energy: 1.0
+          - name: write
+            energy: 1.0
+        primitive_estimation(s):
+          - action_name: read
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: idle
+            arguments: {}
+            energy: 0.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 0.0
+                scale_energy_by: 1.0
+                interpreted_energy: 0.0
+                percentage: 0%
+                estimator: dummy
+          - action_name: update
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy
+          - action_name: write
+            arguments: {}
+            energy: 1.0
+            subaction_estimations:
+              - subcomponent_name: DRAM
+                subaction_name: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy: 1.0
+                scale_energy_by: 1.0
+                interpreted_energy: 1.0
+                percentage: 100.0%
+                estimator: dummy

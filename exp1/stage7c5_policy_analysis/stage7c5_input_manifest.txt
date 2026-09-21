@@ -1,0 +1,16 @@
+STAGE 7C-5 INPUT MANIFEST
+=========================
+/home/cs25m115/Neural_Acc/exp1/results/controller_decisions_v2.csv
+Purpose: authoritative Stage 4 per-layer decisions and candidate predictions; rows: 76; important columns: sample_id, layer, predicted_D_16, predicted_D_32, predicted_D_64, selected_resource, actual_D_selected.
+
+/home/cs25m115/Neural_Acc/exp1/stage7c_per_layer_energy/reports/stage7c_per_layer_energy.csv
+Purpose: Stage 7C-1 per-layer cycles and Accelergy totals; rows: 9; important columns: layer, resource, total_energy, total_cycles.
+
+/home/cs25m115/Neural_Acc/exp1/stage7c_adaptive_energy/stage7c_policy_comparison.csv
+Purpose: Stage 7C-2 policy validation cross-check; rows: 3.
+
+/home/cs25m115/Neural_Acc/exp1/stage7c_component_energy/stage7c_component_summary.csv
+Purpose: Stage 7C-3 component cross-check; rows: 5.
+
+/home/cs25m115/Neural_Acc/exp1/stage7c4_memory_analysis/stage7c4_whole_network_actions.csv
+Purpose: Stage 7C-4 action cross-check; rows: 3.

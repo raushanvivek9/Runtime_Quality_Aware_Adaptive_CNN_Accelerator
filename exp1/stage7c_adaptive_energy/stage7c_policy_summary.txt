@@ -1,0 +1,18 @@
+STAGE 7C-2 POLICY SUMMARY
+=========================
+
+Samples: 19
+D_MAX: 0.05
+
+Fixed64 mean energy: 17428277.0
+Stage4 adaptive mean energy: 17500885.0
+Energy-aware feasible mean energy: 17428277.0
+Stage4 energy reduction: -0.4166103166710054%
+Energy-policy energy reduction: 0.0%
+Stage4 mean cycles: 45193.0
+Energy-policy mean cycles: 39773.0
+Stage4 degradation violations: 0
+Energy-policy degradation violations: 0
+Energy-policy fallbacks to 64: 0
+
+Energy values are Accelergy output units; physical unit not specified in YAML.

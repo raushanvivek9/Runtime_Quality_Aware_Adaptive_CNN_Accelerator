@@ -1,0 +1,14 @@
+Stage 5A proxy-to-hardware mapping for V2
+=========================================
+
+The adaptive controller and dataset use the abstract resource levels 16, 32, and
+64 only as software-proxy abstractions. Stage 5A maps them to physically meaningful
+PE-array dimensions while preserving the same total active-PE count:
+
+- 16 -> 4x4 array = 16 active PEs
+- 32 -> 4x8 array = 32 active PEs
+- 64 -> 8x8 array = 64 active PEs
+
+These are hardware modeling choices for SCALE-Sim, not a claim of improved energy,
+latency, or throughput. This mapping is a bridge from the abstract proxy levels to a
+concrete, simulator-valid accelerator topology.

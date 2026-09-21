@@ -1,0 +1,2396 @@
+architecture:
+    version: '0.4'
+    local:
+      - name: systolic_array.PE[0..15].mac
+        class: custom_intmac
+        attributes:
+            datawidth: 8
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            memory_width: 16
+            width: 32
+            action_latency_cycles: 1
+        primitive_components:
+          - name: intmac
+            class: intmac
+            attributes:
+                width: 32
+                technology: 40nm
+                action_latency_cycles: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: mac_gated
+            arguments: {}
+            primitive_actions:
+              - name: intmac
+                action: mac_gated
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: mult_gated
+            arguments: {}
+            primitive_actions:
+              - name: intmac
+                action: mult_gated
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: mult_reused
+            arguments: {}
+            primitive_actions:
+              - name: intmac
+                action: mult_reused
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: mac_random
+            arguments: {}
+            primitive_actions:
+              - name: intmac
+                action: mac_random
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: intmac
+                action: idle
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.PE[0..15].ifmap_spad
+        class: custom_regfile
+        attributes:
+            depth: 1
+            n_rdwr_ports: 1
+            width: 1
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            memory_width: 16
+        primitive_components:
+          - name: regfile
+            class: regfile
+            attributes:
+                width: 1
+                depth: 1
+                technology: 40nm
+                action_latency_cycles: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.PE[0..15].weights_spad
+        class: custom_regfile
+        attributes:
+            depth: 1
+            n_rdwr_ports: 1
+            width: 1
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            memory_width: 16
+        primitive_components:
+          - name: regfile
+            class: regfile
+            attributes:
+                width: 1
+                depth: 1
+                technology: 40nm
+                action_latency_cycles: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.PE[0..15].psum_spad
+        class: custom_regfile
+        attributes:
+            depth: 1
+            n_rdwr_ports: 1
+            width: 1
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            memory_width: 16
+        primitive_components:
+          - name: regfile
+            class: regfile
+            attributes:
+                width: 1
+                depth: 1
+                technology: 40nm
+                action_latency_cycles: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: leak
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: regfile
+                action: access
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.weights_glb
+        class: smartbuffer_SRAM
+        attributes:
+            memory_width: 32
+            n_banks: 1
+            bank_depth: 65536
+            n_buffets: 1
+            memory_depth: 65536
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            n_rdwr_ports: 2
+            scoreboard_depth: 65536.0
+            update_fifo_depth: 0
+        primitive_components:
+          - name: buffet_collection.buffet[0..0].scoreboard
+            class: regfile
+            attributes:
+                technology: "40nm"
+                depth: 65536
+                width: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 32
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 11.090354888959125
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.storage
+            class: SRAM
+            attributes:
+                technology: "40nm"
+                width: 32
+                depth: 65536
+                n_rdwr_ports: 2
+                n_banks: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: address_generators[0..2]
+            class: counter
+            attributes:
+                technology: "40nm"
+                width: 11.090354888959125
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: buffet_collection.buffet[0..0].scoreboard
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.ifmap_glb
+        class: smartbuffer_SRAM
+        attributes:
+            memory_width: 32
+            n_banks: 1
+            bank_depth: 65536
+            n_buffets: 1
+            memory_depth: 65536
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            n_rdwr_ports: 2
+            scoreboard_depth: 65536.0
+            update_fifo_depth: 0
+        primitive_components:
+          - name: buffet_collection.buffet[0..0].scoreboard
+            class: regfile
+            attributes:
+                technology: "40nm"
+                depth: 65536
+                width: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 32
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 11.090354888959125
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.storage
+            class: SRAM
+            attributes:
+                technology: "40nm"
+                width: 32
+                depth: 65536
+                n_rdwr_ports: 2
+                n_banks: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: address_generators[0..2]
+            class: counter
+            attributes:
+                technology: "40nm"
+                width: 11.090354888959125
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: buffet_collection.buffet[0..0].scoreboard
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.psum_glb
+        class: smartbuffer_SRAM
+        attributes:
+            memory_width: 32
+            n_banks: 1
+            bank_depth: 65536
+            n_buffets: 1
+            memory_depth: 65536
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            n_rdwr_ports: 2
+            scoreboard_depth: 65536.0
+            update_fifo_depth: 0
+        primitive_components:
+          - name: buffet_collection.buffet[0..0].scoreboard
+            class: regfile
+            attributes:
+                technology: "40nm"
+                depth: 65536
+                width: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 32
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+            class: FIFO
+            attributes:
+                technology: "40nm"
+                datawidth: 11.090354888959125
+                width: 32
+                depth: 65536
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: buffet_collection.storage
+            class: SRAM
+            attributes:
+                technology: "40nm"
+                width: 32
+                depth: 65536
+                n_rdwr_ports: 2
+                n_banks: 1
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+          - name: address_generators[0..2]
+            class: counter
+            attributes:
+                technology: "40nm"
+                width: 11.090354888959125
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 0
+                    data_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: read
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[1]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 0
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            primitive_actions:
+              - name: buffet_collection.buffet[0].scoreboard
+                action: access
+                arguments:
+                    address_delta: 1
+                    data_delta: 1
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].data_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0].addr_fifos[0]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: write
+                arguments:
+                    data_delta: 1
+                    address_delta: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[2]
+                action: access
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: buffet_collection.buffet[0..0].scoreboard
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    data_delta: 0
+                    address_delta: 0
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].data_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.buffet[0..0].addr_fifos[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: buffet_collection.storage
+                action: idle
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+              - name: address_generators[0..2]
+                action: leak
+                arguments:
+                    action_latency_cycles: 1
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.weights_dram
+        class: custom_DRAM
+        attributes:
+            width: 32
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            type: "LPDDR4"
+        primitive_components:
+          - name: DRAM
+            class: DRAM
+            attributes:
+                type: "LPDDR4"
+                width: 32
+                technology: 40nm
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: read
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.ifmap_dram
+        class: custom_DRAM
+        attributes:
+            width: 32
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            type: "LPDDR4"
+        primitive_components:
+          - name: DRAM
+            class: DRAM
+            attributes:
+                type: "LPDDR4"
+                width: 32
+                technology: 40nm
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: read
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+      - name: systolic_array.psum_dram
+        class: custom_DRAM
+        attributes:
+            width: 32
+            technology: 40nm
+            global_cycle_seconds: 1e-09
+            type: "LPDDR4"
+        primitive_components:
+          - name: DRAM
+            class: DRAM
+            attributes:
+                type: "LPDDR4"
+                width: 32
+                technology: 40nm
+                global_cycle_seconds: 1e-09
+            area_scale: 1
+            energy_scale: 1
+        actions:
+          - name: read
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: read
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: idle
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: leak
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: update
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: update
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0
+          - name: write
+            arguments: {}
+            primitive_actions:
+              - name: DRAM
+                action: write
+                arguments:
+                    global_cycle_seconds: 1e-09
+                energy_scale: 1.0

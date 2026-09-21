@@ -1,0 +1,34 @@
+Stage 4 - Random Forest prediction monotonicity report
+====================================================
+Expected ordering for increasing resource is D16 >= D32 >= D64.
+Predictions below are raw Random Forest outputs and were not corrected.
+Decisions checked: 76
+Relationship violations: 19
+Decisions with one or more violations: 19
+
+sample_id  layer       violation    D16          D32          D64
+        8  classifier  D16 < D32     0.20225776   0.21750708   0.00000000
+       12  classifier  D16 < D32     0.19792321   0.21338041   0.00000000
+       13  classifier  D16 < D32     0.19787469   0.21302624   0.00000000
+       14  classifier  D16 < D32     0.20308462   0.21814197   0.00000000
+       19  classifier  D16 < D32     0.20047913   0.21602561   0.00000000
+       22  classifier  D16 < D32     0.20092821   0.21630446   0.00000000
+       35  classifier  D16 < D32     0.19693783   0.21210531   0.00000000
+       36  classifier  D16 < D32     0.19590159   0.21214729   0.00000000
+       41  classifier  D16 < D32     0.20013362   0.21524959   0.00000000
+       47  classifier  D16 < D32     0.20373787   0.21922589   0.00000000
+       53  classifier  D16 < D32     0.19451546   0.20998441   0.00000000
+       64  classifier  D16 < D32     0.20167936   0.21703762   0.00000000
+       65  classifier  D16 < D32     0.20428168   0.21975022   0.00000000
+       66  classifier  D16 < D32     0.20032422   0.21550267   0.00000000
+       77  classifier  D16 < D32     0.19805776   0.21333788   0.00000000
+       97  classifier  D16 < D32     0.20481814   0.22007591   0.00000000
+      107  classifier  D16 < D32     0.19538995   0.21102917   0.00000000
+      109  classifier  D16 < D32     0.20047915   0.21600759   0.00000000
+      113  classifier  D16 < D32     0.20053981   0.21592775   0.00000000
+
+Research limitation:
+  This is a PyTorch software controller.
+  16/32/64 are resource-level abstractions using the existing deterministic software proxy.
+  It is not cycle-accurate PE simulation and not a SCALE-Sim evaluation.
+  This experiment does not support hardware energy or latency claims.

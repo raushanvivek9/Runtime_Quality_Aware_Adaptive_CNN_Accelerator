@@ -1,0 +1,51 @@
+Stage 5B adaptive accelerator simulation report
+===============================================
+
+1. Objective
+This stage connects the Stage 4 adaptive resource decisions to the verified
+SCALE-Sim convolution-layer execution costs without modifying any Stage 1-4
+results or retraining the Random Forest.
+
+2. Stage 4 controller decisions
+- Test samples: 19
+- Total decisions: 76
+- Layers: conv1, conv2, conv3, classifier
+- Resource distribution: 16 -> 0, 32 -> 19, 64 -> 57
+- Controller actual threshold violation rate: 0.0%
+- The Stage 4 policy selects conv1 = 32, conv2 = 64, conv3 = 64 for the held-out set.
+
+3. Hardware resource mapping
+- 16 -> 4x4 PE array
+- 32 -> 4x8 PE array
+- 64 -> 8x8 PE array
+
+4. Fixed 64 baseline
+fixed64_conv_cycles = 7375 + 15695 + 16703 = 39773 cycles.
+
+5. Adaptive convolution cycles
+adaptive_conv_cycles = 12795 + 15695 + 16703 = 45193 cycles.
+
+6. Cycle reduction
+cycle_reduction = fixed64_conv_cycles - adaptive_conv_cycles = 39773 - 45193 = -5420 cycles.
+cycle_reduction_percent = 100 * (39773 - 45193) / 39773 = -13.6273%.
+
+7. Per-layer results
+- conv1: selected resource = 32; layer_cycles = 12795; fixed64_layer_cycles = 7375; cycle_reduction = 7375 - 12795 = -5420; cycle_reduction_percent = -73.48%
+- conv2: selected resource = 64; layer_cycles = 15695; fixed64_layer_cycles = 15695; cycle_reduction = 0; cycle_reduction_percent = 0.00%
+- conv3: selected resource = 64; layer_cycles = 16703; fixed64_layer_cycles = 16703; cycle_reduction = 0; cycle_reduction_percent = 0.00%
+
+8. Classifier limitation
+The current SCALE-Sim topology contains only the convolution stack. The
+classifier is therefore marked as NOT_SIMULATED.
+
+Full-network accelerator cycle comparison unavailable because classifier is not currently represented in the SCALE-Sim topology.
+
+9. Scientific interpretation
+Under the current SCALE-Sim convolution-only model, the Stage 4 adaptive policy produces a -13.6273% change in simulated convolution execution cycles relative to the fixed 64-PE configuration.
+This is a simulated convolution execution-cycle comparison only, not an energy-saving claim and not a real hardware speedup claim.
+
+10. Limitations
+- The classifier is not included in the SCALE-Sim topology.
+- No validated energy model was used.
+- No real hardware or RTL timing model was used.
+- This analysis compares fixed PE-array deployments under the same CNN topology and workload only.

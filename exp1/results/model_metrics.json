@@ -1,0 +1,233 @@
+{
+  "experiment": "Stage 3 - Offline Quality Estimator",
+  "research_scope": "offline software quality estimation only; not hardware implemented and not a cycle-accurate PE simulation",
+  "dataset": {
+    "path": "/home/cs25m115/Neural_Acc/exp1/results/quality_dataset.csv",
+    "rows": 1536,
+    "unique_sample_ids": 128,
+    "input_features": [
+      "sparsity",
+      "mean",
+      "variance",
+      "layer_position",
+      "resource_level"
+    ],
+    "target": "degradation",
+    "excluded_leakage_columns": [
+      "baseline_loss",
+      "reduced_loss",
+      "baseline_correct",
+      "reduced_correct",
+      "sample_id"
+    ]
+  },
+  "split": {
+    "seed": 42,
+    "strategy": "sample_id group split; no sample ID is shared between splits",
+    "fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "unique_sample_id_counts": {
+      "train": 90,
+      "validation": 19,
+      "test": 19
+    },
+    "row_counts": {
+      "train": 1080,
+      "validation": 228,
+      "test": 228
+    },
+    "sample_ids": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        15,
+        17,
+        18,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        32,
+        33,
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        45,
+        46,
+        48,
+        50,
+        51,
+        52,
+        55,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62,
+        63,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        96,
+        98,
+        99,
+        100,
+        101,
+        103,
+        104,
+        105,
+        108,
+        110,
+        111,
+        115,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        127
+      ],
+      "validation": [
+        6,
+        11,
+        16,
+        30,
+        31,
+        34,
+        44,
+        49,
+        54,
+        58,
+        67,
+        74,
+        95,
+        102,
+        106,
+        112,
+        114,
+        116,
+        126
+      ],
+      "test": [
+        8,
+        12,
+        13,
+        14,
+        19,
+        22,
+        35,
+        36,
+        41,
+        47,
+        53,
+        64,
+        65,
+        66,
+        77,
+        97,
+        107,
+        109,
+        113
+      ]
+    }
+  },
+  "models": {
+    "linear_regression": {
+      "validation": {
+        "mae": 0.022449813943904988,
+        "rmse": 0.029000742291812886,
+        "r2": 0.8615443255974833
+      },
+      "test": {
+        "mae": 0.022585977059155434,
+        "rmse": 0.029001029736973983,
+        "r2": 0.8603479258998284
+      }
+    },
+    "small_mlp": {
+      "validation": {
+        "mae": 0.002027430849378569,
+        "rmse": 0.003051803835373478,
+        "r2": 0.998466775465426
+      },
+      "test": {
+        "mae": 0.0020824732226237914,
+        "rmse": 0.003086117864491894,
+        "r2": 0.9984185860334798
+      }
+    },
+    "random_forest": {
+      "validation": {
+        "mae": 0.001973797452380086,
+        "rmse": 0.003105880442611779,
+        "r2": 0.9984119579452614
+      },
+      "test": {
+        "mae": 0.0016068928562409696,
+        "rmse": 0.002551816113130232,
+        "r2": 0.9989187669712758
+      }
+    }
+  },
+  "mlp_training": {
+    "best_epoch": 191,
+    "epochs_completed": 251,
+    "best_validation_mse": 9.313506780017633e-06
+  },
+  "resource_selection": {
+    "model": "random_forest",
+    "selection_criterion": "lowest validation MAE",
+    "d_max": 0.05,
+    "rows": 76,
+    "selected_resource_counts": {
+      "32": 19,
+      "64": 57
+    }
+  },
+  "feature_importance_file": "/home/cs25m115/Neural_Acc/exp1/results/feature_importance.csv"
+}

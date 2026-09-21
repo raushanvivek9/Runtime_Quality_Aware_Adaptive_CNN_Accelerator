@@ -1,0 +1,70 @@
+Stage 3 V2 - Offline Quality Estimator
+======================================
+
+Dataset
+-------
+Path: /home/cs25m115/Neural_Acc/exp1/results/quality_dataset_v2.csv
+Rows: 1536
+Unique sample IDs: 128
+Features: sparsity, mean, variance, layer_position, resource_level
+Target: degradation
+Excluded features: baseline_loss, reduced_loss, baseline_correct, reduced_correct, sample_id
+
+Group-safe sample-ID split (seed=42)
+--------------------------------------
+train: 90 IDs, 1080 rows; IDs=[0, 1, 2, 3, 4, 5, 7, 9, 10, 15, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 32, 33, 37, 38, 39, 40, 42, 43, 45, 46, 48, 50, 51, 52, 55, 56, 57, 59, 60, 61, 62, 63, 68, 69, 70, 71, 72, 73, 75, 76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 96, 98, 99, 100, 101, 103, 104, 105, 108, 110, 111, 115, 117, 118, 119, 120, 121, 122, 123, 124, 125, 127]
+validation: 19 IDs, 228 rows; IDs=[6, 11, 16, 30, 31, 34, 44, 49, 54, 58, 67, 74, 95, 102, 106, 112, 114, 116, 126]
+test: 19 IDs, 228 rows; IDs=[8, 12, 13, 14, 19, 22, 35, 36, 41, 47, 53, 64, 65, 66, 77, 97, 107, 109, 113]
+
+Model metrics
+-------------
+model                split        MAE         RMSE        R2
+linear_regression    train      0.01511510  0.01737010  0.92849582
+linear_regression    validation 0.01512138  0.01738284  0.92990860
+linear_regression    test       0.01522325  0.01744724  0.92850856
+small_mlp            train      0.00218809  0.00305243  0.99779190
+small_mlp            validation 0.00201649  0.00302213  0.99788140
+small_mlp            test       0.00222236  0.00328508  0.99746549
+random_forest        train      0.00059764  0.00096578  0.99977895
+random_forest        validation 0.00192278  0.00306164  0.99782564
+random_forest        test       0.00151260  0.00237499  0.99867528
+
+Best model by measured test MAE: random_forest
+
+Random Forest feature importance
+--------------------------------
+resource_level: 0.82917915
+variance: 0.08303485
+layer_position: 0.07175160
+mean: 0.00942084
+sparsity: 0.00661356
+
+Actual V2 degradation statistics
+-------------------------------
+16: mean=0.14239207, std=0.03694153, min=0.08735991, max=0.19205523
+32: mean=0.09168836, std=0.03057101, min=0.03368521, max=0.12670922
+64: mean=0.00000000, std=0.00000000, min=0.00000000, max=0.00000000
+
+Selected-model test MAE breakdown
+---------------------------------
+By resource: 16=0.00255137, 32=0.00198644, 64=0.00000000
+By layer: classifier=0.00142876, conv1=0.00171950, conv2=0.00151652, conv3=0.00138563
+
+Prediction monotonicity
+------------------------
+Test cases: 76
+Relationship violations: 0
+Violations by layer: none
+
+Preliminary resource selection
+------------------------------
+D_MAX = 0.05; select 16, then 32, then 64; default to 64 if none qualify.
+Decisions: 76
+Distribution: 16=0, 32=19, 64=57
+
+Limitations
+-----------
+This is an offline estimator trained only on the corrected deterministic PyTorch
+software resource-reduction proxy. The resource levels 16/32/64 are abstractions,
+not cycle-accurate PE counts. No hardware energy or latency claim is supported,
+and SCALE-Sim is intentionally deferred.

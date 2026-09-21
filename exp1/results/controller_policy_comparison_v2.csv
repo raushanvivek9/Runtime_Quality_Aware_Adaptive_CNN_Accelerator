@@ -1,0 +1,4 @@
+policy,total_cycles,avg_cycles_per_sample,avg_selected_resource,resource_reduction_percent,avg_actual_degradation,max_actual_degradation,threshold_violations,threshold_violation_rate
+Fixed64,755687,39773.0,64.0,0.0,0.0,0.0,0,0.0
+Stage4,858667,45193.0,53.333333333333336,16.666666666666664,0.01362585184866922,0.045584678649902344,0,0.0
+Stage6,755687,39773.0,64.0,0.0,0.0,0.0,0,0.0

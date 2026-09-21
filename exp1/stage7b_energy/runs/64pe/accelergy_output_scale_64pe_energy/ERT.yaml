@@ -1,0 +1,443 @@
+ERT:
+    version: '0.4'
+    tables:
+      - name: systolic_array.PE[0..63].mac
+        actions:
+          - name: mac_gated
+            arguments: {}
+            energy: 1.0
+          - name: mult_gated
+            arguments: {}
+            energy: 1.0
+          - name: mult_reused
+            arguments: {}
+            energy: 1.0
+          - name: mac_random
+            arguments: {}
+            energy: 1.0
+          - name: idle
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.PE[0..63].ifmap_spad
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+      - name: systolic_array.PE[0..63].weights_spad
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+      - name: systolic_array.PE[0..63].psum_spad
+        actions:
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 0.0
+          - name: leak
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 0.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 1.0
+          - name: write
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 1.0
+      - name: systolic_array.weights_glb
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: idle
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.ifmap_glb
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: idle
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.psum_glb
+        actions:
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: fill
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: read
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 0
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 0
+                address_delta: 1
+            energy: 5.0
+          - name: update
+            arguments:
+                data_delta: 1
+                address_delta: 1
+            energy: 5.0
+          - name: idle
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.weights_dram
+        actions:
+          - name: read
+            arguments: {}
+            energy: 1.0
+          - name: idle
+            arguments: {}
+            energy: 0.0
+          - name: update
+            arguments: {}
+            energy: 1.0
+          - name: write
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.ifmap_dram
+        actions:
+          - name: read
+            arguments: {}
+            energy: 1.0
+          - name: idle
+            arguments: {}
+            energy: 0.0
+          - name: update
+            arguments: {}
+            energy: 1.0
+          - name: write
+            arguments: {}
+            energy: 1.0
+      - name: systolic_array.psum_dram
+        actions:
+          - name: read
+            arguments: {}
+            energy: 1.0
+          - name: idle
+            arguments: {}
+            energy: 0.0
+          - name: update
+            arguments: {}
+            energy: 1.0
+          - name: write
+            arguments: {}
+            energy: 1.0

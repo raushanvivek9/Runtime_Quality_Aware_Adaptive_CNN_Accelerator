@@ -1,0 +1,58 @@
+[
+  {
+    "layer": "conv1",
+    "module_type": "Conv2d",
+    "hook_position": "pre",
+    "calls": 4,
+    "activation_shape": "8x3x32x32",
+    "elements": 98304,
+    "zero_elements": 0,
+    "sparsity": 0.0,
+    "mean": 0.002114359013245628,
+    "variance": 1.0009518979908127,
+    "minimum": -4.285003185272217,
+    "maximum": 4.390617847442627
+  },
+  {
+    "layer": "conv2",
+    "module_type": "Conv2d",
+    "hook_position": "pre",
+    "calls": 4,
+    "activation_shape": "8x16x16x16",
+    "elements": 131072,
+    "zero_elements": 8007,
+    "sparsity": 0.06108856201171875,
+    "mean": 0.6094849714453552,
+    "variance": 0.15695333540861323,
+    "minimum": 0.0,
+    "maximum": 2.893068552017212
+  },
+  {
+    "layer": "conv3",
+    "module_type": "Conv2d",
+    "hook_position": "pre",
+    "calls": 4,
+    "activation_shape": "8x32x8x8",
+    "elements": 65536,
+    "zero_elements": 16695,
+    "sparsity": 0.2547454833984375,
+    "mean": 0.29828289456546536,
+    "variance": 0.07964370470080244,
+    "minimum": 0.0,
+    "maximum": 1.6702686548233032
+  },
+  {
+    "layer": "classifier",
+    "module_type": "Linear",
+    "hook_position": "pre",
+    "calls": 4,
+    "activation_shape": "8x64",
+    "elements": 2048,
+    "zero_elements": 159,
+    "sparsity": 0.07763671875,
+    "mean": 0.07971016497124461,
+    "variance": 0.012431241241548464,
+    "minimum": 0.0,
+    "maximum": 0.5023359656333923
+  }
+]

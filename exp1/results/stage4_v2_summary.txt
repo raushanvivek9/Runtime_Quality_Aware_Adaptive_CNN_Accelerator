@@ -1,0 +1,135 @@
+Stage 4 V2 - Adaptive Resource Controller Evaluation
+====================================================
+
+Scope
+-----
+Policy decisions use only pre-layer activation statistics and the persisted V2
+Random Forest. Measured V2 degradation is joined only after selection for evaluation.
+This is an offline/PyTorch software resource-proxy experiment, not a hardware simulation.
+
+Evaluation set
+--------------
+Test sample IDs (19): [8, 12, 13, 14, 19, 22, 35, 36, 41, 47, 53, 64, 65, 66, 77, 97, 107, 109, 113]
+Decisions: 76 (19 samples x 4 layers)
+D_MAX: 0.05000000
+
+Controller metrics
+------------------
+Selection distribution: 16=0, 32=19, 64=57
+Average selected resource: 56.00000000
+Average resource reduction: 0.12500000
+Minimum/maximum resource reduction: 0.00000000 / 0.50000000
+Predicted selected-resource degradation: {"mean": 0.01009301974585182, "std": 0.01750366689892944, "minimum": 0.0, "maximum": 0.04373758792877197}
+Actual selected-resource degradation: {"mean": 0.010219388886501915, "std": 0.017738723042868793, "minimum": 0.0, "maximum": 0.045584678649902344}
+Average absolute prediction error: 0.00056521
+Maximum absolute prediction error: 0.00631324
+Actual threshold-satisfying decisions: 76
+Actual threshold violations: 0 (0.00000000%)
+
+Fixed 64-resource baseline comparison
+------------------------------------
+Baseline average actual degradation: 0.00000000
+Controller average actual degradation: 0.01021939
+Controller actual threshold violation rate: 0.00000000%
+Controller average resource reduction: 0.12500000
+This comparison does not establish energy savings or speedup.
+
+Resource selection by layer
+---------------------------
+layer       decisions  sel16  sel32  sel64  avg_resource  avg_reduction  actual_violation_rate
+classifier        19      0      0     19   64.00000000     0.00000000            0.00000000%
+conv1             19      0     19      0   32.00000000     0.50000000            0.00000000%
+conv2             19      0      0     19   64.00000000     0.00000000            0.00000000%
+conv3             19      0      0     19   64.00000000     0.00000000            0.00000000%
+
+Monotonicity checks
+-------------------
+Expected ordering: D16 >= D32 >= D64. No values were reordered or corrected.
+Predicted cases: 76; relationship violations: 0
+Actual V2 cases: 76; relationship violations: 0
+
+Per-decision predicted-versus-actual evaluation
+----------------------------------------------
+sample_id  layer       Dhat16      Dhat32      Dhat64      selected  actual_selected  threshold_ok
+        8  classifier  0.18004698  0.11729812  0.00000000        64       0.00000000  True
+        8  conv1       0.09727100  0.03983886  0.00000000        32       0.03897738  True
+        8  conv2       0.11766346  0.09793506  0.00000000        64       0.00000000  True
+        8  conv3       0.18398321  0.11908070  0.00000000        64       0.00000000  True
+       12  classifier  0.17496500  0.11325609  0.00000000        64       0.00000000  True
+       12  conv1       0.09506608  0.03971512  0.00000000        32       0.03883505  True
+       12  conv2       0.11344742  0.09524699  0.00000000        64       0.00000000  True
+       12  conv3       0.17509221  0.11211631  0.00000000        64       0.00000000  True
+       13  classifier  0.17510108  0.11278845  0.00000000        64       0.00000000  True
+       13  conv1       0.09700346  0.04116326  0.00000000        32       0.03959680  True
+       13  conv2       0.11390446  0.09558030  0.00000000        64       0.00000000  True
+       13  conv3       0.17442053  0.11234443  0.00000000        64       0.00000000  True
+       14  classifier  0.18101465  0.11717991  0.00000000        64       0.00000000  True
+       14  conv1       0.09748173  0.04210069  0.00000000        32       0.04179192  True
+       14  conv2       0.11464947  0.09525647  0.00000000        64       0.00000000  True
+       14  conv3       0.18000140  0.11666116  0.00000000        64       0.00000000  True
+       19  classifier  0.18008791  0.11626539  0.00000000        64       0.00000000  True
+       19  conv1       0.09529736  0.03969500  0.00000000        32       0.03995991  True
+       19  conv2       0.11484753  0.09787401  0.00000000        64       0.00000000  True
+       19  conv3       0.18437955  0.11911757  0.00000000        64       0.00000000  True
+       22  classifier  0.17990654  0.11551281  0.00000000        64       0.00000000  True
+       22  conv1       0.09780083  0.04058506  0.00000000        32       0.03836775  True
+       22  conv2       0.11375188  0.09554798  0.00000000        64       0.00000000  True
+       22  conv3       0.18389547  0.11852695  0.00000000        64       0.00000000  True
+       35  classifier  0.17724532  0.11344727  0.00000000        64       0.00000000  True
+       35  conv1       0.09525502  0.03736803  0.00000000        32       0.04149961  True
+       35  conv2       0.11745283  0.09797814  0.00000000        64       0.00000000  True
+       35  conv3       0.17805497  0.11433289  0.00000000        64       0.00000000  True
+       36  classifier  0.17328041  0.11256882  0.00000000        64       0.00000000  True
+       36  conv1       0.09696605  0.04204670  0.00000000        32       0.04059458  True
+       36  conv2       0.11297472  0.09559131  0.00000000        64       0.00000000  True
+       36  conv3       0.17753006  0.11372003  0.00000000        64       0.00000000  True
+       41  classifier  0.17964936  0.11559846  0.00000000        64       0.00000000  True
+       41  conv1       0.09958669  0.04373759  0.00000000        32       0.04256105  True
+       41  conv2       0.11744807  0.09816625  0.00000000        64       0.00000000  True
+       41  conv3       0.18218660  0.11764169  0.00000000        64       0.00000000  True
+       47  classifier  0.18364886  0.11823855  0.00000000        64       0.00000000  True
+       47  conv1       0.09896880  0.04030200  0.00000000        32       0.04336095  True
+       47  conv2       0.11876748  0.10057918  0.00000000        64       0.00000000  True
+       47  conv3       0.18469147  0.11956678  0.00000000        64       0.00000000  True
+       53  classifier  0.17248210  0.10954050  0.00000000        64       0.00000000  True
+       53  conv1       0.10084755  0.04359593  0.00000000        32       0.03913665  True
+       53  conv2       0.11418546  0.09486013  0.00000000        64       0.00000000  True
+       53  conv3       0.17260965  0.11133582  0.00000000        64       0.00000000  True
+       64  classifier  0.18012538  0.11651859  0.00000000        64       0.00000000  True
+       64  conv1       0.09807531  0.04009281  0.00000000        32       0.04522204  True
+       64  conv2       0.11391670  0.09725455  0.00000000        64       0.00000000  True
+       64  conv3       0.18103452  0.11657598  0.00000000        64       0.00000000  True
+       65  classifier  0.18370230  0.11864305  0.00000000        64       0.00000000  True
+       65  conv1       0.09463515  0.03860719  0.00000000        32       0.04066229  True
+       65  conv2       0.11672286  0.09736074  0.00000000        64       0.00000000  True
+       65  conv3       0.18271084  0.11766140  0.00000000        64       0.00000000  True
+       66  classifier  0.18014042  0.11556715  0.00000000        64       0.00000000  True
+       66  conv1       0.09883424  0.04142673  0.00000000        32       0.03897071  True
+       66  conv2       0.11611716  0.09869089  0.00000000        64       0.00000000  True
+       66  conv3       0.18224713  0.11765599  0.00000000        64       0.00000000  True
+       77  classifier  0.17543578  0.11285992  0.00000000        64       0.00000000  True
+       77  conv1       0.09553060  0.04009391  0.00000000        32       0.04357100  True
+       77  conv2       0.11399787  0.09542539  0.00000000        64       0.00000000  True
+       77  conv3       0.17806896  0.11481817  0.00000000        64       0.00000000  True
+       97  classifier  0.18454524  0.11848387  0.00000000        64       0.00000000  True
+       97  conv1       0.09909207  0.04149328  0.00000000        32       0.04235983  True
+       97  conv2       0.11785201  0.09855287  0.00000000        64       0.00000000  True
+       97  conv3       0.18429275  0.11929408  0.00000000        64       0.00000000  True
+      107  classifier  0.17119379  0.11143040  0.00000000        64       0.00000000  True
+      107  conv1       0.09330022  0.03892040  0.00000000        32       0.03762269  True
+      107  conv2       0.11521656  0.09587221  0.00000000        64       0.00000000  True
+      107  conv3       0.17126911  0.11059555  0.00000000        64       0.00000000  True
+      109  classifier  0.18085121  0.11644741  0.00000000        64       0.00000000  True
+      109  conv1       0.09151231  0.03701551  0.00000000        32       0.03799868  True
+      109  conv2       0.11733381  0.09744063  0.00000000        64       0.00000000  True
+      109  conv3       0.18052037  0.11535848  0.00000000        64       0.00000000  True
+      113  classifier  0.18038581  0.11597422  0.00000000        64       0.00000000  True
+      113  conv1       0.09682090  0.03927144  0.00000000        32       0.04558468  True
+      113  conv2       0.11675420  0.09734462  0.00000000        64       0.00000000  True
+      113  conv3       0.18345788  0.11878581  0.00000000        64       0.00000000  True
+
+Limitations
+-----------
+Resource levels 16/32/64 remain deterministic software-proxy abstractions, not
+cycle-accurate PE counts. No hardware energy, latency, throughput, or speedup
+claim can be made, and SCALE-Sim is intentionally not invoked.

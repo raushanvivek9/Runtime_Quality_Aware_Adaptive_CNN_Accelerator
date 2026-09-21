@@ -1,0 +1,57 @@
+Existing SCALE-Sim:
+Path: /home/cs25m115/Neural_Acc/SCALE-Sim
+Git HEAD:
+9f98c4371055a54c75209c2e02b640b897550532
+Git branch:
+main
+Recent commit:
+9f98c43 Merge pull request #157 from scalesim-project/validation
+
+Accelergy-related files:
+Cloning official SCALE-Sim v3 repository...
+Cloning into '/home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy'...
+
+SCALE-Sim v3 HEAD:
+f79d7bc39a80a21fc35bc667967b76a15b311f49
+
+Accelergy-related files:
+./README_accelergy.md
+./rundir-accelergy
+./rundir-accelergy/accelergy_input
+./rundir-accelergy/run_accelergy.sh
+./scalesim/energy
+./scalesim/energy/accelergy_plugin.py
+
+YAML architecture/component files:
+./.github/workflows/testing-master.yml
+./rundir-accelergy/accelergy_input/components/XY_NoC.yaml
+./rundir-accelergy/accelergy_input/components/buffet.yaml
+./rundir-accelergy/accelergy_input/components/buffet_collection_RF.yaml
+./rundir-accelergy/accelergy_input/components/buffet_collection_SRAM.yaml
+./rundir-accelergy/accelergy_input/components/custom_DRAM.yaml
+./rundir-accelergy/accelergy_input/components/custom_intmac.yaml
+./rundir-accelergy/accelergy_input/components/custom_regfile.yaml
+./rundir-accelergy/accelergy_input/components/smartbuffer_RF.yaml
+./rundir-accelergy/accelergy_input/components/smartbuffer_SRAM.yaml
+./rundir-accelergy/architecture.yaml
+
+README energy references:
+README_accelergy.md:1:# SCALE-Sim + Accerlegy Integration for Enabling Energy and Power Estimation of Systolic CNN-Accelerator
+README_accelergy.md:9:### Install Accelergy
+README_accelergy.md:11:Please install Accelergy following the instructions in their github repo
+README_accelergy.md:12:https://github.com/Accelergy-Project/accelergy 
+README_accelergy.md:14:For more accurate estimation, please install accelergy-plug-ins for 3rd party, technology-based estimators
+README_accelergy.md:15:CACTI - https://github.com/Accelergy-Project/accelergy-cacti-plug-in.git 
+README_accelergy.md:16:Aladdin - https://github.com/Accelergy-Project/accelergy-aladdin-plug-in.git
+README_accelergy.md:22:```$ cd rundir-accelergy ```
+README_accelergy.md:42:### Additional compound components for Accelergy
+README_accelergy.md:43:If any other kinds fo compound componetns are to be included, please add them to ```./accelergy_input/components```
+README_accelergy.md:44:For more details, please refer to (http://accelergy.mit.edu/)
+README_accelergy.md:50:* accelergy_out_<run_name> contains energy estimation results in .yaml format. Summary in  ```energy_estimation.yaml```
+README.md:20:3. **Accelergy Integration**: Energy and power estimation capabilities
+README.md:125:### *Using Accelergy feature*
+README.md:127:SCALE-Sim v3 integrates with Accelergy for energy and power estimation. This feature allows:
+README.md:128:- Energy estimation of systolic array architectures
+README.md:129:- Power analysis
+README.md:132:For setup and usage instructions, refer to the ```README_accelergy.md``` file.
+README.md:208:* Zishen Wan - Accelergy feature (@zishenwan)

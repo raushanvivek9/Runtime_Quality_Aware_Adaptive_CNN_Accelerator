@@ -1,0 +1,21 @@
+Stage 5A topology verification for the V2 CNN mapping
+====================================================
+
+Model definition: SimpleCNN in exp1/pytorch/model.py
+- conv1: 3 input channels -> 16 filters, 3x3 kernel, padding=1, MaxPool2d(2)
+- conv2: 16 -> 32 filters, 3x3 kernel, padding=1, MaxPool2d(2)
+- conv3: 32 -> 64 filters, 3x3 kernel, padding=1, AdaptiveAvgPool2d((1,1))
+
+Input image: 32x32 RGB
+Feature map progression with the project model:
+- After conv1 + pool1: 16x16x16
+- After conv2 + pool2: 8x8x32
+- After conv3 + pool3: 1x1x64
+
+The SCALE-Sim topology is intentionally matched to the same convolution stack:
+- conv1: IFMAP 32x32, channels 3, filter 3x3, filters 16, stride 1
+- conv2: IFMAP 16x16, channels 16, filter 3x3, filters 32, stride 1
+- conv3: IFMAP 8x8, channels 32, filter 3x3, filters 64, stride 1
+
+This matches the resource proxy abstraction used in the paper and preserves the
+Stage 1-4 result files without modification.

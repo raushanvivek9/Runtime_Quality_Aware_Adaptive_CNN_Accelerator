@@ -1,0 +1,74 @@
+Neural_Acc Stage 7 energy-toolchain audit
+=======================================
+
+Project root:
+/home/cs25m115/Neural_Acc
+
+Date:
+2026-09-19
+
+Environment:
+- OS: Linux
+- Conda env: neural_acc
+- Python: system default in neural_acc environment
+
+1. Energy tool availability
+---------------------------
+Result: No valid Accelergy energy-estimation toolchain is installed in this environment.
+
+Checked commands:
+- accelergy: NOT_FOUND
+- gem5: NOT_FOUND
+- vcd2saif: NOT_FOUND
+- ngspice: NOT_FOUND
+
+This means the project does not currently have a working external energy-estimation executable available on PATH.
+
+2. SCALE-Sim energy integration check
+------------------------------------
+Repository inspected:
+/home/cs25m115/Neural_Acc/SCALE-Sim
+
+Version information:
+- Git HEAD: 9f98c43 (Merge pull request #157 from scalesim-project/validation)
+
+SCALE-Sim README states that v3 supports an Accelergy integration for energy and power estimation, but the referenced workflow is not present in this checkout.
+
+Evidence from repo inspection:
+- No README_accelergy.md file exists in the project tree.
+- No Accelergy installation or wrapper is present.
+- No architecture YAML, primitive library, or component library directories were found under the project root.
+- No energy report generation script or output format tied to an external energy model was found.
+
+3. Relevant project files searched
+----------------------------------
+Searched paths included:
+- /home/cs25m115/Neural_Acc
+- /home/cs25m115/Neural_Acc/SCALE-Sim
+
+Search terms used:
+- Accelergy
+- accelergy
+- energy
+- power
+- action_counts
+- primitive
+- architecture
+- energy_estimation
+
+No matching local energy model files or architecture definitions were found in this workspace.
+
+4. Supported workflow determination
+-----------------------------------
+Supported workflow status: unavailable / unsupported in the current environment.
+
+The current project contains:
+- verified SCALE-Sim cycle simulation for fixed PE arrays
+- verified topology/configuration files for the CNN workload
+- a trained RF model for degradation prediction
+
+But it does not contain a validated energy-model toolchain that can estimate accelerator energy from SCALE-Sim activity or architecture descriptions.
+
+5. Conclusion
+-------------
+A valid energy-estimation flow for the SCALE-Sim accelerator configuration is not established in this repository/environment. Because of that, Stage 7 cannot be executed with defensible energy values without fabricating assumptions. The project must stop at a blocker report rather than produce arbitrary energy numbers.

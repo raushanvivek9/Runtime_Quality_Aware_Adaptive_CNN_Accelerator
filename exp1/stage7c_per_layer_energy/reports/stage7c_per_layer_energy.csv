@@ -1,0 +1,10 @@
+layer,resource,pe_array,total_energy,energy_unit,total_cycles,MAC,GLB_SRAM,DRAM,PE_scratchpads
+conv1,16,4x4,3773055.0,Accelergy output units; unit not specified in YAML,25479.0,407664.0,1095804.0,104307.0,2165280.0
+conv1,32,4x8,3575495.0,Accelergy output units; unit not specified in YAML,12795.0,409440.0,847864.0,104311.0,2213880.0
+conv1,64,8x8,3502887.0,Accelergy output units; unit not specified in YAML,7375.0,472000.0,595960.0,61111.0,2373816.0
+conv2,16,4x4,8705427.0,Accelergy output units; unit not specified in YAML,59327.0,949232.0,2535840.0,234499.0,4985856.0
+conv2,32,4x8,8277139.0,Accelergy output units; unit not specified in YAML,30239.0,967648.0,1976236.0,234503.0,5098752.0
+conv2,64,8x8,7652551.0,Accelergy output units; unit not specified in YAML,15695.0,1004480.0,1296384.0,121607.0,5230080.0
+conv3,16,4x4,6794003.0,Accelergy output units; unit not specified in YAML,52991.0,847856.0,2036512.0,186371.0,3723264.0
+conv3,32,4x8,6558739.0,Accelergy output units; unit not specified in YAML,28799.0,921568.0,1644588.0,186375.0,3806208.0
+conv3,64,8x8,6272839.0,Accelergy output units; unit not specified in YAML,16703.0,1068992.0,1137536.0,103431.0,3962880.0

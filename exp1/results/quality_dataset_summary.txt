@@ -1,0 +1,31 @@
+Stage 2 - Quality Degradation Dataset
+========================================
+Seed: 42
+Device: cpu
+Rows: 1536
+Samples: 128
+Monitored layers: conv1, conv2, conv3, classifier
+Resource levels: 16, 32, 64; 64 is baseline.
+
+Input/label protocol:
+  Inputs are seeded N(0, 1) 32x32 RGB tensors, matching Stage 1.
+  No labelled dataset or checkpoint exists in this project.
+  Labels are deterministic full-resource argmax pseudo-labels, so the loss and
+  accuracy measure agreement with the 64-resource model rather than semantic accuracy.
+
+Software proxy for resource reduction:
+  One selected Conv2d/Linear layer computes an evenly spaced subset of output
+  channels/features (25% at 16, 50% at 32 where dimensions permit); the omitted
+  outputs are zero-filled to keep following-layer shapes unchanged.
+  This reduces arithmetic in that layer and changes logits, but is not a
+  cycle-accurate PE/resource-allocation simulation. SCALE-Sim is deferred.
+
+Baseline metrics:
+  Mean loss: 2.09197760
+  Baseline agreement accuracy: 1.00000000
+
+Degradation statistics grouped by resource:
+resource  rows  mean_loss_delta  std_loss_delta  min_delta  max_delta  accuracy_delta
+      16   512       0.14777234      0.04288261  0.08735991  0.21212316      0.90625000
+      32   512       0.11681887      0.06319188  0.03368521  0.22754502      0.75000000
+      64   512       0.00000000      0.00000000  0.00000000  0.00000000      0.00000000

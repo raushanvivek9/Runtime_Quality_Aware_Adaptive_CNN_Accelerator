@@ -1,0 +1,51 @@
+STAGE 7C-2 ENERGY-AWARE ADAPTIVE RESOURCE EVALUATION
+===================================================
+
+Final status: STAGE 7C-2 STATUS: PASS
+
+Objective
+---------
+Evaluate Stage 4 adaptive convolution-layer resource decisions using the
+authoritative Stage 7C-1 per-layer Accelergy characterization.
+
+Inputs
+------
+- Stage 4 authoritative decisions: /home/cs25m115/Neural_Acc/exp1/results/controller_decisions_v2.csv
+- Stage 7C-1 energy table: /home/cs25m115/Neural_Acc/exp1/stage7c_per_layer_energy/reports/stage7c_per_layer_energy.csv
+- 19 held-out samples; conv1/conv2/conv3 only. Classifier rows were excluded.
+- D_MAX=0.05; resource order=[16,32,64]; fixed baseline=64.
+
+Fixed-64 baseline
+------------------
+- Energy: 17428277.0 (Accelergy output units; physical unit not specified in YAML)
+- Cycles: 39773.0
+
+Stage 4 and energy-aware policy
+---------------------------------
+- Stage 4 mean energy: 17500885.0; total: 332516815.0
+- Stage 4 energy reduction: -0.4166103166710054%
+- Stage 4 mean cycles: 45193.0; total: 858667.0
+- Stage 4 cycle reduction: -13.627335126844844%
+- Energy-aware mean energy: 17428277.0; total: 331137263.0
+- Energy-aware energy reduction: 0.0%
+- Energy-aware mean cycles: 39773.0; total: 755687.0
+- Energy-aware cycle reduction: 0.0%
+- Energy-aware policy degradation violations: 0
+
+Candidate policy validity
+--------------------------
+Candidate predicted degradations exist for all three convolution layers and
+all three resources in the Stage 4 decision file. The energy-aware policy
+therefore used only those predictions and selected the minimum-energy feasible
+resource per layer. No degradation values were invented.
+
+Limitations
+-----------
+- Energy values are Accelergy estimates, not physical hardware measurements.
+- Physical units are not specified in the Stage 7C-1 YAML; values are not joules.
+- No energy was inferred from cycle count.
+- Dynamic reconfiguration overhead is not included.
+- Classifier energy is not included.
+- Runtime hardware implementation was not validated.
+- Stage 7C-1 reconstruction differences remain documented in its report.
+- Stage 7C-3 was not started.

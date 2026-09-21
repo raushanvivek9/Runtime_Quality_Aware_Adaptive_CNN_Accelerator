@@ -1,0 +1,90 @@
+Stage 7 Energy block: no valid accelerator energy toolchain available
+===================================================================
+
+Project root:
+/home/cs25m115/Neural_Acc
+
+Status:
+The Stage 7 energy-aware controller experiment is blocked because no validated energy-estimation workflow is available in the current repository and environment.
+
+1. What was searched
+--------------------
+We checked the project and local environment for the standard tools and files needed to estimate accelerator energy through a documented workflow.
+
+Searched items:
+- Accelergy installation on PATH
+- SCALE-Sim energy integration files
+- architecture YAML descriptions
+- primitive/component libraries
+- activity count traces or energy reports
+- supporting toolchain executables
+
+2. What was found
+-----------------
+The environment does not include a working Accelergy installation.
+
+Verified evidence:
+- command: accelergy -> NOT_FOUND
+- command: gem5 -> NOT_FOUND
+- command: vcd2saif -> NOT_FOUND
+- command: ngspice -> NOT_FOUND
+
+The repository also does not include a usable energy model implementation or architecture description package.
+
+Verified evidence from the SCALE-Sim checkout:
+- README indicates that SCALE-Sim v3 claims Accelergy integration
+- but this checkout does not include README_accelergy.md
+- no Accelergy executable or wrapper is present
+- no component/primitive library dirs were found
+- no architecture YAML files were found under the project tree
+- no activity-count-to-energy pipeline was located
+
+3. Why this blocks Stage 7
+--------------------------
+Stage 7 requires a defensible estimated/simulated energy model for the PE-array configurations:
+- 16 PE
+- 32 PE
+- 64 PE
+
+The project has validated cycle data for those configurations, but no valid energy methodology was available to map the same workload, dataflow, bandwidth, and memory assumptions into energy. Without a validated energy model, any energy number would be an arbitrary assumption rather than a measured or simulator-supported estimate.
+
+This project must not use:
+- arbitrary joules/MAC
+- arbitrary pJ/MAC
+- arbitrary PE power
+- arbitrary SRAM energy
+- arbitrary leakage power
+- unqualified “energy” derived from cycle count alone
+
+Those would be fabricated and non-defensible experimental results.
+
+4. Required materials that are missing
+--------------------------------------
+To continue with a valid Stage 7 experiment, the project would need at least:
+- a working Accelergy installation or equivalent energy-estimation toolchain
+- a compatible SCALE-Sim energy integration path
+- architecture YAML / component library descriptions
+- energy model files for the PE array, SRAM, DRAM, and control logic
+- a documented method for converting SCALE-Sim activity/access traces into energy
+
+5. Scientific conclusion
+------------------------
+The current workspace does not have a valid, documented, or installed energy-estimation workflow. Therefore, Stage 7 cannot be executed without fabricating energy values.
+
+This blocker report is the correct stopping point for the experiment.
+
+6. Scope restriction
+--------------------
+The project remains limited to:
+- offline simulation
+- validated cycle estimation
+- software degradation prediction
+- no RTL synthesis
+- no physical hardware measurements
+- no fabricated energy claims
+
+7. Final status
+---------------
+Status: BLOCKED pending a valid accelerator energy toolchain.
+
+No Stage 7 energy-aware controller results are generated, because no defensible energy model exists in the current environment.

@@ -1,0 +1,49 @@
+ENERGY PARAMETER SEMANTICS
+==========================
+
+Parameter: SRAM_row_size
+1. Required only for action-count extraction command generation: yes, it is read
+   by preprocess.py and passed to create_action_count.py.
+2. Changes SCALE-Sim performance: no; scale.py and the memory simulator do not
+   read this key.
+3. Changes memory access counts: it is intended to describe SRAM row grouping,
+   but the current create_action_count.py SRAM idle formulas use array height or
+   width and do not use the parsed SRAM_row_size value.
+4. Directly affects Accelergy: indirectly, only through any action-count values
+   produced by the extractor; it is not an Accelergy architecture attribute.
+5. Describes physical organization: yes, according to the integration README,
+   but its current implementation use is limited.
+
+Parameter: SRAM_bank_size
+1. Required by the config documentation but not read by preprocess.py or the
+   current create_action_count.py: no operational use in this checkout.
+2. Changes SCALE-Sim performance: no.
+3. Changes memory access counts: no in the inspected implementation.
+4. Directly affects Accelergy: no direct use.
+5. Documented as temporal SRAM capacity per bank, but not operationally consumed.
+
+Parameter: DRAM_row_size
+1. Required for action-count extraction command generation: yes, it is read by
+   preprocess.py and passed to create_action_count.py.
+2. Changes SCALE-Sim performance: no; scale.py does not read this key.
+3. Changes memory access counts/action counts: yes, it directly changes DRAM
+   idle-action calculations in create_action_count.py.
+4. Directly affects Accelergy: indirectly through DRAM idle action counts.
+5. Describes the modeled DRAM row transfer granularity.
+
+Parameter: DRAM_bank_size
+1. Required by the documented config schema but not consumed by the current
+   preprocess.py/action-count code.
+2. Changes SCALE-Sim performance: no.
+3. Changes memory access counts: no in this checkout.
+4. Directly affects Accelergy: no direct use.
+5. Documented as temporal DRAM capacity per bank, but not operationally consumed.
+
+Decision basis
+--------------
+The official example and all three project configs have identical modeled global
+buffer sizes (64 KiB each), one memory bank, bandwidth 10, weight-stationary
+dataflow, and CALC interface bandwidth. The official generated architecture uses
+the same 64 KiB/one-bank SRAM model and 32-bit DRAM interface. The example's
+row metadata is therefore transferred as energy-only metadata, not as a change
+to the project SCALE-Sim architecture. No arbitrary energy coefficient is added.

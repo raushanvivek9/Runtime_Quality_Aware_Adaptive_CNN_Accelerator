@@ -1,0 +1,4 @@
+resource,pe_array,total_energy,energy_unit,compute_energy,mac_energy,sram_energy,dram_energy,buffer_energy
+16 PE,4x4,19272461.0,not specified in YAML,,2204752.0,5668132.0,525177.0,10874400.0
+32 PE,4x8,18411333.0,not specified in YAML,,2298656.0,4468648.0,525189.0,11118840.0
+64 PE,8x8,17428229.0,not specified in YAML,,2545472.0,3029832.0,286149.0,11566776.0

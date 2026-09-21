@@ -1,0 +1,100 @@
+Stage 8C End-to-End Runtime Adaptive Accelerator RTL Prototype
+
+1. Objective
+Stage 8C demonstrates a real RTL control path from activation-derived runtime
+statistics, through a Stage 8A resource decision, to a captured Stage 8B PE
+configuration and deterministic GEMM computation.
+
+2. Stage 8A integration
+The existing runtime_controller_top is instantiated unchanged. Its runtime
+monitor, feature calculator, quality estimator, and resource controller feed
+the Stage 8C boundary through decision_valid and resource_cfg.
+
+3. Stage 8B integration
+The existing adaptive_compute_top is instantiated unchanged. It retains the
+existing adaptive PE controller, 64-PE physical array, and 8x8 GEMM workload.
+
+4. End-to-end architecture
+Activation stream -> Runtime Monitor -> Features -> Quality Estimator ->
+Resource Controller -> decision_valid/resource_cfg -> Resource Capture ->
+Adaptive PE Array -> GEMM Result.
+
+5. Handshake protocol
+layer_end creates Stage 8A statistics. The registered Stage 8A decision_valid,
+not layer_end, triggers the integration capture. compute_start is issued after
+that capture, so Stage 8B cannot begin before a valid decision exists.
+
+6. Resource capture
+captured_resource_cfg is registered only for an accepted decision and drives
+Stage 8B. The testbench changes a test-only live candidate while each workload
+is busy; the integration capture, Stage 8B capture, PE-enable mask, and active
+PE count remain stable.
+
+7. Layer workload
+conv1 (layer 0): [1, 0, 1, 0]
+conv2 (layer 1): [0, 3, 0, -3]
+conv3 (layer 2): [0, 4, 0, -4]
+These streams are monitoring stimulus. The Stage 8B workload is a separate,
+representative deterministic 8x8 integer GEMM, not a full CNN convolution path.
+
+8. Simulation environment
+Date: 2026-09-20
+Environment: /home/cs25m115/anaconda3/envs/neural_acc
+Simulator: Icarus Verilog 13.0 (stable), SystemVerilog 2012 mode.
+
+9. Compilation
+PASS. The command compiled the Stage 8A source files, Stage 8B source files,
+integration_top.sv, and tb_stage8c_integration.sv. Icarus issued eight known
+always_* sensitivity advisories in unchanged Stage 8A files, with no errors.
+
+10. Simulation
+PASS. Python reference and self-checking RTL simulation both completed. The
+testbench generated stage8c_wave.vcd and uses $fatal on every mismatch.
+Event-level VCD inspection of conv1 showed decision at 175 ns, capture/start at
+185 ns, busy with 16 active PEs at 195 ns, and done at 535 ns.
+
+11. Layer-by-layer decisions
+Layer   D16   D32   D64   Resource
+conv1   950   475   0     16 PE
+conv2   4200  2100  0     32 PE
+conv3   7000  3500  0     64 PE
+
+12. Active PE validation
+PASS. The Stage 8B active PE count and enable mask were 16, 32, and 64 for
+conv1, conv2, and conv3, respectively. The captured configurations matched the
+real Stage 8A decision at every capture event.
+
+13. GEMM correctness
+PASS. All 64 outputs of every workload matched the independent 8x8 integer
+golden matrix. Reference checkpoints were C[0][0]=156 and C[7][7]=1108.
+
+14. Reconfiguration validation
+PASS. Configuration changed between the three sequential workloads. A
+test-only live candidate changed during each compute phase did not alter the
+configuration already captured by the integration boundary or Stage 8B.
+
+15. Latency measurements
+Layer   end->decision  decision->start  start->done  end->done
+conv1   2 cycles       1 cycle          35 cycles    38 cycles
+conv2   2 cycles       1 cycle          19 cycles    22 cycles
+conv3   2 cycles       1 cycle          11 cycles    14 cycles
+The Stage 8B scheduler cycle counts were 32, 16, and 8, respectively.
+
+16. Fixed64 comparison
+NOT RUN. A separate USE_FIXED64=1 Stage 8C integration instance was not added.
+The current real-controller test already exercises all three physical PE modes.
+
+17. Limitations
+This is an RTL integration prototype, not a complete CNN accelerator, Eyeriss
+implementation, SCALE-Sim RTL implementation, energy model, physical hardware
+implementation, or neural-network accuracy evaluation. It makes no claims
+about accuracy, energy, power, area, timing, FPGA, ASIC, or physical hardware.
+Stage 8C does not alter Stage 1-7 results, including the validated Stage 7
+conclusion that 64 PE is the only jointly feasible configuration under the
+current performance, energy, and degradation constraints.
+
+18. Stage 9 recommendation
+Use this captured-decision boundary as the control interface for a future
+layer-data-path integration. Any Stage 9 work should retain explicit numerical,
+performance, and energy validation rather than infer those properties from this
+functional simulation.

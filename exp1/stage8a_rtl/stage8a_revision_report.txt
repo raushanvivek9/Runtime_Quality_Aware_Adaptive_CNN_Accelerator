@@ -1,0 +1,83 @@
+Stage 8A revision report
+Date: 2026-09-20
+
+1. Files modified/created
+   Modified: runtime_monitor.sv, feature_calculator.sv, quality_estimator.sv,
+   resource_controller.sv, runtime_controller_top.sv, tb_runtime_controller.sv,
+   README.md, and VALIDATION.md.
+   Created: reference_model.py and this report. Generated verification artifacts:
+   stage8a_sim, stage8a_compile.log, and stage8a_sim.log.
+
+2. Fixed-point corrections
+   Q16.16 scaling now widens counts, signed sums, and square sums before shifts.
+   Mean-square uses a 2*(SUM_W+FRAC_W)-bit intermediate. Variance is calculated
+   in a wider signed domain, clamped at zero, and saturated to unsigned 32-bit
+   Q16.16 instead of wrapping. Division by zero produces defined zero features.
+
+3. Monitor corrections
+   The monitor remains streaming and stores no activation tensor. It accumulates
+   count, zero count, signed sum, and a wide signed activation square. A sampled
+   layer_end after the final sample is deterministic. A coincident final sample
+   and layer_end is also accumulated rather than silently omitted. layer_start
+   clears state and captures the two-bit layer ID.
+
+4. Estimator corrections
+   The estimator remains a lightweight linear prototype. Its feature/coefficient
+   multiplies use explicit 48-bit-or-wider operands, abs(mean) handles the most
+   negative signed value, and output degradation estimates saturate. 64 PE is
+   documented as a baseline convention with D64=0, not a learned estimate.
+
+5. Controller corrections
+   Adaptive policy is now D16 <= D_MAX, else D32 <= D_MAX, else conservative
+   64-PE fallback. It no longer makes a meaningless D64 comparison. USE_FIXED64
+   selects 64 PE without claiming an adaptive fallback. Resource configuration
+   changes only on a registered estimate after layer statistics complete.
+
+6. New test vectors
+   The self-checking testbench now covers all-nonzero, all-zero, signed,
+   alternating signed, negative, large-square, consecutive conv1/conv2/conv3,
+   zero-length, low/medium/high controller, and USE_FIXED64 cases. It contains
+   deterministic $fatal checks for expected statistics, Q16.16 features,
+   layer IDs, resource choices, fallback, and latency.
+
+7. Simulator used
+   Icarus Verilog 13.0, installed and run in the existing neural_acc Conda
+   environment. Verilator was not installed.
+
+8. Compilation result
+   PASS. The full six-file RTL/testbench command completed with exit code 0.
+   Icarus emitted non-fatal always_* constant-select compatibility notices but
+   no compile errors.
+
+9. Simulation result
+   PASS. vvp executed all 12 self-checks successfully. The retained log is
+   stage8a_sim.log.
+
+10. Numerical validation
+    PASS. reference_model.py matches every assertion in the stream-vector and
+    estimator/controller tests. The 1,000,000 variance large-value test is
+    intentionally saturated to 0xffffffff because it exceeds 32-bit Q16.16.
+
+11. Controller validation
+    PASS. Low degradation selected 16 PE; medium selected 32 PE; high selected
+    64 PE with fallback; USE_FIXED64 selected 64 PE on a low-degradation input.
+
+12. Layer-boundary latency
+    PASS. Simulation measured two rising clock cycles from the sampled layer_end
+    boundary to decision_valid. stats_valid/features_valid occur at the sampled
+    boundary, estimate_valid at the next rising edge, and decision_valid one
+    additional rising edge later.
+
+13. Remaining limitations
+    This is not a synthesis, timing, power, area, energy, FPGA, ASIC, hardware,
+    or neural-network-accuracy validation. The estimator coefficients are not
+    trained/calibrated and do not reproduce the Stage 3 Random Forest. Integer
+    division is a prototype choice. Runtime PE selection by itself does not show
+    an accuracy change, and no dynamic reconfiguration was implemented.
+
+14. Stage 8B readiness
+    Stage 8A is ready to proceed to Stage 8B as a verified RTL simulation
+    prototype, subject to those limitations. Stage 8B should not interpret this
+    result as changing the validated conclusion that 64 PE is the only jointly
+    feasible configuration under the current performance, energy, and degradation
+    constraints.

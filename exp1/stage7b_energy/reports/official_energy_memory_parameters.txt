@@ -1,0 +1,43 @@
+OFFICIAL ENERGY MEMORY PARAMETERS
+=================================
+
+Source file:
+/home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy/configs/scale.cfg
+
+Exact values:
+- SRAM_row_size: 2
+- SRAM_bank_size: 5
+- DRAM_row_size: 2
+- DRAM_bank_size: 5
+
+The same source file defines:
+- IfmapSramSzkB: 64
+- FilterSramSzkB: 64
+- OfmapSramSzkB: 64
+- MemoryBanks: 1
+- Bandwidth: 10
+- Dataflow: ws
+- InterfaceBandwidth: CALC
+
+Documented meaning (README_accelergy.md):
+- SRAM_row_size is the size of the row buffer/block loaded by each SRAM access.
+- SRAM_bank_size is the temporal capacity for retaining previously accessed data,
+  with more than one row buffer per bank.
+- DRAM_row_size and DRAM_bank_size have the analogous DRAM meaning.
+
+Actual consumption in this checkout:
+- preprocess.py reads SRAM_row_size and DRAM_row_size and embeds them in the
+  generated create_action_count.sh command.
+- create_action_count.py uses SRAM_row_size only indirectly through the generated
+  command? In the inspected implementation, SRAM_row_size is parsed but the SRAM
+  idle formulas use ArrayHeight/ArrayWidth, not SRAM_row_size.
+- create_action_count.py uses DRAM_row_size directly in the DRAM idle formulas.
+- SRAM_bank_size and DRAM_bank_size are not consumed by preprocess.py or
+  create_action_count.py in this checkout.
+- The generated Accelergy architecture.yaml contains SRAM depth/width/bank
+  attributes and DRAM width/type attributes, but not these four parameter names.
+
+Therefore these values are action-count extraction metadata in this integration,
+not direct Accelergy energy coefficients. They affect the generated action counts
+and thus the action quantities Accelergy consumes, especially DRAM idle actions.
+They do not alter the SCALE-Sim performance simulation itself.

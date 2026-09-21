@@ -1,0 +1,4 @@
+selected_resource,decisions,average_predicted_D_selected,average_actual_D_selected,average_abs_prediction_error,actual_threshold_violations,actual_threshold_violation_rate_percent,resource_reduction_fraction,threshold
+16,0,,,,0,0.0,0.75,0.05
+32,19,0.04037207898340728,0.04087755554600766,0.0022608204264389837,0,0.0,0.5,0.05
+64,57,0.0,0.0,0.0,0,0.0,0.0,0.05

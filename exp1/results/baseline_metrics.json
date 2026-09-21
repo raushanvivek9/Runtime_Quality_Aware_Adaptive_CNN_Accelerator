@@ -1,0 +1,21 @@
+{
+  "number_of_samples": 128,
+  "baseline_loss": 2.091977596282959,
+  "baseline_accuracy": 1.0,
+  "accuracy_metric": "agreement with full-resource argmax pseudo-labels",
+  "loss_metric": "cross-entropy against full-resource argmax pseudo-labels",
+  "model_name": "SimpleCNN",
+  "model_checkpoint": null,
+  "model_initialization": "randomly initialized with fixed seed",
+  "input_source": "seeded Gaussian synthetic tensors; no external dataset configured in Stage 1",
+  "label_source": "full-resource model argmax pseudo-labels; no ground-truth labels available",
+  "monitored_layers": [
+    "conv1",
+    "conv2",
+    "conv3",
+    "classifier"
+  ],
+  "resource_baseline": 64,
+  "seed": 42,
+  "software_proxy": "deterministic_structured_output_channel_reduction"
+}

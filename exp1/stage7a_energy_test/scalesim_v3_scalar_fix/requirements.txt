@@ -1,0 +1,10 @@
+absl-py
+tqdm
+configparser
+numpy
+numba
+pandas
+cython
+setuptools
+matplotlib
+tk

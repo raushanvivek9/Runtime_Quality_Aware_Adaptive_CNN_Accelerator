@@ -1,0 +1,10 @@
+layer,resource,PE_array,cycles,energy,energy_label
+conv1,16,4x4,25479.0,3773055.0,Accelergy output units; physical unit not specified in YAML
+conv1,32,4x8,12795.0,3575495.0,Accelergy output units; physical unit not specified in YAML
+conv1,64,8x8,7375.0,3502887.0,Accelergy output units; physical unit not specified in YAML
+conv2,16,4x4,59327.0,8705427.0,Accelergy output units; physical unit not specified in YAML
+conv2,32,4x8,30239.0,8277139.0,Accelergy output units; physical unit not specified in YAML
+conv2,64,8x8,15695.0,7652551.0,Accelergy output units; physical unit not specified in YAML
+conv3,16,4x4,52991.0,6794003.0,Accelergy output units; physical unit not specified in YAML
+conv3,32,4x8,28799.0,6558739.0,Accelergy output units; physical unit not specified in YAML
+conv3,64,8x8,16703.0,6272839.0,Accelergy output units; physical unit not specified in YAML

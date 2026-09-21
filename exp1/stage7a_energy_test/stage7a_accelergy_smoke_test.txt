@@ -1,0 +1,50 @@
+2026-09-19 19:46:45 INFO            _                _                      
+2026-09-19 19:46:45 INFO           / \   ___ ___ ___| | ___ _ __ __ _ _   _ 
+2026-09-19 19:46:45 INFO          / _ \ / __/ __/ _ \ |/ _ \ '__/ _` | | | |
+2026-09-19 19:46:45 INFO         / ___ \ (_| (_|  __/ |  __/ | | (_| | |_| |
+2026-09-19 19:46:45 INFO        /_/   \_\___\___\___|_|\___|_|  \__, |\__, |
+2026-09-19 19:46:45 INFO                                        |___/ |___/ 
+usage: accelergy [-h] [-o OUTDIR] [-e EXTRA_PLUGINS [EXTRA_PLUGINS ...]]
+                 [-p PRECISION] [-v] [-f [OUTPUT_FILES ...]]
+                 [--oprefix OPREFIX] [--suppress_version_errors]
+                 [--update_config_version] [-l]
+                 [files ...]
+
+Accelergy is an architecture-level energy estimator for accelerator designs.
+Accelergy allows users to describe the architecture of a design with user-
+defined compound components and generates energy estimations according to the
+workload-generated action counts.
+
+positional arguments:
+  files                 list of input files in arbitrary order.Accelergy
+                        parses the top keys of the files to decide the type of
+                        input the file describes, e.g., architecture
+                        description, compound component class descriptions,
+                        etc.
+
+options:
+  -h, --help            show this help message and exit
+  -o OUTDIR, --outdir OUTDIR
+                        Path to output directory that stores the ERT and/or
+                        flattened_architecture and/or energy estimation.
+                        Default is current directory.
+Example/configuration files:
+./share/estimation_plug_ins/dummy_tables/dummy.estimator.yaml
+./test/tests/action_area_share/inputs/arch.yaml
+./test/tests/action_area_share/inputs/components.yaml
+./test/tests/basic/data/ERT.yaml
+./test/tests/basic/data/action_counts.yaml
+./test/tests/basic/data/action_counts_error.yaml
+./test/tests/basic/data/hierarchical_primitive_arch.yaml
+./test/tests/basic/data/hierarchical_primitive_arch_step01.yaml
+./test/tests/basic/data/hierarchical_primitive_arch_step02.yaml
+./test/tests/plugin_choices/inputs/arch.yaml
+./test/tests/plugin_choices/inputs/components.yaml
+./test/tests/plugin_choices_II/inputs/arch.yaml
+./test/tests/plugin_choices_II/inputs/components.yaml
+./test/tests/plugin_choices_III/inputs/arch.yaml
+./test/tests/plugin_choices_III/inputs/components.yaml
+
+README files:
+./README.md
+./share/estimation_plug_ins/Readme.md

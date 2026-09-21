@@ -1,0 +1,83 @@
+STAGE 7A DIAGNOSTIC STATUS: BLOCKED
+
+Root cause under test
+---------------------
+The shipped rundir-accelergy/run_all.sh forwards an empty value to SCALE-Sim's
+-i argument. The original failure was:
+
+    scale.py: error: argument -i: expected one argument
+
+Allowed -i values
+-----------------
+scalesim/scale.py defines -i as a string argument with help text:
+
+    Type of input topology, gemm: MNK, conv: conv
+
+The implementation sets GEMM_INPUT=True only when the value is exactly
+"gemm". The convolution path is therefore selected with the exact value
+"conv". The parser does not declare argparse choices, but the repository's
+implemented modes are gemm and conv.
+
+Selected value and why
+----------------------
+Selected: conv
+
+The example topology is /home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy/
+topologies/conv_nets/test.csv. Its header contains convolution dimensions
+(IFMAP Height/Width, Filter Height/Width, Channels, Num Filter, Strides),
+and the example config is the 32x32 weight-stationary convolution example.
+
+Exact diagnostic command
+------------------------
+cd /home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy/rundir-accelergy &&
+source /home/cs25m115/anaconda3/etc/profile.d/conda.sh &&
+conda activate neural_acc &&
+/home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/run_all_fixed_i_test.sh
+> /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/fixed_i_test.log 2>&1
+
+The isolated script explicitly runs:
+
+    python3 scale.py -c .../configs/scale.cfg \
+        -t .../topologies/conv_nets/test.csv \
+        -p .../fixed_i_test_scale_logs -i conv
+
+Result
+------
+The -i fix succeeds in getting past argparse. SCALE-Sim starts and processes
+Layer 0, but then fails before writing its reports with:
+
+    TypeError: only 0-dimensional arrays can be converted to Python scalars
+
+The traceback identifies:
+
+    scalesim/memory/double_buffered_scratchpad_mem.py:307
+    self.total_cycles = int(max(ofmap_serviced_cycles))
+
+Because SCALE-Sim fails, create_action_count.py then fails because its input
+DETAILED_ACCESS_REPORT.csv does not exist. This is the next exact blocker;
+the later Accelergy warnings are not treated as the root cause.
+
+Generated files
+---------------
+Fresh output directory:
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/fixed_i_test_output
+
+Fresh SCALE-Sim log directory:
+    /home/cs25m115/Neural_Acc/exp1/stage7a_energy_test/fixed_i_test_scale_logs
+
+DETAILED_ACCESS_REPORT.csv: NOT generated
+COMPUTE_REPORT.csv: NOT generated
+action_counts.yaml: NOT generated
+action_count.yaml: NOT generated
+energy_estimation.yaml: NOT generated
+
+Accelergy produced partial static output files under:
+    fixed_i_test_output/accelergy_output_scale_example_run_32x32_ws/
+
+Observed there: ERT.yaml, ERT_summary_verbose.yaml, ART.yaml,
+ART_summary_verbose.yaml, and flattened_architecture_verbose.yaml.
+This does not constitute a successful energy-estimation run because the
+action-count input was absent and energy_estimation.yaml was not generated.
+
+No changes were made to the original run_all.sh or to the protected
+/home/cs25m115/Neural_Acc/SCALE-Sim checkout.

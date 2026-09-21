@@ -1,0 +1,13 @@
+{
+  "test_samples": 19,
+  "layers_simulated": 3,
+  "fixed64_cycles": 39773,
+  "adaptive_cycles": 45193,
+  "cycle_reduction": -5420,
+  "cycle_reduction_percent": -13.627335126844844,
+  "average_selected_resource": 56.0,
+  "resource_reduction_percent": 12.5,
+  "classifier_simulated": false,
+  "controller_actual_threshold_violation_rate": 0.0,
+  "full_network_cycle_comparison_unavailable": "Full-network accelerator cycle comparison unavailable because classifier is not currently represented in the SCALE-Sim topology."
+}

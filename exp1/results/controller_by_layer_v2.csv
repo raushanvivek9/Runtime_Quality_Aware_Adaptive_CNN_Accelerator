@@ -1,0 +1,5 @@
+layer,decisions,selected_16,selected_32,selected_64,average_selected_resource,average_resource_reduction,actual_threshold_violations,actual_threshold_violation_rate_percent,average_actual_D_selected,average_abs_prediction_error,threshold
+classifier,19,0,0,19,64.0,0.0,0,0.0,0.0,0.0,0.05
+conv1,19,0,19,0,32.0,0.5,0,0.0,0.04087755554600766,0.0022608204264389837,0.05
+conv2,19,0,0,19,64.0,0.0,0,0.0,0.0,0.0,0.05
+conv3,19,0,0,19,64.0,0.0,0,0.0,0.0,0.0,0.05

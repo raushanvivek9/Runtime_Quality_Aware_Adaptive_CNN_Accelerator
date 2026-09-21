@@ -1,0 +1,35 @@
+Python:
+/home/cs25m115/anaconda3/envs/neural_acc/bin/python
+Python 3.11.16
+
+Conda environment:
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                     /home/cs25m115/anaconda3
+neural_acc           *   /home/cs25m115/anaconda3/envs/neural_acc
+
+2026-09-19 19:46:45 INFO            _                _                      
+2026-09-19 19:46:45 INFO           / \   ___ ___ ___| | ___ _ __ __ _ _   _ 
+2026-09-19 19:46:45 INFO          / _ \ / __/ __/ _ \ |/ _ \ '__/ _` | | | |
+2026-09-19 19:46:45 INFO         / ___ \ (_| (_|  __/ |  __/ | | (_| | |_| |
+2026-09-19 19:46:45 INFO        /_/   \_\___\___\___|_|\___|_|  \__, |\__, |
+2026-09-19 19:46:45 INFO                                        |___/ |___/ 
+usage: accelergy [-h] [-o OUTDIR] [-e EXTRA_PLUGINS [EXTRA_PLUGINS ...]]
+                 [-p PRECISION] [-v] [-f [OUTPUT_FILES ...]]
+                 [--oprefix OPREFIX] [--suppress_version_errors]
+                 [--update_config_version] [-l]
+                 [files ...]
+accelergy: error: unrecognized arguments: --version
+Name: accelergy
+Version: 0.4
+Summary: Accelergy Estimation Framework
+Home-page: 
+Author: Yannan Wu
+Author-email: nelliewu@mit.edu
+License: MIT
+Location: /home/cs25m115/anaconda3/envs/neural_acc/lib/python3.11/site-packages
+Requires: deepdiff, Jinja2, pyfiglet, pyYAML, ruamel.yaml
+Required-by: 

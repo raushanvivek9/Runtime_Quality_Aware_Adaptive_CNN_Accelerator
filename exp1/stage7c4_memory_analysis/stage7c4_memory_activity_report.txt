@@ -1,0 +1,58 @@
+STAGE 7C-4 MEMORY-ACCESS AND GLB ACTIVITY ANALYSIS
+==================================================
+
+1. Objective
+Analyze existing Stage 7C-1 action-count, access, performance, and energy artifacts. No simulator or Accelergy process was run.
+
+2. Data sources
+- /home/cs25m115/Neural_Acc/exp1/stage7c_per_layer_energy
+- action_count.yaml, DETAILED_ACCESS_REPORT.csv, BANDWIDTH_REPORT.csv, COMPUTE_REPORT.csv, and energy CSV/YAML artifacts.
+
+3. Nine-run validation
+PASS: exactly 9 runs found; every run has action_count.yaml, DETAILED_ACCESS_REPORT.csv, and energy_estimation.yaml.
+
+4. Discovered action hierarchy
+action_counts.local[] -> component name -> action_counts[] -> name/count.
+Observed action families include read, write, update, idle, and mac_random.
+GLB psum activity is represented as update; it is retained separately and is not relabeled as write.
+
+5. GLB activity analysis
+Whole-network GLB total actions: 16=1648828.0, 32=1427120.0, 64=944472.0.
+GLB action change 16->64: -704356.0. See stage7c4_glb_analysis.csv.
+
+6. DRAM activity analysis
+DRAM read/write/idle/update counts are in stage7c4_dram_analysis.csv.
+
+7. PE scratchpad activity analysis
+PE SPAD action counts are in stage7c4_spad_analysis.csv.
+
+8. MAC activity analysis
+MAC action counts are represented by mac_random and are in stage7c4_mac_analysis.csv.
+
+9. Cycle/bandwidth cross-check
+Simulated cycles, utilization, mapping efficiency, and available SRAM/DRAM bandwidth fields are in stage7c4_performance_crosscheck.csv. No energy was derived from them.
+
+10. Whole-network comparison
+See stage7c4_whole_network_actions.csv.
+
+11. Energy vs action-count comparison
+See stage7c4_energy_action_comparison.csv. This is descriptive only; no constant energy-per-action was derived.
+
+12. Layer-level observations
+conv1: GLB energy 16->64=-499844.0; GLB action change=-132644.0; DRAM action change=-36956.0; PE SPAD action change=208536.0; MAC action change=64336.0.
+conv2: GLB energy 16->64=-1239456.0; GLB action change=-336288.0; DRAM action change=-89604.0; PE SPAD action change=244224.0; MAC action change=55248.0.
+conv3: GLB energy 16->64=-898976.0; GLB action change=-235424.0; DRAM action change=-75560.0; PE SPAD action change=239616.0; MAC action change=221136.0.
+
+13. Main finding
+Supported explanation: A, as an observed association. GLB total action counts decrease from 1,648,828 at 16 PE to 944,472 at 64 PE; GLB read actions decrease from 512,352 to 267,912, GLB update actions decrease from 492,480 to 253,440, and GLB idle actions decrease from 643,996 to 423,120. The GLB Accelergy output decreases by 2,638,276 output units over the same comparison. The data supports that the GLB energy reduction accompanies lower GLB action counts, but it does not establish a constant energy-per-action relationship or causality beyond the model outputs.
+MAC and PE SPAD action counts increase from 16 to 64 PE, while DRAM total action counts decrease. This explains why the total change is smaller than the GLB decrease alone.
+
+14. Limitations
+- Values are action counts and Accelergy output units, not physical memory accesses or physical energy units.
+- No joules, watts, pJ, pJ/MAC, or hardware measurements are claimed.
+- No simulator or Accelergy rerun was performed.
+- No prior-stage artifact or controller was modified.
+- Stage 7C-5 was not started.
+
+15. Final status
+STAGE 7C-4 STATUS: PASS

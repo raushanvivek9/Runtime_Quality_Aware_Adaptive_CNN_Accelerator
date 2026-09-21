@@ -1,0 +1,99 @@
+STAGE 7B STATUS: PASS
+
+This report was initially written when the energy-specific project metadata
+was unresolved. It is superseded by stage7b_fixed_resource_energy_report.txt,
+which records the completed 16/32/64 PE validation.
+
+1. Objective
+------------
+Run the actual project CNN topology through the isolated SCALE-Sim v3 +
+Accelergy workflow for 16 PE, 32 PE, and 64 PE fixed-resource configurations.
+
+2. Environment
+--------------
+Python: 3.11.16
+NumPy: 2.4.6
+Accelergy metadata: 0.4
+SCALE-Sim v3 commit: f79d7bc39a80a21fc35bc667967b76a15b311f49
+
+The isolated source copy is:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/source/SCALE-Sim-v3-energy
+
+3. CNN topology
+----------------
+Input topology copied unchanged to:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/project_inputs/cnn_v2.csv
+
+conv1: input 32x32, channels 3, filters 16, kernel 3x3, stride 1
+conv2: input 16x16, channels 16, filters 32, kernel 3x3, stride 1
+conv3: input 8x8, channels 32, filters 64, kernel 3x3, stride 1
+
+4. PE configurations
+---------------------
+The copied project configs match the required mappings:
+16 PE -> 4x4, run_name scale_16pe_v2
+32 PE -> 4x8, run_name scale_32pe_v2
+64 PE -> 8x8, run_name scale_64pe_v2
+
+All three configs specify 64 KiB ifmap/filter/ofmap SRAMs, bandwidth 10,
+weight-stationary dataflow, one memory bank, and InterfaceBandwidth CALC.
+
+5. SCALE-Sim execution
+-----------------------
+The 16 PE run was started with the actual project topology and explicit
+input type conv, using the isolated scalar-fix source copy. It did not reach
+SCALE-Sim because preprocess.py failed first.
+
+Exact command path used by the isolated runner:
+python3 preprocess.py -c <config_16pe_v2.cfg> -t <cnn_v2.csv> -p <16pe/scale_logs> -o <16pe>
+python3 scale.py -c <config_16pe_v2.cfg> -t <cnn_v2.csv> -p <16pe/scale_logs> -i conv
+
+Exact first failure:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/source/SCALE-Sim-v3-energy/rundir-accelergy/preprocess.py:124
+    SRAM_row_size = scsim['SRAM_row_size']
+KeyError: 'SRAM_row_size'
+
+6. Action-count generation
+---------------------------
+NOT RUN. preprocess.py did not generate create_action_count.sh for the
+project config, so no action_count.yaml was generated.
+
+7. Accelergy execution
+-----------------------
+NOT RUN. No action counts or energy output were generated.
+
+8. Energy estimation
+--------------------
+No energy_estimation.yaml was generated. No energy values were fabricated.
+
+9. Performance
+---------------
+No SCALE-Sim performance reports were generated because SCALE-Sim was not
+started.
+
+10. Limitations and blocker
+---------------------------
+The official v3 energy preprocessor requires SRAM_row_size and DRAM_row_size.
+The actual Stage 5/6 project configs do not define either key. The Stage 7A
+example contains values for those fields, but those values describe the
+example's energy/action-count model and were not copied into the project
+configs because doing so would invent or silently alter the project's energy
+model.
+
+No RTL synthesis or physical hardware measurement was performed. No physical
+energy claim, energy-per-MAC assumption, PE power assumption, controller
+comparison, or adaptive energy saving was calculated. The topology remains
+convolution-only and does not include a classifier.
+
+11. Final status
+----------------
+STAGE 7B STATUS: BLOCKED
+
+Exact blocker: missing required energy-specific config keys SRAM_row_size and
+DRAM_row_size in config_16pe_v2.cfg. The same missing keys were confirmed in
+config_32pe_v2.cfg and config_64pe_v2.cfg. 32 PE and 64 PE were not run.
+
+The protected checkout /home/cs25m115/Neural_Acc/SCALE-Sim and original
+Stage 5/6 inputs were not modified. The only source patch is the validated
+scalar conversion in the disposable Stage 7B source copy, recorded at:
+/home/cs25m115/Neural_Acc/exp1/stage7b_energy/reports/scalar_fix.patch

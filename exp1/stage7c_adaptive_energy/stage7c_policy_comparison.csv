@@ -1,0 +1,4 @@
+policy,samples,mean_energy,total_energy,energy_unit,mean_cycles,total_cycles,mean_resource_count,mean_pe_reduction_relative_to_64,energy_reduction_relative_to_fixed64_percent,cycle_reduction_relative_to_fixed64_percent,degradation_violations,maximum_actual_degradation,energy_policy_fallbacks_to_64
+Fixed64,19,17428277.0,331137263.0,Accelergy output units; physical unit not specified in YAML,39773.0,755687.0,192.0,0.0,0.0,0.0,0,0.0,
+Stage4 adaptive,19,17500885.0,332516815.0,Accelergy output units; physical unit not specified in YAML,45193.0,858667.0,160.0,16.666666666666668,-0.4166103166710054,-13.627335126844844,0,0.045584678649902344,
+Energy-aware feasible,19,17428277.0,331137263.0,Accelergy output units; physical unit not specified in YAML,39773.0,755687.0,192.0,0.0,0.0,0.0,0,0.0,0

@@ -1,0 +1,5 @@
+--- scalesim/memory/double_buffered_scratchpad_mem.py (original)
++++ scalesim/memory/double_buffered_scratchpad_mem.py (isolated Stage 7B copy)
+@@
+-        self.total_cycles = int(max(ofmap_serviced_cycles))
++        self.total_cycles = int(max(cycle[0] for cycle in ofmap_serviced_cycles))

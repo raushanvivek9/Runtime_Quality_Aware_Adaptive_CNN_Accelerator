@@ -1,0 +1,113 @@
+{
+  "experiment": "Stage 4 V2 - Adaptive Resource Controller",
+  "research_scope": "offline PyTorch software-proxy controller evaluation; no cycle-accurate hardware simulation",
+  "test_sample_ids": [
+    8,
+    12,
+    13,
+    14,
+    19,
+    22,
+    35,
+    36,
+    41,
+    47,
+    53,
+    64,
+    65,
+    66,
+    77,
+    97,
+    107,
+    109,
+    113
+  ],
+  "test_samples": 19,
+  "decisions": 76,
+  "layers": [
+    "conv1",
+    "conv2",
+    "conv3",
+    "classifier"
+  ],
+  "policy": {
+    "estimator": "/home/cs25m115/Neural_Acc/exp1/results/quality_estimator_rf_v2.pkl",
+    "features": [
+      "sparsity",
+      "mean",
+      "variance",
+      "layer_position",
+      "resource_level"
+    ],
+    "d_max": 0.05,
+    "resource_order": [
+      16,
+      32,
+      64
+    ],
+    "baseline_resource": 64,
+    "selection_rule": "smallest predicted-safe resource; fallback to 64",
+    "actual_measurements_used_for_selection": false
+  },
+  "selection_distribution": {
+    "16": 0,
+    "32": 19,
+    "64": 57
+  },
+  "selected_resource_statistics": {
+    "mean": 56.0,
+    "std": 13.856406460551018,
+    "minimum": 32.0,
+    "maximum": 64.0
+  },
+  "resource_reduction_statistics": {
+    "mean": 0.125,
+    "std": 0.21650635094610965,
+    "minimum": 0.0,
+    "maximum": 0.5
+  },
+  "predicted_selected_degradation_statistics": {
+    "mean": 0.01009301974585182,
+    "std": 0.01750366689892944,
+    "minimum": 0.0,
+    "maximum": 0.04373758792877197
+  },
+  "actual_selected_degradation_statistics": {
+    "mean": 0.010219388886501915,
+    "std": 0.017738723042868793,
+    "minimum": 0.0,
+    "maximum": 0.045584678649902344
+  },
+  "average_absolute_prediction_error": 0.0005652051066097459,
+  "maximum_absolute_prediction_error": 0.006313240528106688,
+  "threshold_correctness": {
+    "satisfying": 76,
+    "violating": 0,
+    "violation_rate_percent": 0.0
+  },
+  "baseline_comparison": {
+    "fixed_resource": 64,
+    "baseline_average_actual_degradation": 0.0,
+    "controller_average_actual_degradation": 0.010219388886501915,
+    "controller_actual_threshold_violation_rate_percent": 0.0,
+    "controller_average_resource_reduction": 0.125
+  },
+  "predicted_monotonicity": {
+    "cases": 76,
+    "relationship_violations": 0,
+    "violations_by_layer": {}
+  },
+  "actual_v2_monotonicity": {
+    "cases": 76,
+    "relationship_violations": 0,
+    "violations_by_layer": {}
+  },
+  "files": {
+    "decisions": "/home/cs25m115/Neural_Acc/exp1/results/controller_decisions_v2.csv",
+    "by_layer": "/home/cs25m115/Neural_Acc/exp1/results/controller_by_layer_v2.csv",
+    "by_resource": "/home/cs25m115/Neural_Acc/exp1/results/controller_by_resource_v2.csv",
+    "prediction_vs_actual_plot": "/home/cs25m115/Neural_Acc/exp1/results/controller_prediction_vs_actual_v2.png",
+    "resource_selection_plot": "/home/cs25m115/Neural_Acc/exp1/results/resource_selection_v2.png",
+    "threshold_check_plot": "/home/cs25m115/Neural_Acc/exp1/results/controller_threshold_check_v2.png"
+  }
+}

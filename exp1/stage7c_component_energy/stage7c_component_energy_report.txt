@@ -1,0 +1,64 @@
+STAGE 7C-3 COMPONENT-LEVEL ENERGY ANALYSIS
+============================================
+
+1. Objective
+Analyze actual Stage 7C-1 component energy outputs; no simulation was rerun.
+
+2. Input artifacts
+- /home/cs25m115/Neural_Acc/exp1/stage7c_per_layer_energy/reports/stage7c_per_layer_energy.csv
+- Nine Stage 7C-1 energy_estimation.yaml files.
+
+3. Validation
+PASS: exactly 9 configurations; CSV components cross-check against YAML component names and totals.
+PASS: every component sum equals its YAML Total within tolerance.
+
+4. Whole-network component energy
+16 PE: MAC=2204752.0, GLB_SRAM=5668156.0, DRAM=525177.0, PE_scratchpads=10874400.0, total=19272485.0
+32 PE: MAC=2298656.0, GLB_SRAM=4468688.0, DRAM=525189.0, PE_scratchpads=11118840.0, total=18411373.0
+64 PE: MAC=2545472.0, GLB_SRAM=3029880.0, DRAM=286149.0, PE_scratchpads=11566776.0, total=17428277.0
+
+5. Component percentage contribution
+conv1 16 PE: MAC=10.8046%, GLB_SRAM=29.0429%, DRAM=2.7645%, PE_scratchpads=57.3880%
+conv1 32 PE: MAC=11.4513%, GLB_SRAM=23.7132%, DRAM=2.9174%, PE_scratchpads=61.9181%
+conv1 64 PE: MAC=13.4746%, GLB_SRAM=17.0134%, DRAM=1.7446%, PE_scratchpads=67.7674%
+conv2 16 PE: MAC=10.9039%, GLB_SRAM=29.1294%, DRAM=2.6937%, PE_scratchpads=57.2730%
+conv2 32 PE: MAC=11.6906%, GLB_SRAM=23.8758%, DRAM=2.8331%, PE_scratchpads=61.6004%
+conv2 64 PE: MAC=13.1261%, GLB_SRAM=16.9405%, DRAM=1.5891%, PE_scratchpads=68.3443%
+conv3 16 PE: MAC=12.4795%, GLB_SRAM=29.9751%, DRAM=2.7432%, PE_scratchpads=54.8022%
+conv3 32 PE: MAC=14.0510%, GLB_SRAM=25.0748%, DRAM=2.8416%, PE_scratchpads=58.0326%
+conv3 64 PE: MAC=17.0416%, GLB_SRAM=18.1343%, DRAM=1.6489%, PE_scratchpads=63.1752%
+
+6. 16 vs 32 vs 64 comparison
+See stage7c_component_deltas.csv for every layer and component delta.
+
+7. 16 -> 64 component changes
+MAC: change=340720.0, percent=15.453892%, contribution to total reduction=-18.475139%
+GLB_SRAM: change=-2638276.0, percent=-46.545578%, contribution to total reduction=143.057399%
+DRAM: change=-239028.0, percent=-45.513798%, contribution to total reduction=12.961011%
+PE_scratchpads: change=692376.0, percent=6.367027%, contribution to total reduction=-37.543271%
+total: change=-1844208.0, percent=-9.569124%, contribution to total reduction=100.000000%
+
+8. Layer-level observations
+conv1: largest average contribution=PE_scratchpads; largest 16->64 decrease=GLB_SRAM; increasing components=MAC, PE_scratchpads; largest reduction contribution=GLB_SRAM.
+conv2: largest average contribution=PE_scratchpads; largest 16->64 decrease=GLB_SRAM; increasing components=MAC, PE_scratchpads; largest reduction contribution=GLB_SRAM.
+conv3: largest average contribution=PE_scratchpads; largest 16->64 decrease=GLB_SRAM; increasing components=MAC, PE_scratchpads; largest reduction contribution=GLB_SRAM.
+
+9. Cycle cross-check
+conv1: cycles 16->64 25479.0 -> 7375.0, reduction=18104.0; this is an observation only and was not used to derive energy.
+conv2: cycles 16->64 59327.0 -> 15695.0, reduction=43632.0; this is an observation only and was not used to derive energy.
+conv3: cycles 16->64 52991.0 -> 16703.0, reduction=36288.0; this is an observation only and was not used to derive energy.
+
+10. Main finding
+Across the isolated whole-network sums, GLB_SRAM has the largest contribution to the energy reduction from 16 to 64 PE.
+The component(s) increasing from 16 to 64 PE are: MAC, PE_scratchpads. Their increases offset part of the reductions from decreasing components.
+
+11. Scientific limitations
+- Values are Accelergy output units; physical units are unspecified in YAML.
+- No joules, pJ/MAC, power, or hardware measurements are claimed.
+- No energy was derived from cycles; cycles are a descriptive cross-check only.
+- No Stage 5/6, Stage 7B, Stage 7C-1, or Stage 7C-2 artifact was modified.
+- No adaptive controller was created or modified.
+- Stage 7C-4 was not started.
+
+12. Final status
+STAGE 7C-3 STATUS: PASS

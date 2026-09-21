@@ -1,0 +1,110 @@
+Stage 9A Actual CNN Convolution RTL Prototype
+
+1. Objective
+Stage 9A implements a functional signed-integer convolution datapath whose
+active compute population is selected at runtime. It extends the Stage 8C
+control demonstration by using the decision to run an actual padded convolution
+rather than a separate GEMM representative workload.
+
+2. CNN layer topology
+Input is 8x8 with 3 channels. The layer has a 3x3 kernel, stride 1, padding 1,
+and 16 output channels. The output is 8x8x16 (1024 elements). This is a
+reduced-size RTL workload structurally matching conv1's Cin=3, 3x3, Cout=16
+topology; it is not the 32x32 SCALE-Sim workload.
+
+3. Data representation
+Inputs and weights are deterministic signed 16-bit integers. Accumulation uses
+a signed 48-bit value. Input[ic][h][w] = ((ic+h+w) mod 5)-2 and
+weight[oc][ic][kh][kw] = ((oc+ic+kh+kw) mod 3)-1.
+
+4. Convolution equation
+O[oc][oh][ow] = sum(I[ic][oh+kh-1][ow+kw-1] * W[oc][ic][kh][kw]) over
+ic=0..2, kh=0..2, kw=0..2. Out-of-range input coordinates read as zero,
+implementing padding=1. The workload has 27 MACs per output and 27,648 MACs.
+
+5. PE architecture
+conv_pe.sv is one signed MAC PE with explicit product widening and a 48-bit
+accumulator. conv_pe_array.sv instantiates exactly one generated physical
+64-PE array. Its enable mask selects the first 16, 32, or 64 PEs. Disabled PEs
+receive no valid MAC and retain their accumulator.
+
+6. Scheduler
+conv_scheduler.sv explicitly flattens output elements, maps every active PE to
+one output per batch, and iterates the 27 input-channel/kernel coordinates.
+It writes each of the 1024 outputs exactly once. It does not invoke a GEMM
+module. Input, weight, and output storage are simple register-array models.
+
+7. Resource modes
+RESOURCE_OVERRIDE captures a requested 16/32/64 configuration only after a
+Stage 8A decision event and is used to validate every PE mode. REAL_STAGE8A
+uses the captured unmodified Stage 8A resource_cfg. These modes are reported
+separately.
+
+8. Runtime monitoring
+The testbench loads the full deterministic input tensor into input_mem and
+streams separate deterministic activation values through Stage 8A. This is an
+intentional prototype boundary: monitoring and convolution share the runtime
+decision but not yet a production memory/dataflow implementation.
+
+9. Resource decision
+For each layer, layer_end produces Stage 8A statistics and decision_valid. The
+top captures the candidate resource only at decision_valid, then pulses
+conv_start. A busy-time change to the live override candidate is ignored by the
+captured configuration and by the PE enable mask.
+
+10. Simulation
+Date: 2026-09-20
+Environment: /home/cs25m115/anaconda3/envs/neural_acc
+Simulator: Icarus Verilog 13.0 (stable), SystemVerilog 2012 mode.
+Compilation PASS. Simulation PASS. Eight non-fatal Icarus always_* sensitivity
+advisories are from unchanged Stage 8A files.
+
+11. Golden-model validation
+Python independently generated the full output tensor and golden_output.mem.
+Every one of the 1024 RTL outputs in all six workloads matched it. Checkpoints:
+O[0][0][0]=2, O[0][0][1]=5, O[1][3][3]=0, O[15][7][7]=14.
+
+12. 16/32/64 results
+Configuration  Active PE  Scheduler MAC cycles  Start-to-done  Output
+16 PE          16         1728                  1794 cycles   PASS
+32 PE          32         864                   898 cycles    PASS
+64 PE          64         432                   450 cycles    PASS
+The three override outputs matched exactly. These are actual observed cycles;
+they have not been normalized, multiplied, or compared to SCALE-Sim cycles.
+
+13. Cycle measurements
+For all resource modes, layer_end-to-decision_valid measured 2 cycles and
+decision_valid-to-conv_start measured 1 cycle.
+16 PE: layer_end-to-conv_done = 1797 cycles.
+32 PE: layer_end-to-conv_done = 901 cycles.
+64 PE: layer_end-to-conv_done = 453 cycles.
+The difference between scheduler MAC cycles and total time includes measured
+batch clear and control-state overhead.
+
+14. Reconfiguration
+PASS. Without reset, override workloads ran in 16 -> 32 -> 64 order. The
+testbench checked every enable bit, output equality, and disabled-PE behavior.
+It also changed the live resource candidate during every convolution and proved
+that the running captured configuration was unchanged.
+
+15. Stage 8A integration
+PASS. The unmodified controller naturally selected all three modes:
+conv1 [1,0,1,0]: D16=950, D32=475, selected/captured 16 PE.
+conv2 [0,3,0,-3]: D16=4200, D32=2100, selected/captured 32 PE.
+conv3 [0,4,0,-4]: D16=7000, D32=3500, selected/captured 64 PE.
+Each decision drove an actual convolution that matched Python output.
+
+16. Limitations
+Stage 9A is a functional RTL convolution prototype. It is not a complete CNN
+accelerator, full streaming dataflow, physical SRAM architecture, Eyeriss
+implementation, SCALE-Sim RTL implementation, energy model, or physical
+hardware implementation. It does not establish neural-network accuracy,
+energy, power, area, timing, FPGA, or ASIC properties. Stage 7's validated
+conclusion remains: 64 PE is the only jointly feasible configuration under the
+current performance, energy, and degradation constraints.
+
+17. Stage 9B recommendation
+Stage 9B is ready only as a functional next step: retain this captured-decision
+interface while adding a carefully validated tensor-loading/dataflow boundary.
+Any performance, energy, or accuracy conclusion requires separate appropriate
+models and validation; it must not be inferred from Stage 9A functionality.

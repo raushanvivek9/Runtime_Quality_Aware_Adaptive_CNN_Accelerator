@@ -1,0 +1,69 @@
+STAGE 7C-5 QUALITY-PERFORMANCE-ENERGY POLICY ANALYSIS
+=====================================================
+
+1. Objective
+Evaluate fixed 64, Stage 4 adaptive, performance-constrained, energy-constrained, and joint feasible policies from existing validated artifacts. No simulator or Accelergy rerun was performed.
+
+2. Input data
+See stage7c5_input_manifest.txt. Candidate predicted degradation is available for all 19 samples, three convolution layers, and resources 16/32/64.
+
+3. Resource cost table
+See stage7c5_resource_cost_table.csv. It contains 9 layer-resource rows.
+
+4. Fixed-64 baseline
+Energy: 17428277.0 (Accelergy output units; physical unit not specified in YAML)
+Cycles: 39773.0
+Active PE allocation: 192; reduction: 0%.
+
+5. Stage-4 adaptive policy
+Mean energy: 17500885.0 (Accelergy output units; physical unit not specified in YAML)
+Mean cycles: 45193.0
+Mean active PE: 160.0; mean active PE allocation reduction: 16.666666666666668%
+Energy change relative to fixed 64: 0.4166103166710054%
+Cycle change relative to fixed 64: 13.627335126844844%
+Degradation violations: 0
+
+6. Performance-constrained configurations
+Constraint: total cycles <= 39773.0. Count: 1
+Configurations: [64,64,64]
+
+7. Energy-constrained configurations
+Constraint: total energy <= 17428277.0 Accelergy output units. Count: 1
+Configurations: [64,64,64]
+
+8. Joint performance+energy configurations
+Count: 1
+Configurations: [64,64,64]
+Lower-resource joint-feasible configurations: NO
+
+9. Pareto analysis
+Pareto configurations: 10. See stage7c5_pareto_configurations.csv. No subjective weights or ranking were applied.
+
+10. Stage-4 policy comparison
+The Stage 4 policy uses 32 PE for conv1 and 64 PE for conv2/conv3 across these held-out decisions. Its resource reduction is real in the active allocation metric, but its mean cycles and mean energy are higher than fixed 64. Candidate-level predicted quality is available; every selected Stage 4 prediction satisfies D_MAX, and actual selected degradation violations are zero.
+
+11. Answers to Q1-Q6
+Q1 fewer than 192 active PE while meeting both constraints: NO; joint set count=1.
+Q2 any lower-resource configuration beats fixed 64 in cycles: NO.
+Q3 any lower-resource configuration beats fixed 64 in energy: NO.
+Q4 Stage 4 adaptive beats fixed 64 in energy: NO; its change is +0.4166103%.
+Q5 Stage 4 adaptive beats fixed 64 in cycles: NO; its change is +13.6273351%.
+Q6 Stage 4 adaptive reduces active PE allocation: YES; mean reduction is 16.6667%.
+
+12. Main findings
+The validated resource space contains a trade-off: lower active PE allocations can reduce resource allocation but increase simulated cycles and, for the Stage 4 policy, increase Accelergy output-unit energy. Under the joint fixed thresholds, the only feasible configuration is [64,64,64].
+
+13. Scientific limitations
+- Accelergy values are output units with physical unit unspecified; they are not joules.
+- No physical energy measurement, RTL implementation, hardware power, or area claim exists.
+- Dynamic reconfiguration overhead is not modeled.
+- Classifier energy is not included; the workload is convolution-only.
+- PE configurations are simulator abstractions.
+- Stage 4 degradation is a software quality proxy.
+- No energy was inferred from cycles.
+- Memory behavior is characterized by existing Stage 7C-4 data.
+
+14. Recommendation for next stage
+Do not claim an adaptive energy benefit under the current joint constraints. Any later work should first define whether performance, energy, or active allocation may be relaxed and should model reconfiguration overhead before implementation. Stage 8 was not started.
+
+STAGE 7C-5 STATUS: PASS

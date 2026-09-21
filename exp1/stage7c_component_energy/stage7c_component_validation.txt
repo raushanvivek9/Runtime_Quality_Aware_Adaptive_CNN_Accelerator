@@ -1,0 +1,15 @@
+PASS conv1 16 component sum and YAML cross-check
+PASS conv1 32 component sum and YAML cross-check
+PASS conv1 64 component sum and YAML cross-check
+PASS conv2 16 component sum and YAML cross-check
+PASS conv2 32 component sum and YAML cross-check
+PASS conv2 64 component sum and YAML cross-check
+PASS conv3 16 component sum and YAML cross-check
+PASS conv3 32 component sum and YAML cross-check
+PASS conv3 64 component sum and YAML cross-check
+PASS whole-network 16 PE total 19272485.0
+PASS whole-network 32 PE total 18411373.0
+PASS whole-network 64 PE total 17428277.0
+PASS no physical unit invented
+PASS no prior-stage artifacts modified
+STAGE 7C-3 STATUS: PASS

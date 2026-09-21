@@ -1,0 +1,15 @@
+STAGE 7C-5 VALIDATION
+=====================
+PASS configurations enumerated: 27
+PASS fixed64 cycles: 39773.0
+PASS fixed64 energy: 17428277.0
+PASS Stage4 mean cycles: 45193.0
+PASS Stage4 mean energy: 17500885.0
+PASS Stage4 degradation violations: 0
+PASS candidate predicted degradation values used only from Stage 4 artifact
+PASS no simulator rerun
+PASS no Accelergy rerun
+PASS no prior results overwritten
+PASS Pareto calculated by direct three-objective dominance
+PASS joint feasibility evaluated directly
+STAGE 7C-5 STATUS: PASS

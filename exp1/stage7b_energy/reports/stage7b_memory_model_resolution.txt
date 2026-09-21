@@ -1,0 +1,78 @@
+STAGE 7B MEMORY MODEL RESOLUTION
+================================
+
+1. Original project memory configuration
+----------------------------------------
+The three original configs each model 64 KiB ifmap, filter, and ofmap SRAMs,
+one memory bank, bandwidth 10, weight-stationary dataflow, and CALC interface
+bandwidth. Their PE mappings are 4x4, 4x8, and 8x8. The originals were not
+modified.
+
+2. Official energy-example memory configuration
+-----------------------------------------------
+The official config/scale.cfg models the same 64 KiB SRAM sizes, one bank,
+bandwidth 10, weight-stationary dataflow, and CALC interface bandwidth. It adds:
+SRAM_row_size=2, SRAM_bank_size=5, DRAM_row_size=2, DRAM_bank_size=5.
+
+3. Exact differences
+--------------------
+The project configs omit the four energy-workflow metadata fields. No difference
+was found in the core SRAM capacity, bank count, bandwidth, or dataflow fields.
+
+4-7. Parameter meanings
+-----------------------
+SRAM_row_size=2: documented SRAM row/block transfer granularity.
+SRAM_bank_size=5: documented temporal capacity for SRAM rows per bank; unused by
+the current extractor.
+DRAM_row_size=2: documented DRAM row/block transfer granularity and used in DRAM
+idle-action calculations.
+DRAM_bank_size=5: documented temporal DRAM capacity per bank; unused by the
+current extractor.
+
+8. Compatibility analysis
+-------------------------
+Outcome A is supported for this repository workflow. The official architecture
+and project configs agree on the modeled 64 KiB, one-bank, bandwidth-10 memory
+organization. The four fields are not consumed by SCALE-Sim performance code or
+the Accelergy component definitions; they are action-count extraction metadata.
+The exact official values are used without changing the project architecture.
+
+9-10. Energy-only copies and values
+-----------------------------------
+YES. Created under stage7b_energy/project_inputs/:
+- config_16pe_energy.cfg
+- config_32pe_energy.cfg
+- config_64pe_energy.cfg
+
+Each adds only the exact official values 2, 5, 2, 5 in the run_presets section.
+
+11-14. 16 PE validation
+-----------------------
+The single 16 PE run completed with config_16pe_energy.cfg and -i conv.
+
+SCALE-Sim: PASS
+DETAILED_ACCESS_REPORT.csv: YES
+	/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/
+	scale_sim_output_scale_16pe_energy/DETAILED_ACCESS_REPORT.csv
+COMPUTE_REPORT.csv: YES
+	/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/
+	scale_sim_output_scale_16pe_energy/COMPUTE_REPORT.csv
+action_count.yaml: YES
+	/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/
+	scale_sim_output_scale_16pe_energy/action_count.yaml
+energy_estimation.yaml: YES
+	/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/
+	accelergy_output_scale_16pe_energy/energy_estimation.yaml
+
+The complete captured log is:
+	/home/cs25m115/Neural_Acc/exp1/stage7b_energy/runs/16pe_memory_validated/
+	stage7b_16pe_memory_validated.log
+
+The 32 PE and 64 PE runs were not started. No adaptive controller or energy
+savings comparison was performed.
+
+FINAL STATUS
+------------
+STAGE 7B MEMORY MODEL STATUS: PASS for the isolated 16 PE validation.
+The memory model remains unvalidated for 32 PE and 64 PE until those runs are
+explicitly authorized after this 16 PE gate.

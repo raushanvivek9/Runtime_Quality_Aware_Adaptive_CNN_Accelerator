@@ -1,0 +1,30 @@
+STAGE 7C-1 RECONSTRUCTION CHECK
+===============================
+
+This is a consistency check only. Isolated layer totals are not expected to
+match the complete-workload Stage 7B totals exactly because independent runs
+have layer-boundary and memory-state effects.
+
+Stage 7B complete-workload totals:
+- 16 PE: 19272461.0
+- 32 PE: 18411333.0
+- 64 PE: 17428229.0
+
+Isolated layer sums:
+- 16 PE: conv1 3773055.0 + conv2 8705427.0 + conv3 6794003.0 = 19272485.0
+- 32 PE: conv1 3575495.0 + conv2 8277139.0 + conv3 6558739.0 = 18411373.0
+- 64 PE: conv1 3502887.0 + conv2 7652551.0 + conv3 6272839.0 = 17428277.0
+
+Difference (isolated sum - Stage 7B total):
+- 16 PE: +24.0 output units (+0.000124% relative to Stage 7B)
+- 32 PE: +40.0 output units (+0.000217% relative to Stage 7B)
+- 64 PE: +48.0 output units (+0.000275% relative to Stage 7B)
+
+The differences are reported as observed. No correction or forced matching was
+applied. All isolated layer totals come directly from each run's
+energy_estimation.yaml.
+
+Cycle check:
+- 16 PE: 25479 + 59327 + 52991 = 137797, matching Stage 7B total cycles.
+- 32 PE: 12795 + 30239 + 28799 = 71833, matching Stage 7B total cycles.
+- 64 PE: 7375 + 15695 + 16703 = 39773, matching Stage 7B total cycles.
