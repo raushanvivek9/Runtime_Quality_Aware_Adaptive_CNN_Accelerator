@@ -1,0 +1,56 @@
+Stage 12 - Final Experimental Evaluation
+
+1. Research Objective
+Model and analytical accelerator evaluation with separate RTL evidence levels.
+
+2. Models
+CIFAR-compatible ResNet-18 (3x3 stride-1 first convolution, no max-pool) and VGG-16 (adaptive 1x1 classifier pooling).
+
+3. Datasets
+CIFAR-10 and CIFAR-100 test sets with deterministic ToTensor plus CIFAR normalization.
+
+4. Experimental Setup
+Seed=42; device=cpu; samples per pair=1000; batch=32.
+No matching checkpoints were found; accuracy is untrained-subset accuracy, not a trained-model claim.
+
+5. Activation Monitoring
+Forward hooks collect streaming convolution-input statistics and exact unfolded nonzero counts.
+
+6. Sparsity Analysis
+Sparsity is measured on convolution inputs; MAC savings include padding geometry.
+
+7. Resource Policy
+<20% -> 64 PE, 20-40% -> 32 PE, >=40% -> 16 PE. Thresholds are not optimality claims.
+
+8. Baselines
+fixed64_dense, fixed64_sparse, adaptive_sparse.
+
+9. Accuracy Evaluation
+Dense and exact-zero-masked sparse logits are compared using measured differences and prediction mismatches.
+
+10. MAC Reduction
+Derived from model convolution shapes and unfolded activation values.
+
+11. Cycle Evaluation
+Analytical cycles are ceil(MACs / active PEs), not RTL-measured cycles.
+
+12. Resource Allocation
+See final_resource_allocation.csv.
+
+13. RTL Correlation
+NOT RUN: no complete model-to-RTL integration was executed by this evaluator.
+
+14. Energy Evaluation
+NOT RUN: no same-workload SCALE-Sim/Accelergy result is claimed.
+
+15. Ablation Study
+See ablation_results.csv.
+
+16. Limitations
+No trained checkpoints were available. Analytical cycles omit memory, scheduling, and control overhead. Full ResNet/VGG RTL was not claimed.
+
+17. Final Findings
+ResNet18/CIFAR10: accuracy=0.086000, sparsity=39.6971%, dense=8678400000, sparse=4086582040, adaptive=14120800790, avg_PE=24.000
+ResNet18/CIFAR100: accuracy=0.013000, sparsity=39.3170%, dense=8678400000, sparse=4120807162, adaptive=14304410184, avg_PE=24.000
+VGG16/CIFAR10: accuracy=0.090000, sparsity=42.2120%, dense=4893696000, sparse=2064777958, adaptive=7520379472, avg_PE=22.154
+VGG16/CIFAR100: accuracy=0.007000, sparsity=43.4763%, dense=4893696000, sparse=2012785697, adaptive=7655042412, avg_PE=20.923

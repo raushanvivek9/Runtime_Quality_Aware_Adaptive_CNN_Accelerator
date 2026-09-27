@@ -1,0 +1,3 @@
+dataset,test_samples,test_loss,test_accuracy
+cifar10,10000,0.7111241786003113,0.8846
+cifar100,10000,4.6052643562316895,0.01

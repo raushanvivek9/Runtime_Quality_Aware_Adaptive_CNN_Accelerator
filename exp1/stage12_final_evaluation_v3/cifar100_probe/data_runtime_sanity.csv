@@ -1,0 +1,2 @@
+config,epoch,learning_rate,train_labels_min,train_labels_max,val_labels_min,val_labels_max,unique_train_labels,unique_val_labels,train_loss,train_accuracy,val_loss,val_accuracy,mean_grad_norm,conv1_grad_norm,classifier_grad_norm,num_unique_val_predictions,logits_min,logits_max
+D,1,0.001,0,99,0,99,100,100,4.6068893229166665,0.009377777777777778,4.605173123168945,0.0088,0.005760336706627678,2.574725499471242e-07,0.02530832588672638,1,0.0,0.0

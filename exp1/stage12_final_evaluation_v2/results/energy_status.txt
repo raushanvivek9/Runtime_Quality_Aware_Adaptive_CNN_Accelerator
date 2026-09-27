@@ -1,0 +1,2 @@
+ENERGY_NOT_RUN
+No joule conversion or uncalibrated energy claim was made.

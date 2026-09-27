@@ -1,0 +1,5 @@
+model,dataset,layer,useful_MACs,PE_count,analytical_cycles,rtl_cycles,cycle_error_percent,output_match,status
+resnet18,cifar10,NOT RUN,,,,,,NOT RUN,NOT RUN: representative workload adapter not implemented
+resnet18,cifar100,NOT RUN,,,,,,NOT RUN,NOT RUN: representative workload adapter not implemented
+vgg16,cifar10,NOT RUN,,,,,,NOT RUN,NOT RUN: representative workload adapter not implemented
+vgg16,cifar100,NOT RUN,,,,,,NOT RUN,NOT RUN: representative workload adapter not implemented

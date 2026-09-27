@@ -1,0 +1,11 @@
+{
+  "python": "3.11.16",
+  "torch": "2.5.1+cu118",
+  "device": "cuda",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce GTX 1080 Ti",
+  "cpu_count": 40,
+  "torch_threads": 20,
+  "disk_available_bytes": 6489914736640,
+  "ram_note": "CUDA run"
+}

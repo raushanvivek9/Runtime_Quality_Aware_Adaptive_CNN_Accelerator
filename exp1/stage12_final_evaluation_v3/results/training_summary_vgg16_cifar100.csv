@@ -1,0 +1,2 @@
+best_epoch,best_validation_accuracy,dataset,duration_seconds,epochs_completed,final_training_accuracy,gpu,model,slurm_job_id,status
+20,0.0116,cifar100,3480.608720779419,150,0.010355555555555555,NVIDIA GeForce GTX 1080 Ti,vgg16,6703,PASS

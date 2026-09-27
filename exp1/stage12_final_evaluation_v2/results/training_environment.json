@@ -1,0 +1,7 @@
+{
+  "python": "3.11.16",
+  "torch": "2.14.0+cpu",
+  "device": "cpu",
+  "cpu_threads": 20,
+  "cuda": false
+}

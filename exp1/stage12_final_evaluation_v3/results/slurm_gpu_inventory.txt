@@ -1,0 +1,90 @@
+Thursday 24 September 2026 04:41:14 AM IST
+
+=== sinfo ===
+NODELIST PARTITION GRES STATE CPUS(A/I/O/T)
+node001 q5h* gpu:3 idle 0/40/0/40
+node002 q3d gpu:3 idle 0/40/0/40
+node003 q3d gpu:3 mixed 2/38/0/40
+node004 q7d gpu:3 allocated 88/0/0/88
+node005 q15d gpu:8 mixed 72/8/0/80
+node006 q3d gpu:3 drained 0/0/40/40
+
+=== node005 ===
+NodeName=node005 Arch=x86_64 CoresPerSocket=20 
+   CPUAlloc=72 CPUEfctv=80 CPUTot=80 CPULoad=56.41
+   AvailableFeatures=(null)
+   ActiveFeatures=(null)
+   Gres=gpu:8
+   NodeAddr=node005 NodeHostName=node005 Version=23.11.10
+   OS=Linux 5.14.0-570.28.1.el9_6.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Jul 24 10:32:22 UTC 2025 
+   RealMemory=515850 AllocMem=0 FreeMem=88306 Sockets=2 Boards=1
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=q15d 
+   BootTime=2025-10-24T11:30:39 SlurmdStartTime=2025-10-24T13:28:41
+   LastBusyTime=2026-09-15T21:25:17 ResumeAfterTime=None
+   CfgTRES=cpu=80,mem=515850M,billing=80
+   AllocTRES=cpu=72
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
+
+
+=== node001 ===
+NodeName=node001 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUEfctv=40 CPUTot=40 CPULoad=0.00
+   AvailableFeatures=(null)
+   ActiveFeatures=(null)
+   Gres=gpu:3
+   NodeAddr=node001 NodeHostName=node001 Version=23.11.10
+   OS=Linux 5.14.0-570.28.1.el9_6.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Jul 24 10:32:22 UTC 2025 
+   RealMemory=128776 AllocMem=0 FreeMem=53689 Sockets=2 Boards=1
+   State=IDLE ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=q5h 
+   BootTime=2026-03-27T11:00:10 SlurmdStartTime=2026-03-27T11:02:01
+   LastBusyTime=2026-09-23T13:20:56 ResumeAfterTime=None
+   CfgTRES=cpu=40,mem=128776M,billing=40
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
+
+
+=== node002 ===
+NodeName=node002 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUEfctv=40 CPUTot=40 CPULoad=0.33
+   AvailableFeatures=(null)
+   ActiveFeatures=(null)
+   Gres=gpu:3
+   NodeAddr=node002 NodeHostName=node002 Version=23.11.10
+   OS=Linux 5.14.0-570.28.1.el9_6.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Jul 24 10:32:22 UTC 2025 
+   RealMemory=128775 AllocMem=0 FreeMem=105416 Sockets=2 Boards=1
+   State=IDLE ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=q3d 
+   BootTime=2026-08-20T10:46:04 SlurmdStartTime=2026-08-20T10:47:46
+   LastBusyTime=2026-09-24T03:08:39 ResumeAfterTime=None
+   CfgTRES=cpu=40,mem=128775M,billing=40
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
+
+
+=== node003 ===
+NodeName=node003 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=2 CPUEfctv=40 CPUTot=40 CPULoad=1.00
+   AvailableFeatures=(null)
+   ActiveFeatures=(null)
+   Gres=gpu:3
+   NodeAddr=node003 NodeHostName=node003 Version=23.11.10
+   OS=Linux 5.14.0-570.28.1.el9_6.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Jul 24 10:32:22 UTC 2025 
+   RealMemory=128776 AllocMem=0 FreeMem=85624 Sockets=2 Boards=1
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=q3d 
+   BootTime=2026-03-27T15:07:58 SlurmdStartTime=2026-03-27T15:09:58
+   LastBusyTime=2026-09-23T10:38:09 ResumeAfterTime=None
+   CfgTRES=cpu=40,mem=128776M,billing=40
+   AllocTRES=cpu=2
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
+

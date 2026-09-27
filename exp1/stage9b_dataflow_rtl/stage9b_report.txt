@@ -1,0 +1,84 @@
+Stage 9B Tensor Loading and Dataflow RTL Prototype
+
+1. Objective
+Stage 9B introduces an explicit tensor-loading, buffering, and output streaming boundary around the validated Stage 9A convolution datapath. The goal is architectural and dataflow validation, not silicon optimization or energy-area claims.
+
+2. Architecture
+The design is organized as:
+Tensor Loader -> Input Buffer / Weight Buffer -> Stage 8A Monitor -> Resource Decision -> Captured Resource -> Conv Scheduler -> 64-PE Array -> Output Buffer -> Output Stream.
+
+3. Tensor interface
+The loader uses a simple valid/ready handshake with deterministic tensor IDs and a per-word load stream. The supported tensor types are input activation (2'b00) and weight (2'b01). This is intentionally not an AXI or DMA model.
+
+4. Input buffer
+The input buffer stores 3 x 8 x 8 signed 16-bit values, one 192-word tensor, and exposes explicit write and read traffic. The convolution engine reads from the buffer instead of directly from the testbench arrays. The behavioral memory is a register-array model.
+
+5. Weight buffer
+The weight buffer stores 16 x 3 x 3 x 3 signed 16-bit values, one 432-word tensor. The loaded weights are consumed through the buffer interface and are never accessed directly from the testbench memory model.
+
+6. Output buffer
+The output buffer stores all 1024 output values as signed 48-bit results. After compute, the values can be streamed out in ascending flattened index order. The output stream includes exactly 1024 values and verifies uniqueness and completeness.
+
+7. Dataflow controller
+The controller uses an explicit FSM to sequence: reset, load input, load weight, load complete, monitor, wait for decision, capture resource, compute, output, done. The compute phase does not begin until input_loaded, weight_loaded, and decision_valid are all true.
+
+8. Stage 8A integration
+Stage 8A monitor streams the input activation tensor and produces the resource decision. The Stage 9B controller waits for decision_valid before beginning the compute phase.
+
+9. Resource capture
+When Stage 8A asserts decision_valid, the controller captures the selected resource configuration into captured_resource_cfg and keeps it stable for the duration of the in-flight compute. Live override changes during compute are ignored.
+
+10. Convolution integration
+The validated Stage 9A convolution scheduler/PE-array structure is retained. Input access comes from the input buffer, weight access comes from the weight buffer, and outputs flow into the output buffer. The same mathematical output is preserved across 16, 32, and 64 active-PE modes.
+
+11. Simulation
+Python PASS: reference_model.py generated the expected output tensor and MAC count of 27,648.
+Compilation PASS: Icarus Verilog compile completed successfully.
+Simulation PASS: Stage 9B self-checking testbench ran successfully.
+Warnings: Icarus emitted non-fatal constant-select advisories; they did not affect correctness.
+
+12. Output validation
+The output stream contains exactly 1024 values, with no duplicate indices and no missing indices. Flattened index ordering is defined as index = (oc * 8 + oh) * 8 + ow. Correctness checks include full-tensor match against the Python model and explicit checkpoint validation.
+
+13. 16/32/64 results
+16 PE: total_cycles=3001, compute_cycles=1153, active_pe_mac_count=27648, output correct
+32 PE: total_cycles=2937, compute_cycles=1089, active_pe_mac_count=27648, output correct
+64 PE: total_cycles=2905, compute_cycles=1057, active_pe_mac_count=27648, output correct
+
+14. Cycle breakdown
+Input load cycles: 192
+Weight load cycles: 432
+Monitor cycles: 192
+Decision wait cycles: 3
+Compute cycles:
+- 16 PE: 1153
+- 32 PE: 1089
+- 64 PE: 1057
+Output stream cycles: 1024
+
+15. Buffer action counts
+input_buffer_reads = 23424
+input_buffer_writes = 192
+weight_buffer_reads = 27648
+weight_buffer_writes = 432
+output_buffer_writes = 1024
+output_stream_reads = 1024
+These are functional accounting counters only.
+
+16. MAC count
+The architecture verifies active_pe_mac_count == 27648 for every mode. This matches the required 3x3x3x8x8x16 convolution count of 27,648 MACs.
+
+17. Reconfiguration
+The testbench runs sequential workloads without reset: 16 PE -> 32 PE -> 64 PE. Output equality and captured configuration stability are verified. A live resource candidate change during compute does not alter the in-flight configuration.
+
+18. Limitations
+- behavioral register-array memory only
+- no physical SRAM macros
+- no DMA or AXI implementation
+- no bandwidth or energy claim
+- no timing closure or area claim
+- no CNN accuracy claim
+- not a production-ready data path
+
+19. Stage 9C recommendation
+Stage 9C should focus on making the boundary more explicit and realistic: separate memory-address generation, explicit load-store state for each tensor, cycle-accurate scheduling around the PE array, and a clearer contract between monitor/capture and compute. The next step is architectural refinement rather than claiming silicon performance.

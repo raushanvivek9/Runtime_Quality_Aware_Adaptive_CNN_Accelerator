@@ -1,0 +1,22 @@
+Modified file(s):
+- /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/evaluate_models.py
+- /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/run_validated_vgg_post_evaluation.py
+
+Root cause of KeyError:
+The evaluation summary created by evaluate_pair() included dense_correct and dense_accuracy, but it never populated sparse_correct. The post-evaluation script then unconditionally accessed evaluation['sparse_correct'] and raised KeyError. The schema contract was therefore inconsistent between the producer and consumer.
+
+Exact fix:
+- Added sparse_correct and sparse_incorrect to the summary dict returned by evaluate_pair().
+- Preserved the intended dense-vs-sparse comparison methodology already used in the evaluation loop.
+- Added required-key validation in run_validated_vgg_post_evaluation.py with explicit assertions and a descriptive KeyError if fields are missing.
+- Kept the dense and sparse correctness calculations unchanged while only fixing the schema contract.
+
+Smoke-test command:
+source /home/cs25m115/anaconda3/etc/profile.d/conda.sh && conda activate neural_acc && cd /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3 && python run_validated_vgg_post_evaluation.py --dataset cifar10 --limit 16 --output-dir /tmp/vgg_smoke_fix_test
+
+Smoke-test result:
+PASS. The small CIFAR-10 smoke run completed without a KeyError and produced a result with both required keys present:
+- dense_correct: 16
+- sparse_correct: 16
+- dense_accuracy: 1.0
+- sparse_accuracy: 1.0

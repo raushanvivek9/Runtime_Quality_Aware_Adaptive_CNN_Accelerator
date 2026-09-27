@@ -1,0 +1,5 @@
+status=MNIST_NOT_FOUND_LOCALLY
+reason=compute node cannot download MNIST
+pilot_status=NOT_RUN
+local_mnist_root=NOT_FOUND
+required_files=train-images-idx3-ubyte.gz,train-labels-idx1-ubyte.gz,t10k-images-idx3-ubyte.gz,t10k-labels-idx1-ubyte.gz

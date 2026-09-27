@@ -1,0 +1,16 @@
+python_version=3.11.16
+torch_version=2.5.1+cu118
+torchvision_version=0.20.1+cu118
+cuda_available=True
+cuda_version=11.8
+gpu_name=NVIDIA GeForce GTX 1080 Ti
+gpu_count=1
+device=cuda
+hostname=node001.cluster
+seed=42
+batch_size=128
+epochs=5
+optimizer=SGD(lr=0.1,momentum=0.9,weight_decay=0.0005)
+scheduler=CosineAnnealingLR(T_max=5)
+normalization=Normalize((0.1307,),(0.3081,))
+augmentation=none

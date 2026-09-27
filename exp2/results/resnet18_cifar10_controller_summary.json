@@ -1,0 +1,213 @@
+{
+  "model": "resnet18",
+  "dataset": "cifar10",
+  "best_regressor": "linear_regression",
+  "metrics": {
+    "name": "linear_regression",
+    "mae": 0.0,
+    "rmse": 0.0,
+    "r2": 1.0
+  },
+  "selected_resources": [
+    {
+      "layer": "conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.05,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer1.0.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer1.0.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer1.1.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer1.1.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer2.0.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer2.0.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer2.0.shortcut.0",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer2.1.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer2.1.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer3.0.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer3.0.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer3.0.shortcut.0",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer3.1.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer3.1.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer4.0.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer4.0.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer4.0.shortcut.0",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer4.1.conv1",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "layer4.1.conv2",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+checkpoint path: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar10_best.pt
+checkpoint epoch: 127
+validation accuracy used for selection: 0.8948
+test sample count: 10000
+model: vgg16
+dataset: cifar10
+seed: 42
+policy: exact-zero activation masking with dense-vs-sparse comparison
+epsilon values: see CONFIG.yaml
+evaluation code version/path: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/run_validated_vgg_post_evaluation.py

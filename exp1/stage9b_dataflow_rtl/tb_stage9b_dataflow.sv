@@ -404,6 +404,8 @@ module tb_stage9b_dataflow;
         tests_passed = 0;
         cycle_counter = 0;
         stream_check_enable = 1'b0;
+        $dumpfile("stage9b_wave.vcd");
+        $dumpvars(1, tb_stage9b_dataflow);
         $readmemh("golden_output.mem", golden_output);
 
         repeat (2) @(negedge clk);

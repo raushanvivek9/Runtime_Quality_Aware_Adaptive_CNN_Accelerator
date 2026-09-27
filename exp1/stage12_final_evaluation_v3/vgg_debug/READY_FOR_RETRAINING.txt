@@ -1,0 +1,10 @@
+architecture validation: PASS
+gradient probe: PASS
+32-image overfit: FAIL
+5-epoch pilot: FAIL
+
+summary:
+- final canonical loss after overfit: 2.1771
+- final canonical training accuracy after overfit: 0.1562
+- final 5-epoch validation accuracy: 0.0920
+- checkpoint validation: (2, 10) finite=True

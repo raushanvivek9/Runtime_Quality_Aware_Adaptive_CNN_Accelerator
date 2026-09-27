@@ -1,0 +1,5 @@
+model,dataset,epochs_completed,best_epoch,best_validation_accuracy,final_training_accuracy,status
+resnet18,cifar10,150,144,0.9586,,PASS
+resnet18,cifar100,150,134,0.7758,,PASS
+vgg16,cifar10,150,127,0.8948,,PASS
+vgg16,cifar100,150,139,0.6618,,PASS

@@ -1,0 +1,4 @@
+resource,active_pes,total_outputs,total_macs,scheduler_compute_cycles,start_to_done_cycles,output_valid,output_match,active_pe_count
+16,16,1024,27648,1728,1794,1,1,16
+32,32,1024,27648,864,898,1,1,32
+64,64,1024,27648,432,450,1,1,64

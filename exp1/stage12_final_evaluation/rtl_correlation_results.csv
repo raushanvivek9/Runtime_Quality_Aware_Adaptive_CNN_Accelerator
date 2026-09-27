@@ -1,0 +1,5 @@
+model,dataset,layer,active_pes,analytical_cycles,rtl_cycles,error_percent,output_match,status
+ResNet18,CIFAR10,NOT RUN,,,,,NOT RUN,NOT RUN: no complete model-to-RTL integration
+ResNet18,CIFAR100,NOT RUN,,,,,NOT RUN,NOT RUN: no complete model-to-RTL integration
+VGG16,CIFAR10,NOT RUN,,,,,NOT RUN,NOT RUN: no complete model-to-RTL integration
+VGG16,CIFAR100,NOT RUN,,,,,NOT RUN,NOT RUN: no complete model-to-RTL integration

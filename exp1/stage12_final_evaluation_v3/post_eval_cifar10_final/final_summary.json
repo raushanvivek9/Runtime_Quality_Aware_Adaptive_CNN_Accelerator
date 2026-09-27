@@ -1,0 +1,19 @@
+{
+  "model": "vgg16",
+  "dataset": "cifar10",
+  "status": "PASS",
+  "checkpoint_path": "/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar10_best.pt",
+  "checkpoint_epoch": 127,
+  "validation_accuracy_used_for_selection": 0.8948,
+  "test_sample_count": 10000,
+  "dense_accuracy": 0.8846,
+  "sparse_accuracy": 0.8846,
+  "dense_correct": 8846,
+  "sparse_correct": 8846,
+  "dense_vs_sparse_prediction_mismatch_count": 0,
+  "mean_activation_sparsity": 83.45374636136567,
+  "MAC_reduction": 89.59230678816175,
+  "fixed64_sparse_analytical_cycles": 5093208664,
+  "adaptive_sparse_analytical_cycles": 5093208664,
+  "average_active_PE_allocation": 64.0
+}

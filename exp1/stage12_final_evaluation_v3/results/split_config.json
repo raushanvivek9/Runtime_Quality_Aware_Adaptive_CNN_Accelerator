@@ -1,0 +1,7 @@
+{
+  "seed": 42,
+  "validation_indices": "range(0, 5000)",
+  "training_indices": "range(5000, 50000)",
+  "training_count": 45000,
+  "validation_count": 5000
+}

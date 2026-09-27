@@ -1,0 +1,249 @@
+{
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "name": "checkpoints verified",
+      "status": "PASS",
+      "detail": "ResNet18/CIFAR10: exists=True loads=True epoch=144; ResNet18/CIFAR100: exists=True loads=True epoch=134; VGG16/CIFAR10: exists=True loads=True epoch=127; VGG16/CIFAR100: exists=True loads=True epoch=139"
+    },
+    {
+      "name": "dataset split verified",
+      "status": "PASS",
+      "detail": "CONFIG.yaml and common.py present"
+    },
+    {
+      "name": "model dataset names consistent",
+      "status": "PASS",
+      "detail": "four expected pairs present"
+    },
+    {
+      "name": "ResNet18/CIFAR10 best epoch",
+      "status": "PASS",
+      "detail": "144"
+    },
+    {
+      "name": "ResNet18/CIFAR10 test accuracy",
+      "status": "PASS",
+      "detail": "0.9513"
+    },
+    {
+      "name": "ResNet18/CIFAR10 dense sparse accuracy",
+      "status": "PASS",
+      "detail": "0.9513 == 0.9513"
+    },
+    {
+      "name": "ResNet18/CIFAR10 mismatch count",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "ResNet18/CIFAR10 sparsity valid",
+      "status": "PASS",
+      "detail": "62.51186579895019"
+    },
+    {
+      "name": "ResNet18/CIFAR10 MAC relationship",
+      "status": "PASS",
+      "detail": "skipped=dense-useful"
+    },
+    {
+      "name": "ResNet18/CIFAR10 MAC formula",
+      "status": "PASS",
+      "detail": "72.24934835338311"
+    },
+    {
+      "name": "ResNet18/CIFAR10 cycle formula",
+      "status": "PASS",
+      "detail": "24083125525"
+    },
+    {
+      "name": "ResNet18/CIFAR10 PE valid",
+      "status": "PASS",
+      "detail": "64.0"
+    },
+    {
+      "name": "ResNet18/CIFAR100 best epoch",
+      "status": "PASS",
+      "detail": "134"
+    },
+    {
+      "name": "ResNet18/CIFAR100 test accuracy",
+      "status": "PASS",
+      "detail": "0.7697"
+    },
+    {
+      "name": "ResNet18/CIFAR100 dense sparse accuracy",
+      "status": "PASS",
+      "detail": "0.7697 == 0.7697"
+    },
+    {
+      "name": "ResNet18/CIFAR100 mismatch count",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "ResNet18/CIFAR100 sparsity valid",
+      "status": "PASS",
+      "detail": "57.68464033508301"
+    },
+    {
+      "name": "ResNet18/CIFAR100 MAC relationship",
+      "status": "PASS",
+      "detail": "skipped=dense-useful"
+    },
+    {
+      "name": "ResNet18/CIFAR100 MAC formula",
+      "status": "PASS",
+      "detail": "68.28395165353061"
+    },
+    {
+      "name": "ResNet18/CIFAR100 cycle formula",
+      "status": "PASS",
+      "detail": "27524455397"
+    },
+    {
+      "name": "ResNet18/CIFAR100 PE valid",
+      "status": "PASS",
+      "detail": "64.0"
+    },
+    {
+      "name": "VGG16/CIFAR10 best epoch",
+      "status": "PASS",
+      "detail": "127"
+    },
+    {
+      "name": "VGG16/CIFAR10 test accuracy",
+      "status": "PASS",
+      "detail": "0.8846"
+    },
+    {
+      "name": "VGG16/CIFAR10 dense sparse accuracy",
+      "status": "PASS",
+      "detail": "0.8846 == 0.8846"
+    },
+    {
+      "name": "VGG16/CIFAR10 mismatch count",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "VGG16/CIFAR10 sparsity valid",
+      "status": "PASS",
+      "detail": "83.45374636136567"
+    },
+    {
+      "name": "VGG16/CIFAR10 MAC relationship",
+      "status": "PASS",
+      "detail": "skipped=dense-useful"
+    },
+    {
+      "name": "VGG16/CIFAR10 MAC formula",
+      "status": "PASS",
+      "detail": "89.59230678816175"
+    },
+    {
+      "name": "VGG16/CIFAR10 cycle formula",
+      "status": "PASS",
+      "detail": "5093208664"
+    },
+    {
+      "name": "VGG16/CIFAR10 PE valid",
+      "status": "PASS",
+      "detail": "64.0"
+    },
+    {
+      "name": "VGG16/CIFAR100 best epoch",
+      "status": "PASS",
+      "detail": "139"
+    },
+    {
+      "name": "VGG16/CIFAR100 test accuracy",
+      "status": "PASS",
+      "detail": "0.6557"
+    },
+    {
+      "name": "VGG16/CIFAR100 dense sparse accuracy",
+      "status": "PASS",
+      "detail": "0.6557 == 0.6557"
+    },
+    {
+      "name": "VGG16/CIFAR100 mismatch count",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "VGG16/CIFAR100 sparsity valid",
+      "status": "PASS",
+      "detail": "53.85006880540114"
+    },
+    {
+      "name": "VGG16/CIFAR100 MAC relationship",
+      "status": "PASS",
+      "detail": "skipped=dense-useful"
+    },
+    {
+      "name": "VGG16/CIFAR100 MAC formula",
+      "status": "PASS",
+      "detail": "69.98297529719868"
+    },
+    {
+      "name": "VGG16/CIFAR100 cycle formula",
+      "status": "PASS",
+      "detail": "14689419372"
+    },
+    {
+      "name": "VGG16/CIFAR100 PE valid",
+      "status": "PASS",
+      "detail": "64.0"
+    },
+    {
+      "name": "epsilon values valid",
+      "status": "PASS",
+      "detail": "0%, 5%, 10%, 20%"
+    },
+    {
+      "name": "adaptive policy complete",
+      "status": "PASS",
+      "detail": "16 PASS rows"
+    },
+    {
+      "name": "adaptive PE values valid",
+      "status": "PASS",
+      "detail": "PE values in 16/32/64"
+    },
+    {
+      "name": "no contradictory VGG100 final status",
+      "status": "PASS",
+      "detail": "no stale VGG100 final metadata"
+    },
+    {
+      "name": "no unsupported hardware speedup claims",
+      "status": "PASS",
+      "detail": "analytical terminology only"
+    },
+    {
+      "name": "no physical energy claims",
+      "status": "PASS",
+      "detail": "physical energy/power are explicitly unmeasured and unclaimed"
+    },
+    {
+      "name": "full model RTL not claimed",
+      "status": "PASS",
+      "detail": "RTL scope documented as not run"
+    },
+    {
+      "name": "final tables agree",
+      "status": "PASS",
+      "detail": "JSON and CSV pair ordering agrees"
+    },
+    {
+      "name": "all final statuses PASS",
+      "status": "PASS",
+      "detail": "four PASS rows"
+    }
+  ],
+  "passed": 48,
+  "failed": 0,
+  "review_required": 0,
+  "timestamp_utc": "2026-09-24T19:38:18.148438+00:00"
+}

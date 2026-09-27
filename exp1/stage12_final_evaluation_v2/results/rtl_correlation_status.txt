@@ -1,0 +1,2 @@
+Representative-layer RTL correlation only.
+RTL_CORRELATION_NOT_RUN: no isolated compatible workload adapter was available.

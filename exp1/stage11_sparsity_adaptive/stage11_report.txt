@@ -1,0 +1,72 @@
+Stage 11 — Sparsity-Aware Adaptive Computation
+===============================================
+
+1. Objective
+   Investigate whether runtime activation sparsity can reduce effective computation and cycles without changing the deterministic data or objective.
+
+2. Motivation from Stage 7C
+   PE-count-only adaptation did not beat fixed 64 PE in the validated design space, so Stage 11 isolates a sparsity-aware execution mechanism.
+
+3. Workload
+   Input 8x8x3, kernel 3x3, output 8x8x16, with the exact Stage 9A/10 deterministic input and weight generation.
+
+4. Dense computation
+   Dense MAC count: 27,648.
+
+5. Activation sparsity
+   Zero activations are treated as an execution optimization, not an accuracy issue.
+
+6. Sparse computation
+   Useful MACs are only those with a non-zero activation; zero-valued activations are skipped by the sparse execution path.
+
+7. Analytical results
+   Sparse analytical cycles are computed as ceil(useful_MACs / active_PEs).
+
+8. RTL implementation
+   A dedicated sparse RTL scheduler and sparse PE were created in the isolated Stage 11 experiment without modifying the protected Stage 8A/9A/9B/9C/10 files.
+
+9. RTL validation
+   For each 16/32/64 PE configuration, the sparse output matched the dense Python reference exactly and the useful/skipped counts matched the Python calculation.
+
+10. Dense vs sparse comparison
+   The analytical sparse cycle model is lower than the dense analytical model when useful MACs are below the dense count.
+
+11. Adaptive policy
+   The deterministic Stage 11 workload does not provide sufficient sparsity variation for meaningful adaptive threshold evaluation.
+
+12. Limitations
+   This experiment is limited to the fixed Stage 10 workload and does not claim energy savings or accuracy improvement.
+
+13. Conclusion
+   Functional correctness is preserved, analytical cycle reduction is computed, and the sparse RTL schedule is validated. The adaptive decision policy remains intentionally conservative because the deterministic workload does not exhibit meaningful sparsity variation.
+
+16 PE summary:
+  dense_macs = 27648
+  useful_macs = 18528
+  skipped_macs = 9120
+  effective_sparsity = 32.9861%
+  analytical_dense_cycles = 1728
+  analytical_sparse_cycles = 1158
+  rtl_sparse_cycles = 1158
+  output_match = PASS
+
+32 PE summary:
+  dense_macs = 27648
+  useful_macs = 18528
+  skipped_macs = 9120
+  effective_sparsity = 32.9861%
+  analytical_dense_cycles = 864
+  analytical_sparse_cycles = 579
+  rtl_sparse_cycles = 579
+  output_match = PASS
+
+64 PE summary:
+  dense_macs = 27648
+  useful_macs = 18528
+  skipped_macs = 9120
+  effective_sparsity = 32.9861%
+  analytical_dense_cycles = 432
+  analytical_sparse_cycles = 290
+  rtl_sparse_cycles = 290
+  output_match = PASS
+

@@ -1,0 +1,4 @@
+resource,active_pes,total_outputs,macs_per_output,total_macs,analytical_compute_cycles
+16,16,1024,27,27648,1728
+32,32,1024,27,27648,864
+64,64,1024,27,27648,432

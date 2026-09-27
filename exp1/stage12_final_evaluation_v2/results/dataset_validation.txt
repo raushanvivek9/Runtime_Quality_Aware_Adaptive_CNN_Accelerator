@@ -1,0 +1,7 @@
+DATASET_VALIDATION: PASS
+cifar10 train_shape=(50000, 3, 32, 32) test_shape=(10000, 3, 32, 32)
+cifar10 train_samples=50000 test_samples=10000 classes=10 label_min=0 label_max=9
+cifar10 normalization_mean=(0.4914, 0.4822, 0.4465) normalization_std=(0.247, 0.2435, 0.2616)
+cifar100 train_shape=(50000, 3, 32, 32) test_shape=(10000, 3, 32, 32)
+cifar100 train_samples=50000 test_samples=10000 classes=100 label_min=0 label_max=99
+cifar100 normalization_mean=(0.4914, 0.4822, 0.4465) normalization_std=(0.247, 0.2435, 0.2616)

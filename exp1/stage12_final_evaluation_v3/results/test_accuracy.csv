@@ -1,0 +1,5 @@
+model,dataset,test_samples,dense_correct,dense_incorrect,dense_accuracy
+resnet18,cifar10,10000,9513,487,0.9513
+resnet18,cifar100,10000,7697,2303,0.7697
+vgg16,cifar10,10000,8846,1154,0.8846
+vgg16,cifar100,10000,6557,3443,0.6557

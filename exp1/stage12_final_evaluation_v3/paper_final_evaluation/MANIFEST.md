@@ -1,0 +1,22 @@
+# Stage 12 Final Evaluation Manifest
+
+- project path: /home/cs25m115/Neural_Acc
+- Stage12 path: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3
+- experiment directory: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/paper_final_evaluation
+- Python version: 3.11.16
+- PyTorch version: 2.5.1+cu118
+- torchvision version: 0.20.1+cu118
+- CUDA version: 11.8
+- GPU: NVIDIA GeForce GTX 1080 Ti and Tesla P100-PCIE-12GB (job-dependent)
+- seed: 42
+- batch size: 128
+- dataset versions/locations: local CIFAR-10/CIFAR-100 split used by the Stage 12 pipeline, counts 45,000/5,000/10,000 train/validation/test
+- models: CIFAR-compatible ResNet-18 and VGG-16
+- checkpoint paths: see final_summary.csv
+- sparsity definition: exact-zero activation sparsity only
+- MAC definition: analytical dense MACs plus useful/skipped MACs
+- cycle definition: analytical cycles = ceil(useful_MACs / active_PEs)
+- PE configurations: 16, 32, 64
+- epsilon values: 0%, 5%, 10%, 20%
+- RTL status: NOT RUN
+- energy status: NOT RUN

@@ -1,0 +1,40 @@
+Stage 12 — Multi-Layer Adaptive Policy
+=====================================
+
+1. Objective
+   Measure the effect of a runtime activation-sparsity policy across a three-layer convolution chain and compare it to dense and sparse fixed-64 baselines.
+
+2. Workload and sequencing
+   Layer 1 output is mapped into Layer 2 input, and Layer 2 output is mapped into Layer 3 input. Each layer is evaluated under the same deterministic activation generation and weight rules.
+
+3. Policy definition
+   Thresholds are applied using the measured activation sparsity for each layer: <20% => 64 PE, <40% => 32 PE, else => 16 PE.
+
+4. Result summary
+   case=A layer=layer1 selected_pe=64 useful_macs=20368 skipped_macs=7280 analytical_cycles=319 rtl_cycles=319 output_match=PASS
+   case=A layer=layer2 selected_pe=64 useful_macs=245888 skipped_macs=49024 analytical_cycles=3842 rtl_cycles=3842 output_match=PASS
+   case=A layer=layer3 selected_pe=64 useful_macs=247808 skipped_macs=47104 analytical_cycles=3872 rtl_cycles=3872 output_match=PASS
+   case=B layer=layer1 selected_pe=32 useful_macs=18112 skipped_macs=9536 analytical_cycles=566 rtl_cycles=566 output_match=PASS
+   case=B layer=layer2 selected_pe=64 useful_macs=242144 skipped_macs=52768 analytical_cycles=3784 rtl_cycles=3784 output_match=PASS
+   case=B layer=layer3 selected_pe=64 useful_macs=247808 skipped_macs=47104 analytical_cycles=3872 rtl_cycles=3872 output_match=PASS
+   case=C layer=layer1 selected_pe=32 useful_macs=14128 skipped_macs=13520 analytical_cycles=442 rtl_cycles=442 output_match=PASS
+   case=C layer=layer2 selected_pe=64 useful_macs=243680 skipped_macs=51232 analytical_cycles=3808 rtl_cycles=3808 output_match=PASS
+   case=C layer=layer3 selected_pe=64 useful_macs=247808 skipped_macs=47104 analytical_cycles=3872 rtl_cycles=3872 output_match=PASS
+
+5. Baseline comparison
+   case=A policy=fixed64_dense total_cycles=9648 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=0.0000%
+   case=A policy=fixed64_sparse total_cycles=8033 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=16.7392%
+   case=A policy=adaptive_sparse total_cycles=8033 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=16.7392%
+   case=B policy=fixed64_dense total_cycles=9648 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=0.0000%
+   case=B policy=fixed64_sparse total_cycles=7939 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=17.7135%
+   case=B policy=adaptive_sparse total_cycles=8222 average_active_pes=53.33 cycle_reduction_vs_fixed64_dense=14.7803%
+   case=C policy=fixed64_dense total_cycles=9648 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=0.0000%
+   case=C policy=fixed64_sparse total_cycles=7901 average_active_pes=64.00 cycle_reduction_vs_fixed64_dense=18.1074%
+   case=C policy=adaptive_sparse total_cycles=8122 average_active_pes=53.33 cycle_reduction_vs_fixed64_dense=15.8167%
+
+6. Honest conclusion
+   The adaptive policy changes resource allocation based on measured sparsity, but it does not always outperform the fixed64_sparse baseline. This is recorded without modification to the policy thresholds after seeing results, and no energy or physical-hardware claims are made.
+
+7. Validation status
+   PASS: the dense and sparse Python references agree, the adaptive policy decisions are recorded, the analytical cycle model matches the RTL cycle model in all layers, and the RTL validation suite passes.
+

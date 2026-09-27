@@ -1,0 +1,4 @@
+resource,active_pes,dense_macs,useful_macs,skipped_macs,effective_sparsity,analytical_dense_cycles,analytical_sparse_cycles,analytical_cycle_reduction_percent,rtl_dense_cycles,rtl_sparse_cycles,output_match,mac_count_match
+16,16,27648,18528,9120,32.98611111111111,1728,1158,32.98611111111111,1728,1158,1,1
+32,32,27648,18528,9120,32.98611111111111,864,579,32.98611111111111,864,579,1,1
+64,64,27648,18528,9120,32.98611111111111,432,290,32.870370370370374,432,290,1,1

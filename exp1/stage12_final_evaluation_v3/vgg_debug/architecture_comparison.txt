@@ -1,0 +1,15 @@
+VGG-16 feature-structure comparison
+=================================
+Reference torchvision vgg16(weights=None): 13 Conv2d layers, 5 MaxPool2d layers
+Canonical CifarVgg16Canonical: 13 Conv2d layers, 5 MaxPool2d layers
+Same number of Conv2d layers: True
+Same channel progression: True
+Same number of pooling layers: True
+Reference feature output shape for 32x32 input: (1, 512, 1, 1)
+Canonical feature output shape for 32x32 input: (1, 512, 1, 1)
+Spatial reduction pattern: 32 -> 16 -> 8 -> 4 -> 2 -> 1 is yes
+
+Reference conv channels: [64, 64, 128, 128, 256, 256, 256, 512, 512, 512, 512, 512, 512]
+Canonical conv channels: [64, 64, 128, 128, 256, 256, 256, 512, 512, 512, 512, 512, 512]
+
+Note: this comparison checks structural equivalence of the feature extractor, not numerical equivalence of parameter values.

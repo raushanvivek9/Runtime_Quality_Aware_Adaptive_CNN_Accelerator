@@ -1,0 +1,4 @@
+resnet18/cifar10: input=3x32x32 classes=10 parameters=11173962 trainable=11173962 convolution_layers=20 linear_layers=1
+resnet18/cifar100: input=3x32x32 classes=100 parameters=11220132 trainable=11220132 convolution_layers=20 linear_layers=1
+vgg16/cifar10: input=3x32x32 classes=10 parameters=14719818 trainable=14719818 convolution_layers=13 linear_layers=1
+vgg16/cifar100: input=3x32x32 classes=100 parameters=14765988 trainable=14765988 convolution_layers=13 linear_layers=1

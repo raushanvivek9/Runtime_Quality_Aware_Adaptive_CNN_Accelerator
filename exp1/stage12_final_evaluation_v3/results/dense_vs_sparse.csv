@@ -1,0 +1,5 @@
+model,dataset,dense_accuracy,sparse_accuracy,accuracy_change_percentage_points,max_abs_logit_difference,mean_abs_logit_difference,prediction_mismatches
+resnet18,cifar10,0.9513,0.9513,0.0,0.0,0.0,0
+resnet18,cifar100,0.7697,0.7697,0.0,0.0,0.0,0
+vgg16,cifar10,0.8846,0.8846,0.0,0.0,0.0,0
+vgg16,cifar100,0.6557,0.6557,0.0,0.0,0.0,0

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/alexnet_mnist/train_pilot.py", line 159, in <module>
+    main()
+  File "/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/alexnet_mnist/train_pilot.py", line 88, in main
+    train_loader, validation_loader, test_loader = make_loaders(BATCH_SIZE)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/alexnet_mnist/dataset.py", line 25, in make_loaders
+    train_set, validation_set, test_set = make_datasets()
+                                          ^^^^^^^^^^^^^^^
+  File "/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/alexnet_mnist/dataset.py", line 15, in make_datasets
+    training = datasets.MNIST(DATA_ROOT, train=True, download=True, transform=transform)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cs25m115/anaconda3/envs/neural_acc/lib/python3.11/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/home/cs25m115/anaconda3/envs/neural_acc/lib/python3.11/site-packages/torchvision/datasets/mnist.py", line 196, in download
+    raise RuntimeError(f"Error downloading {filename}")
+RuntimeError: Error downloading train-images-idx3-ubyte.gz

@@ -1,0 +1,25 @@
+seed: 42
+models: [resnet18, vgg16]
+datasets: [cifar10, cifar100]
+classes: {cifar10: 10, cifar100: 100}
+train_samples: 45000
+validation_samples: 5000
+test_samples: 10000
+batch_size: 128
+requested_epochs: 150
+epochs: 150
+pilot_epochs: 1
+learning_rate: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+resource_options: [16, 32, 64]
+adaptive_latency_epsilon: 0.10
+sensitivity_epsilons: [0.00, 0.05, 0.10, 0.20]
+normalization_mean: [0.4914, 0.4822, 0.4465]
+normalization_std: [0.2470, 0.2435, 0.2616]
+augmentation:
+  random_crop_padding: 4
+  random_horizontal_flip: true
+training_note: Slurm q15d GPU pilot measured 222.37 seconds per full-data ResNet18/CIFAR10 epoch; 150 epochs is the declared final target before training.
+max_cpu_training_hours: 1.0
+training_gate: do not present accuracy unless every pair completes the declared 50 epochs

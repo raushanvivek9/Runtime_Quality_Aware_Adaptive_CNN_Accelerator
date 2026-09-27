@@ -1,0 +1,6 @@
+input shape: [8, 3, 32, 32]
+target shape: [8]
+target min/max: 0 / 90
+logits shape: [8, 100]
+loss: 4.605123043060303
+classifier_out_features: 100

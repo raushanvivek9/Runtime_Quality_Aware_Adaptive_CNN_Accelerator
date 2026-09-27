@@ -1,0 +1,4 @@
+VGG16/CIFAR10: checkpoint=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar10_best.pt file_exists=YES checkpoint_loads=YES best_epoch=127 best_validation_accuracy=0.8948 test_accuracy=0.8846 status=PASS
+ResNet18/CIFAR10: checkpoint=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/resnet18_cifar10_best.pt file_exists=YES checkpoint_loads=YES best_epoch=144 best_validation_accuracy=0.9586 test_accuracy=0.9513 status=PASS
+ResNet18/CIFAR100: checkpoint=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/resnet18_cifar100_best.pt file_exists=YES checkpoint_loads=YES best_epoch=134 best_validation_accuracy=0.7758 test_accuracy=0.7697 status=PASS
+VGG16/CIFAR100: checkpoint=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar100_best.pt file_exists=YES checkpoint_loads=YES best_epoch=139 best_validation_accuracy=0.6618 test_accuracy=0.6557 status=PASS

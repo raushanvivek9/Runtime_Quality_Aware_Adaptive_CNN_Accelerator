@@ -1,0 +1,2 @@
+model,dataset,epoch,train_loss,train_accuracy,validation_loss,validation_accuracy,seconds
+resnet18,cifar100,1,4.805727200317383,0.0272,6.041437149047852,0.036,39.13575077056885

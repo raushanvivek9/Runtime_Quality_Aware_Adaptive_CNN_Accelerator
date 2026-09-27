@@ -1,0 +1,10 @@
+train_size: 45000
+validation_size: 5000
+test_size: 10000
+train_plus_validation: 50000
+total_train_dataset: 50000
+deterministic_split: True
+val_indexes_unique: True
+train_indexes_unique: True
+validation_not_test_data: False
+no_empty_split: True

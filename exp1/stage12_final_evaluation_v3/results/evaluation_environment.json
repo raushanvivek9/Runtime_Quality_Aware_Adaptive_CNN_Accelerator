@@ -1,0 +1,6 @@
+{
+  "python": "3.11.16",
+  "torch": "2.5.1+cu118",
+  "device": "cuda",
+  "seed": 42
+}

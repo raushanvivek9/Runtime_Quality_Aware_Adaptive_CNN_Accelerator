@@ -1,0 +1,17 @@
+{
+  "model": "resnet18",
+  "dataset": "cifar10",
+  "training_samples": 45000,
+  "validation_samples": 5000,
+  "batch_size": 128,
+  "epoch_seconds": 222.36666893959045,
+  "train_loss": 1.8454058195749918,
+  "train_accuracy": 0.33553333333333335,
+  "validation_loss": 1.494627870941162,
+  "validation_accuracy": 0.434,
+  "device": "cuda:0",
+  "gpu": "Tesla P100-PCIE-12GB"
+}
+estimated_50_epochs_hours=3.0884
+estimated_100_epochs_hours=6.1769
+estimated_150_epochs_hours=9.2653

@@ -1,0 +1,5 @@
+model,dataset,test_samples,test_accuracy,sparse_accuracy,max_abs_logit_difference,mean_abs_logit_difference,number_of_prediction_mismatches
+resnet18,cifar10,10000,0.1492,0.1492,0.0,0.0,0
+resnet18,cifar100,10000,0.0306,0.0306,0.0,0.0,0
+vgg16,cifar10,10000,0.1,0.1,0.0,0.0,0
+vgg16,cifar100,10000,0.01,0.01,0.0,0.0,0

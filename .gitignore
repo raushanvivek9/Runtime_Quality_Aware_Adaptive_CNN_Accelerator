@@ -27,6 +27,11 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
+# Large generated experiment artifacts
+exp1/stage9c_multilayer_rtl/*.vcd
+exp1/stage12_final_evaluation/data/
+exp1/stage12_final_evaluation*/**/*.pt
+
 # Python cache
 .pytest_cache/
 .mypy_cache/

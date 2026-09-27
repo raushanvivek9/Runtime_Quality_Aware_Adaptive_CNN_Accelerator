@@ -1,0 +1,2 @@
+best_epoch,best_validation_accuracy,dataset,duration_seconds,epochs_completed,final_training_accuracy,gpu,model,slurm_job_id,status
+144,0.9586,cifar10,33652.71948647499,150,0.9999333333333333,Tesla P100-PCIE-12GB,resnet18,6698,PASS

@@ -1,0 +1,4 @@
+resource,active_pes,analytical_compute_cycles,rtl_scheduler_compute_cycles,rtl_start_to_done_cycles,scheduler_error_percent,start_to_done_overhead_cycles,start_to_done_overhead_percent,output_match
+16,16,1728,1728,1794,0.0,66,3.8194444444444446,1
+32,32,864,864,898,0.0,34,3.935185185185185,1
+64,64,432,432,450,0.0,18,4.166666666666666,1

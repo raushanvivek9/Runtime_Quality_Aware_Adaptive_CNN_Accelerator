@@ -1,0 +1,2 @@
+status,reason
+ENERGY_NOT_RUN,Complete trained CNN workloads and representative layer mappings were not validated against the Stage 7 SCALE-Sim/Accelergy configuration.

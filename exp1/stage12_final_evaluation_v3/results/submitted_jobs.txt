@@ -1,0 +1,38 @@
+Thursday 24 September 2026 05:05:16 AM IST
+             JOBID PARTITION                           NAME    STATE       TIME  NODES NODELIST(REASON)
+              6698      q15d                     v3-r18-c10  RUNNING       6:13      1 node005
+              6702       q3d                     v3-vgg-c10  RUNNING       0:33      1 node002
+              6703       q3d                    v3-vgg-c100  RUNNING       0:33      1 node002
+              6701       q3d                    v3-r18-c100  RUNNING       0:34      1 node002
+JobId=6698 JobName=v3-r18-c10
+   JobState=RUNNING Reason=None Dependency=(null)
+   StartTime=2026-09-24T04:59:03 EndTime=2026-10-09T04:59:03 Deadline=N/A
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=node005
+   Command=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/slurm/train_resnet18_cifar10.slurm
+   WorkDir=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3
+   TresPerNode=gres/gpu:1
+JobId=6701 JobName=v3-r18-c100
+   JobState=RUNNING Reason=None Dependency=(null)
+   StartTime=2026-09-24T05:04:42 EndTime=2026-09-27T05:04:42 Deadline=N/A
+   ReqNodeList=node002 ExcNodeList=(null)
+   NodeList=node002
+   Command=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/slurm/train_resnet18_cifar100.slurm
+   WorkDir=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3
+   TresPerNode=gres/gpu:1
+JobId=6702 JobName=v3-vgg-c10
+   JobState=RUNNING Reason=None Dependency=(null)
+   StartTime=2026-09-24T05:04:43 EndTime=2026-09-27T05:04:43 Deadline=N/A
+   ReqNodeList=node002 ExcNodeList=(null)
+   NodeList=node002
+   Command=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/slurm/train_vgg16_cifar10.slurm
+   WorkDir=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3
+   TresPerNode=gres/gpu:1
+JobId=6703 JobName=v3-vgg-c100
+   JobState=RUNNING Reason=None Dependency=(null)
+   StartTime=2026-09-24T05:04:43 EndTime=2026-09-27T05:04:43 Deadline=N/A
+   ReqNodeList=node002 ExcNodeList=(null)
+   NodeList=node002
+   Command=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/slurm/train_vgg16_cifar100.slurm
+   WorkDir=/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3
+   TresPerNode=gres/gpu:1

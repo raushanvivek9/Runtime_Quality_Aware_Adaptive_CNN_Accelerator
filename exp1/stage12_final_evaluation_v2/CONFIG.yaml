@@ -1,0 +1,17 @@
+seed: 42
+models: [resnet18, vgg16]
+datasets: [cifar10, cifar100]
+classes: {cifar10: 10, cifar100: 100}
+train_samples: 5000
+validation_samples: 1000
+test_samples: 10000
+batch_size: 128
+epochs: 1
+learning_rate: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+resource_options: [16, 32, 64]
+adaptive_latency_epsilon: 0.10
+sensitivity_epsilons: [0.00, 0.05, 0.10, 0.20]
+normalization_mean: [0.4914, 0.4822, 0.4465]
+normalization_std: [0.2470, 0.2435, 0.2616]

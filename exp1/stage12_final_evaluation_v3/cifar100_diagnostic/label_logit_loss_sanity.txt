@@ -1,0 +1,7 @@
+cross entropy loss: 4.599174499511719
+prediction range: 3 to 92
+target range: 0 to 90
+unique predictions: 7
+unique labels: 8
+dominant prediction fraction (first class): 0.125
+predictions are spread across multiple classes

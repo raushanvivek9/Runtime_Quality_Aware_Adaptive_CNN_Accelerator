@@ -1,0 +1,3 @@
+dataset,dataset_length,num_classes,image_tensor_shape,label_min,label_max,unique_labels_in_first_batch,logits_shape,initial_loss,initial_accuracy
+cifar10,50000,10,"(32, 3, 32, 32)",0,9,10,"(32, 10)",2.299360752105713,0.1875
+cifar100,50000,100,"(32, 3, 32, 32)",0,97,26,"(32, 100)",4.599090576171875,0.03125

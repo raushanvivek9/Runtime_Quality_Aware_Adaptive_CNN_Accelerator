@@ -1,0 +1,3 @@
+normalization,optimizer,lr,final_loss,best_loss,final_accuracy,best_accuracy
+current_normalization,Adam,0.001,0.029700035229325294,0.001568894018419087,1.0,1.0
+tensor_only,Adam,0.001,0.014106599614024162,0.00016764136671554297,1.0,1.0

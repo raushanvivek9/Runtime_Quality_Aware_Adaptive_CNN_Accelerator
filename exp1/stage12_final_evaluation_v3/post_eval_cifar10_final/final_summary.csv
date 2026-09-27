@@ -1,0 +1,2 @@
+model,dataset,status,checkpoint_path,checkpoint_epoch,validation_accuracy_used_for_selection,test_sample_count,dense_accuracy,sparse_accuracy,dense_correct,sparse_correct,dense_vs_sparse_prediction_mismatch_count,mean_activation_sparsity,MAC_reduction,fixed64_sparse_analytical_cycles,adaptive_sparse_analytical_cycles,average_active_PE_allocation
+vgg16,cifar10,PASS,/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar10_best.pt,127,0.8948,10000,0.8846,0.8846,8846,8846,0,83.45374636136567,89.59230678816175,5093208664,5093208664,64.0

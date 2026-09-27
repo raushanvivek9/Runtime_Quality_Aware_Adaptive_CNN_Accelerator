@@ -1,0 +1,2 @@
+model,dataset,epoch,train_loss,train_accuracy,validation_loss,validation_accuracy,seconds
+vgg16,cifar100,1,4.6062386627197265,0.0092,4.6069730758667,0.01,24.229846477508545

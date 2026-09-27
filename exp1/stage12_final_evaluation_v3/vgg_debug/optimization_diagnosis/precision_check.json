@@ -1,0 +1,10 @@
+{
+  "param_dtype": "torch.float32",
+  "input_dtype": "torch.float32",
+  "logits_dtype": "torch.float32",
+  "loss_dtype": "torch.float32",
+  "grad_dtype": "torch.float32",
+  "has_nan": false,
+  "has_inf": false,
+  "all_finite": true
+}

@@ -1,0 +1,6 @@
+step,loss,accuracy,features_trainable,classifier_trainable
+1,2.3011295795440674,0.09375,False,True
+10,2.201889753341675,0.1875,False,True
+50,2.1680359840393066,0.1875,False,True
+100,2.1674745082855225,0.21875,False,True
+200,2.21484375,0.0625,False,True

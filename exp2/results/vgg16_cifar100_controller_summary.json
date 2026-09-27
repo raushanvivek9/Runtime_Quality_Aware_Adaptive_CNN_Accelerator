@@ -1,0 +1,143 @@
+{
+  "model": "vgg16",
+  "dataset": "cifar100",
+  "best_regressor": "linear_regression",
+  "metrics": {
+    "name": "linear_regression",
+    "mae": 0.0,
+    "rmse": 0.0,
+    "r2": 1.0
+  },
+  "selected_resources": [
+    {
+      "layer": "features.0",
+      "selected_resource": 16,
+      "threshold_used": 0.05,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.10",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.14",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.17",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.20",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.24",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.27",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.3",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.30",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.34",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.37",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.40",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    },
+    {
+      "layer": "features.7",
+      "selected_resource": 16,
+      "threshold_used": 0.06,
+      "predicted_degradation": {
+        "16": 0.0,
+        "32": 0.0,
+        "64": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+experiment_name: stage12_final_evaluation
+project_root: /home/cs25m115/Neural_Acc
+experiment_dir: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation
+python_env: neural_acc
+seed: 42
+subset_size: 1000
+batch_size: 32
+pe_array: [16, 32, 64]
+policy_thresholds:
+  low: 20.0
+  medium: 40.0
+  high: 100.0
+model_pairs:
+  - model: resnet18
+    dataset: cifar10
+    num_classes: 10
+  - model: resnet18
+    dataset: cifar100
+    num_classes: 100
+  - model: vgg16
+    dataset: cifar10
+    num_classes: 10
+  - model: vgg16
+    dataset: cifar100
+    num_classes: 100
+normalization_mean: [0.4914, 0.4822, 0.4465]
+normalization_std: [0.2470, 0.2435, 0.2616]
+checkpoint_policy: use a matching CIFAR checkpoint when present; otherwise mark training NOT RUN
+evidence_levels:
+  - Level A: model forward, activation, and dense/sparse accuracy measurements
+  - Level B: analytical MAC and cycle estimates
+  - Level C: complete model-to-RTL correlation only when actually executed
+notes:
+  - This evaluation measures forward-pass behavior on a deterministic bounded subset.
+  - No matching trained checkpoints were found in this workspace.
+  - RTL correlation and energy are explicitly NOT RUN unless a validated same-workload integration exists.

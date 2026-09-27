@@ -1,0 +1,5 @@
+model,dataset,num_classes,accuracy,mean_activation_sparsity_pct,dense_cycles,sparse_cycles,adaptive_cycles,status
+resnet18,cifar10,10,0.148438,46.5458,140625.0,75170.0,281915.0,PASS
+resnet18,cifar100,100,0.023438,45.9242,140625.0,76045.0,304182.0,PASS
+vgg16,cifar10,10,,,,,,FAIL
+vgg16,cifar100,100,,,,,,FAIL

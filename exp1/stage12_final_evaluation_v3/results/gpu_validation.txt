@@ -1,0 +1,35 @@
+=== allocation ===
+node005.cluster
+CUDA_VISIBLE_DEVICES=2,3,4
+0, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+1, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+2, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+3, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+4, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+5, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+6, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+7, Tesla P100-PCIE-12GB, 12288 MiB, 570.181
+=== torch ===
+PyTorch: 2.5.1+cu118
+Torch CUDA: 11.8
+CUDA available: True
+GPU count: 3
+GPU 0: Tesla P100-PCIE-12GB
+GPU 1: Tesla P100-PCIE-12GB
+GPU 2: Tesla P100-PCIE-12GB
+=== matrix test ===
+GPU 0: PASS elapsed=0.1765 checksum=131161.25
+GPU 1: PASS elapsed=0.0350 checksum=-105665.671875
+GPU 2: PASS elapsed=0.0347 checksum=-87563.21875
+=== memory ===
+GPU 0: free=11.65 GB total=11.90 GB
+GPU 1: free=11.65 GB total=11.90 GB
+GPU 2: free=11.65 GB total=11.90 GB
+=== torchvision ===
+0.20.1+cu118
+=== CNN smoke ===
+Model GPU test: PASS
+parameter_device: cuda:0
+input_device: cuda:0
+output_device: cuda:0
+output_shape: (8, 10)

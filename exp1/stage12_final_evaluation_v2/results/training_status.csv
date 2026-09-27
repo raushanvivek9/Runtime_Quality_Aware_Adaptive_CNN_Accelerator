@@ -1,0 +1,5 @@
+checkpoint,dataset,model,status
+/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v2/checkpoints/resnet18_cifar10.pt,cifar10,resnet18,CHECKPOINT_EXISTS
+/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v2/checkpoints/resnet18_cifar100.pt,cifar100,resnet18,CHECKPOINT_EXISTS
+/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v2/checkpoints/vgg16_cifar10.pt,cifar10,vgg16,CHECKPOINT_EXISTS
+/home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v2/checkpoints/vgg16_cifar100.pt,cifar100,vgg16,CHECKPOINT_EXISTS

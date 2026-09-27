@@ -1,0 +1,34 @@
+[
+  {
+    "model": "resnet18",
+    "dataset": "cifar10",
+    "pilot_batches": 5,
+    "pilot_seconds": 10.387171506881714,
+    "estimated_epoch_seconds": 365.6284370422363,
+    "estimated_50_epoch_hours": 5.078172736697727
+  },
+  {
+    "model": "resnet18",
+    "dataset": "cifar100",
+    "pilot_batches": 5,
+    "pilot_seconds": 8.516629219055176,
+    "estimated_epoch_seconds": 299.7853485107422,
+    "estimated_50_epoch_hours": 4.163685395982531
+  },
+  {
+    "model": "vgg16",
+    "dataset": "cifar10",
+    "pilot_batches": 5,
+    "pilot_seconds": 5.484707355499268,
+    "estimated_epoch_seconds": 193.06169891357422,
+    "estimated_50_epoch_hours": 2.6814124849107532
+  },
+  {
+    "model": "vgg16",
+    "dataset": "cifar100",
+    "pilot_batches": 5,
+    "pilot_seconds": 5.710072994232178,
+    "estimated_epoch_seconds": 200.99456939697265,
+    "estimated_50_epoch_hours": 2.7915912416246202
+  }
+]

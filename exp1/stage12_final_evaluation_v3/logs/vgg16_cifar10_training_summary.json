@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "dataset": "cifar10",
+  "best_epoch": 127,
+  "best_validation_accuracy": 0.8948,
+  "final_epoch": 150,
+  "final_training_accuracy": 0.9901333333333333,
+  "final_validation_accuracy": 0.8938,
+  "final_validation_loss": 0.6519410947072436,
+  "total_duration_seconds": 3990.6753187179565,
+  "configuration": {
+    "model": "CifarVgg16Canonical",
+    "dataset": "cifar10",
+    "classes": 10,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "batch_size": 128,
+    "epochs": 150,
+    "seed": 42,
+    "train_samples": 45000,
+    "validation_samples": 5000,
+    "normalization_mean": [
+      0.4914,
+      0.4822,
+      0.4465
+    ],
+    "normalization_std": [
+      0.247,
+      0.2435,
+      0.2616
+    ],
+    "augmentation": {
+      "random_crop_padding": 4,
+      "random_horizontal_flip": true
+    },
+    "scheduler": "CosineAnnealingLR(T_max=150)"
+  },
+  "seed": 42,
+  "runtime": {
+    "hostname": "node003.cluster",
+    "gpu_model": "NVIDIA GeForce GTX 1080 Ti",
+    "cuda_version": "11.8",
+    "pytorch_version": "2.5.1+cu118",
+    "torchvision_version": "0.20.1+cu118",
+    "cuda_visible_devices": "2",
+    "slurm_job_id": "6713",
+    "slurm_partition": "q3d",
+    "dataset": "cifar10",
+    "start_time": "2026-09-24T07:10:51.364626+00:00",
+    "nvidia_smi": "Thu Sep 24 12:40:51 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 570.181                Driver Version: 570.181        CUDA Version: 12.8     |\n|-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce GTX 1080 Ti     Off |   00000000:02:00.0 Off |                  N/A |\n| 48%   81C    P2            138W /  250W |    7565MiB /  11264MiB |    100%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   1  NVIDIA GeForce GTX 1080 Ti     Off |   00000000:03:00.0 Off |                  N/A |\n| 48%   81C    P2            137W /  250W |    7565MiB /  11264MiB |    100%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   2  NVIDIA GeForce GTX 1080 Ti     Off |   00000000:82:00.0 Off |                  N/A |\n| 32%   56C    P0             61W /  250W |       3MiB /  11264MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n                                                                                         \n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          314997      C   ./trip.x                               7562MiB |\n|    1   N/A  N/A          314997      C   ./trip.x                               7562MiB |\n+-----------------------------------------------------------------------------------------+",
+    "resumed_from_epoch": null,
+    "actual_start_epoch": 1,
+    "end_time": "2026-09-24T08:17:24.198733+00:00",
+    "total_duration_seconds": 3990.6753187179565,
+    "status": "PASS"
+  },
+  "failure": null,
+  "test_loss": 0.7111241786003113,
+  "test_accuracy": 0.8846
+}

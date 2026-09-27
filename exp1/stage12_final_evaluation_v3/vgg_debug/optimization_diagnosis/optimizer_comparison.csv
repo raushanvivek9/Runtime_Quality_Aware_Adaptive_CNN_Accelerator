@@ -1,0 +1,3 @@
+optimizer,lr,momentum,weight_decay,final_loss,final_accuracy
+SGD,0.01,0.9,0.0,2.1703126430511475,0.1875
+Adam,0.001,,0.0,0.7721514701843262,0.65625

@@ -1,0 +1,15 @@
+Mean/std in CifarDataset:
+mean=[0.49140000343322754, 0.4821999967098236, 0.4465000033378601]
+std=[0.24699999392032623, 0.2434999942779541, 0.26159998774528503]
+
+Raw ToTensor stats:
+raw_mean=0.405676
+raw_std=0.203852
+raw_min=0.000000
+raw_max=1.000000
+
+Normalized stats:
+normalized_mean=-0.260697
+normalized_std=0.765855
+normalized_min=-1.989474
+normalized_max=2.094279

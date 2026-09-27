@@ -1,0 +1,3 @@
+CIFAR-10: original_training=50000, train=45000, validation=5000, test=10000, classes=10, input_shape=3x32x32, label_range=0..9, status=VALID
+CIFAR-100: original_training=50000, train=45000, validation=5000, test=10000, classes=100, input_shape=3x32x32, label_range=0..99, status=VALID
+FINAL PAPER COVERAGE: ResNet18/CIFAR10, ResNet18/CIFAR100, VGG16/CIFAR10, and VGG16/CIFAR100 all have completed checkpoint-based evaluation.

@@ -1,0 +1,61 @@
+Stage 10 Analytical ↔ RTL Correlation
+=======================================
+
+1. Objective
+   Correlate the analytical compute model with the same reduced convolution workload evaluated by the validated RTL datapath.
+
+2. Common Workload
+   Input: 8×8×3. Kernel: 3×3. Output channels: 16. Padding: 1. Stride: 1. Total output elements: 1024. MACs per output: 27. Total MACs: 27,648.
+
+3. Analytical Model
+   analytical_compute_cycles = ceil(total_MACs / active_PEs).
+   16 PE -> 1728, 32 PE -> 864, 64 PE -> 432.
+
+4. RTL Configuration
+   The validated Stage 9A modules were compiled and executed in an isolated Stage 10 harness using the exact reduced workload and 16/32/64 active-PE overrides.
+
+5. Python Golden Validation
+   The Python reference validated the output shape, element count, total MAC count, and the required checkpoints before the RTL comparison was run.
+
+6. RTL Validation
+   The RTL simulation verified output_valid assertions, active PE counts, and full output tensor equality against the Python golden result.
+
+7. Cycle Correlation
+   The analytical compute cycles and the RTL scheduler compute cycles match exactly for this reduced workload.
+   16 -> 1728, 32 -> 864, 64 -> 432.
+
+8. Control/Pipeline Overhead
+   The start→done latency is higher than the analytical compute estimate because it includes dataflow control, pipeline overhead, and scheduler bookkeeping.
+   This is expected and should be interpreted as a full RTL execution latency, not pure MAC compute time.
+
+9. Output Correctness
+   Every 16/32/64 PE configuration produced a full 1024-element output match against the Python golden reference.
+
+10. Limitations
+    This correlation is limited to the common reduced workload used in this experiment and does not generalize to arbitrary CNN dimensions or workloads.
+    No physical timing, hardware, or energy claims are made.
+
+11. Conclusion
+    The analytical compute model and RTL scheduler are cycle-consistent for this reduced convolution workload. The start→done latency remains higher because it includes control and pipeline overhead beyond the idealized compute estimate.
+
+16 PE summary:
+  analytical_compute_cycles = 1728
+  rtl_scheduler_compute_cycles = 1728
+  rtl_start_to_done_cycles = 1794
+  scheduler_error_percent = 0.000000%
+  output_match = PASS
+
+32 PE summary:
+  analytical_compute_cycles = 864
+  rtl_scheduler_compute_cycles = 864
+  rtl_start_to_done_cycles = 898
+  scheduler_error_percent = 0.000000%
+  output_match = PASS
+
+64 PE summary:
+  analytical_compute_cycles = 432
+  rtl_scheduler_compute_cycles = 432
+  rtl_start_to_done_cycles = 450
+  scheduler_error_percent = 0.000000%
+  output_match = PASS
+

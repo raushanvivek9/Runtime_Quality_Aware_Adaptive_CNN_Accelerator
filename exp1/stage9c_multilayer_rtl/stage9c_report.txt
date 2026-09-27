@@ -1,0 +1,48 @@
+Stage 9C prototype report
+========================
+
+Project: Neural_Acc / exp1 / stage9c_multilayer_rtl
+Status: green validation in simulation
+
+Summary:
+- The preserved Stage 8A monitor and Stage 9A convolution datapath remain unchanged.
+- The Stage 9C wrapper was tightened to the exact Stage 8A stream contract: final valid sample, then one-cycle `layer_end` with `sample_valid` low, then idle.
+- The Stage 9C bench was corrected to sample the `output_valid` pulse on the exact completion edge, because the scheduler emits a single-cycle completion pulse.
+- Both the direct Stage 9A harness and the Stage 9C suite pass in the neural_acc environment.
+
+Validated results:
+- Stage 9A direct harness: PASS
+- Stage 9C validation: 11 pass checks, 0 fail checks
+- Verdict: PASS
+
+Artifacts on disk:
+- stage9c_sim.log
+- stage9c_wave.vcd
+- stage9c_reference.log
+- stage9c_reference.txt
+
+Validation command (Stage 9A):
+  cd /home/cs25m115/Neural_Acc/exp1/stage9a_conv_rtl
+  conda run -n neural_acc iverilog -g2012 -Wall -o stage9a_sim \
+    conv_pe.sv conv_pe_array.sv conv_scheduler.sv conv_runtime_top.sv \
+    ../stage8a_rtl/runtime_monitor.sv ../stage8a_rtl/feature_calculator.sv \
+    ../stage8a_rtl/quality_estimator.sv ../stage8a_rtl/resource_controller.sv \
+    ../stage8a_rtl/runtime_controller_top.sv tb_stage9a_conv.sv
+  conda run -n neural_acc vvp stage9a_sim
+
+Validation command (Stage 9C):
+  cd /home/cs25m115/Neural_Acc/exp1/stage9c_multilayer_rtl
+  conda run -n neural_acc iverilog -g2012 -Wall -o stage9c_sim \
+    conv_layer_wrapper.sv multilayer_cnn_top.sv tb_stage9c_multilayer.sv \
+    ../stage8a_rtl/runtime_monitor.sv ../stage8a_rtl/feature_calculator.sv \
+    ../stage8a_rtl/quality_estimator.sv ../stage8a_rtl/resource_controller.sv \
+    ../stage8a_rtl/runtime_controller_top.sv ../stage9a_conv_rtl/conv_pe.sv \
+    ../stage9a_conv_rtl/conv_pe_array.sv ../stage9a_conv_rtl/conv_scheduler.sv \
+    ../stage9a_conv_rtl/conv_runtime_top.sv cnn_dataflow_controller.sv pooling2x2.sv
+  conda run -n neural_acc vvp stage9c_sim
+
+Final status:
+- Compile: pass
+- Direct harness: pass
+- Stage 9C suite: pass
+- Overall simulation verdict: PASS
