@@ -1,0 +1,44 @@
+EXPERIMENT 3 — SCALE-SIM VALIDATION FAILURE REPORT
+
+Objective
+Validate the frozen Stage 13.1 layer-wise PE allocations using actual executions of the repository's SCALE-Sim-v3-energy simulator.
+
+Isolation
+The experiment was created under exp_3_scalesim_validation/. No Stage 13, Stage 13.1 source, checkpoint, or prior result was modified.
+
+Simulator
+Path: /home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy
+Execution: repository scalesim Python API with save_disk_space=True, native reports enabled.
+SparsitySupport: false. The attempted full-network run was dense PE/mapping validation only.
+Energy: not available from the current simulator configuration.
+
+Completed phases
+Smoke test: PASS. Native smoke COMPUTE_REPORT.csv was generated under runs/smoke_test/smoke_test/.
+Single real layer: PASS for ResNet18/CIFAR10 conv1 at 16, 32, and 64 PE.
+
+Verified single-layer cycles (Total Cycles incl. prefetch)
+16 PE: 107921
+32 PE: 54341
+64 PE: 33795
+
+Failure stage
+Phase 5 / full-network execution, ResNet18/CIFAR10, 16-PE full topology.
+
+Exact failure
+Python subprocess.TimeoutExpired: SCALE-Sim execution exceeded the Experiment 3 runner timeout of 300 seconds for:
+exp_3_scalesim_validation/configs/resnet18_cifar10_network_16pe.cfg
+
+The process was terminated by the runner after the timeout. No full-network COMPUTE_REPORT.csv was emitted for that run. No remaining workloads were started.
+
+Status
+Smoke test: PASS
+Single-layer mapping: PASS
+Full-network execution: FAIL / INCOMPLETE
+Four-workload comparison: NOT GENERATED
+Analytical vs SCALE-Sim full-network comparison: NOT GENERATED
+Overall Experiment 3: FAIL / INCOMPLETE
+
+No fabricated cycles, memory, energy, speedup, or accuracy claims were generated.
+
+Next required fix
+Use a longer timeout or a layer-by-layer subprocess strategy that preserves actual SCALE-Sim execution while avoiding the installed simulator's long-running multi-layer state accumulation, then rerun from the full-network phase.

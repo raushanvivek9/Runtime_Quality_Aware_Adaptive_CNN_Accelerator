@@ -1,0 +1,2 @@
+model,dataset,total_mac_dense,total_mac_useful,total_mac_skipped,mac_reduction_percent,layers_total,layers_selected_16,layers_selected_32,layers_selected_64,average_selected_pe,average_pe_reduction_percent,dense_accuracy,sparse_accuracy,prediction_mismatches
+vgg16,cifar10,6263930880000,651930708992,5612000171008,89.59230678816175,13,11,1,1,20.923076923076923,67.3076923076923,0.8846,0.8846,0

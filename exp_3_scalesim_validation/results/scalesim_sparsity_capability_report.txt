@@ -1,0 +1,266 @@
+SCALE-Sim-v3-energy sparsity capability report
+===============================================
+
+Scope and safety
+----------------
+This is a source-code capability investigation. It did not modify Stage 13, Stage 13.1, checkpoints, or Experiment 3 scientific result files. The previously running dense Experiment 3 process was stopped before this investigation so it could not add further results.
+
+Installed version
+-----------------
+- Repository: /home/cs25m115/Neural_Acc/SCALE-Sim-v3-energy
+- Package version from setup.py: 2.0.2
+- Git commit: f79d7bc39a80a21fc35bc667967b76a15b311f49
+- Commit date: 2025-11-29T23:21:45+05:30
+- Commit subject: Merge pull request #7 from arjun289/scalesim-accelergy-fix
+- Repository URL in setup.py: https://github.com/scalesim-project/scale-sim-v2
+
+Final classification
+--------------------
+B. DENSITY/METADATA SUPPORT ONLY (original native path)
+
+The original native SCALE-Sim path has real topology-specified N:M filter sparsity and sparse filter/address mapping, but no activation-mask input. An opt-in activation-mask execution path has now been integrated separately from the original dense and N:M paths. That extension supports exact-zero activation scheduling and emits a separate activation-sparse report.
+
+Extended classification after integration
+------------------------------------------
+A. TRUE ACTIVATION-SPARSE SUPPORT for the opt-in im2col-mask execution path.
+
+This A classification is limited to the new explicit mask path. It does not claim that the original native N:M scheduler became activation-aware.
+
+Terminal summary
+----------------
+Version:
+    2.0.2, commit f79d7bc39a80a21fc35bc667967b76a15b311f49
+
+SparsitySupport:
+    Valid configuration option. false disables the repository's filter/N:M sparsity path; true enables it when topology/configuration sparsity metadata is supplied.
+
+Activation zero skipping:
+    YES in the opt-in activation-mask path; NO in the original native path
+
+Sparse MAC scheduling:
+    YES for topology/configuration-defined filter sparsity and for the opt-in exact-zero activation-mask path.
+
+Sparse cycle reduction:
+    YES in the opt-in activation-mask path; native N:M and activation-mask cycles are reported separately.
+
+Classification:
+    A for the integrated activation-mask path; B for the original native N:M path
+
+Evidence:
+    N:M topology metadata drives native sparse filter construction. The new `scale.py -a <mask.npy>` path consumes a binary im2col mask and generates `ACTIVATION_SPARSE_REPORT.csv` with separate dense and sparse cycles.
+
+Recommendation:
+    Use the opt-in activation-mask path for exact-zero scheduler validation. Keep native `SparsitySupport` semantics unchanged and do not combine native N:M reports with activation-mask reports.
+
+Search results and meaning
+--------------------------
+1. Configuration and parsing
+
+File: scalesim/scale_config.py
+Function: scale_config.__init__ and scale_config.read_conf_file
+Relevant behavior:
+- Initializes sparsity_support=False, sparsity_optimized_mapping=False, block size 4, and random seed 40.
+- Reads [sparsity] / SparsitySupport and accepts the textual values true or false, case-insensitively.
+- When true, reads SparseRep, OptimizedMapping, BlockSize when optimized mapping is enabled, and RandomNumberGeneratorSeed.
+- No activation-density, IFMAP-density, OFMAP-density, zero-skip, or activation tensor configuration field is parsed.
+- SparseRep is consumed by branches for csr, csc, and ellpack_block. There is no validation that rejects other strings at parse time; unsupported strings simply do not select a compression branch.
+
+File: configs/scale.cfg
+Configuration:
+    [sparsity]
+    SparsitySupport : false
+    SparseRep : ellpack_block
+    OptimizedMapping : false
+    BlockSize : 8
+    RandomNumberGeneratorSeed : 40
+Meaning:
+- This is why the Experiment 3 generated configs run with sparsity disabled.
+- false is a valid value and selects the dense path.
+
+File: configs/sparsity.cfg
+Configuration:
+    SparsitySupport : true
+    SparseRep : ellpack_block
+    OptimizedMapping : true
+    BlockSize : 8
+Meaning:
+- This is the repository's example sparse configuration. It enables N:M/filter sparsity logic; it does not provide activation values.
+
+2. Workload loading and sparsity metadata
+
+File: scalesim/topology_utils.py
+Functions: topologies.load_arrays_conv, topologies.load_arrays_gemm, topologies.get_layer_sparsity_ratio
+Relevant behavior:
+- Conv and GEMM topology readers parse an optional final Sparsity field as N:M.
+- If missing, the ratio defaults to 1:1.
+- The stored ratio is topology metadata: sparsity_ratio_N and sparsity_ratio_M.
+- No activation tensor, activation values, activation density, or per-input zero mask is loaded.
+
+Files: topologies/sparsity/conv.csv and topologies/sparsity/gemm.csv
+Meaning:
+- These examples describe N:M sparsity in the workload topology. They do not contain activation tensors or exact activation zero locations.
+
+3. IFMAP, filter, and OFMAP operand handling
+
+File: scalesim/compute/operand_matrix.py
+Functions: operand_matrix.set_params, create_ifmap_matrix, create_filter_matrix, create_ofmap_matrix
+Relevant behavior:
+- set_params obtains only layer dimensions, strides, offsets, and topology sparsity ratios.
+- create_ifmap_matrix calls calc_ifmap_elem_addr and creates an IFMAP address matrix. The matrix contains addresses, not activation values.
+- When sparsity_support is true and optimized mapping is false, the IFMAP address matrix is multiplied by sparse_row derived from sparse_filter_array. This removes/zeros address entries according to the filter N:M pattern; it does not inspect IFMAP activation values.
+- create_filter_matrix constructs sparse_filter_array from the topology N:M ratio or a seeded generated pattern, multiplies filter addresses by that pattern, and compresses/repackages filter addresses.
+- create_ofmap_matrix creates output addresses only. No output values are computed or used for zero skipping.
+
+Critical consequence:
+- There is no activation tensor input in this source path. An exact-zero activation cannot be distinguished from a nonzero activation with the same address, so exact-zero activation skipping is not representable.
+
+4. MAC scheduling and cycle calculation
+
+File: scalesim/compute/systolic_compute_ws.py
+Functions: systolic_compute_ws.set_params, create_ifmap_demand_mat, create_filter_demand_mat, create_ofmap_demand_mat
+Relevant behavior:
+- The compute object receives IFMAP/filter/OFMAP operand matrices that are address/demand matrices.
+- The dimensions Sr, Sc, T and array folds determine demand-matrix shape and schedule.
+- create_ifmap_demand_mat uses IFMAP address matrices and inserts pipeline/null requests. Its sparsity branches account for N:M mapping and IFMAP read counts, not activation values.
+- create_filter_demand_mat consumes the compressed/topology-derived filter matrix and generates filter demand traffic.
+- No branch tests an IFMAP operand value for equality to zero. No activation nonzero count is calculated.
+- The OS and IS implementations likewise construct schedules from matrix dimensions/addresses and do not consume activation values.
+
+File: scalesim/single_layer_sim.py
+Function: single_layer_sim.run
+Relevant behavior:
+- Gets operand matrices from operand_matrix.
+- Configures the selected systolic compute implementation.
+- Obtains prefetch and demand matrices.
+- Passes those matrices to memory simulation.
+- No activation tensor or zero mask enters this function.
+
+File: scalesim/memory/double_buffered_scratchpad_mem.py
+Function: double_buffered_scratchpad.service_memory_requests
+Relevant behavior:
+- Iterates over demand-matrix rows and services IFMAP, filter, and OFMAP requests.
+- Timing depends on request matrices, buffer configuration, and memory behavior.
+- It has no activation values and no zero-value predicate.
+
+File: scalesim/simulator.py
+Functions: simulator.run and simulator.generate_reports
+Relevant behavior:
+- Runs each layer's fixed demand schedule, then emits COMPUTE_REPORT.csv, BANDWIDTH_REPORT.csv, and, when enabled, SPARSE_REPORT.csv.
+- SPARSE_REPORT.csv reports filter storage and filter metadata bandwidth. It is not an activation sparsity report.
+
+File: scalesim/scale_sim.py
+Functions: scalesim.__init__, set_params, run_scale
+Actual path:
+    scalesim(...)
+      -> scale_config.read_conf_file
+      -> topologies.load_arrays
+      -> layouts.load_arrays
+      -> simulator.set_params
+      -> simulator.run
+      -> single_layer_sim.run
+      -> operand_matrix and systolic_compute_* demand generation
+      -> double_buffered_scratchpad.service_memory_requests
+      -> simulator.generate_reports
+
+No point in this path receives activation values or an activation-density mask.
+
+Configuration option assessment
+-------------------------------
+SparsitySupport valid option?
+    YES. scale_config.read_conf_file explicitly reads it and accepts true/false.
+
+Implemented in this repository version?
+    YES, for topology/configuration-defined filter N:M sparsity and sparse mapping/metadata accounting.
+
+Accepted values?
+    true and false, case-insensitive. SparseRep branches support csr, csc, and ellpack_block. N:M ratios come from the topology final Sparsity field; missing ratios default to 1:1.
+
+What path changes when enabled?
+    operand_matrix creates sparse_filter_array, masks/compresses filter address matrices, and may alter IFMAP address/demand dimensions for the N:M mapping. The WS compute path changes fold/demand construction and read accounting. Reports add filter metadata fields and SPARSE_REPORT.csv.
+
+Does it affect cycles?
+    YES for the filter/topology sparse schedule. The isolated repository example produced different simulated schedules and cycle reports.
+
+Does it affect memory accesses?
+    YES for filter/IFMAP demand structures and filter metadata traffic. The sparse report includes filter metadata storage and metadata SRAM bandwidth.
+
+Does it skip zero activation MACs?
+    NO. The source never receives activation values and never tests IFMAP values for zero.
+
+Is it density-aware for activations?
+    NO. There are no activation_density or ifmap_density inputs/variables in the execution path.
+
+Is it sparse PE-utilization aware for exact-zero activations?
+    NO. Utilization is derived from the generated schedule/mapping, not from runtime activation values.
+
+Is it sparse MAC-count aware for exact-zero activations?
+    NO. The schedule is based on topology dimensions and configured N:M filter mapping. It does not count exact-zero activation operands.
+
+Is it weight/filter sparse?
+    YES, in the limited topology/configuration-driven N:M sense. The implementation generates or consumes sparse filter patterns and reports compression/metadata behavior.
+
+Is it activation sparse?
+    NO.
+
+Is it exact-zero activation sparse?
+    NO.
+
+Is it merely a configuration option with no effect at all?
+    NO. The option has observable filter-sparsity effects. Therefore classification C would be inaccurate for the repository overall; C would only describe the narrower claim that enabling the option does not implement activation zero skipping.
+
+Is it full true activation-sparse support?
+    NO. Classification A is inaccurate.
+
+Is it no relevant sparse support?
+    NO. Classification D is inaccurate because the filter/N:M path is implemented and changes the schedule/reports.
+
+Isolated capability test
+------------------------
+Test location:
+- Temporary directory under /tmp; no Experiment 3 result files were used or changed.
+- Existing repository example: topologies/sparsity/conv.csv, a 5x5, 3x3, 2-channel, 6-filter convolution with topology ratio 2:4.
+- Existing layout: layouts/conv_nets/test.csv.
+- Both runs used an 8x8 array and the same topology. Sparse output used SparsitySupport=true, ellpack_block, optimized mapping, and N:M metadata from the topology. Dense output used SparsitySupport=false.
+
+Observed output:
+- Dense COMPUTE_REPORT.csv: Total Cycles (incl. prefetch) = 178; Total Cycles = 92; Stall Cycles = 0.
+- Sparse COMPUTE_REPORT.csv: Total Cycles (incl. prefetch) = 337; Total Cycles = 61; Stall Cycles = 0.
+- Sparse SPARSE_REPORT.csv: Original Filter Storage = 108; New Storage (Filter+Metadata) = 76.5; Filter Metadata Storage = 4.5.
+- Sparse BANDWIDTH_REPORT.csv contained a nonzero Filter Metadata SRAM BW of approximately 0.07377 words/cycle.
+
+Interpretation:
+- This proves the installed sparse path changes filter/address mapping and emits metadata-related traffic/reporting.
+- The test does not prove activation sparsity, because the simulator was not given an activation tensor and the topology contains only N:M sparsity metadata.
+- The sparse total schedule can be higher due to mapping/pipeline behavior even when compute cycles are lower. It must not be interpreted as a research result or as an activation-sparse speedup.
+
+Native SCALE-Sim execution validation
+-------------------------------------
+The installed SCALE-Sim CLI was executed directly using temporary configs and output directories outside Experiment 3:
+
+    python scale.py -c <dense temporary config> -t topologies/sparsity/conv.csv -l layouts/conv_nets/test.csv -p <temporary dense output> -i conv -s N
+    python scale.py -c <sparse temporary config> -t topologies/sparsity/conv.csv -l layouts/conv_nets/test.csv -p <temporary sparse output> -i conv -s N
+
+Both subprocesses exited successfully and generated native reports.
+
+Dense native output:
+- COMPUTE_REPORT.csv: Total Cycles (incl. prefetch) = 178; Total Cycles = 92; Stall Cycles = 0.
+
+Sparse native output with SparsitySupport=true:
+- COMPUTE_REPORT.csv: Total Cycles (incl. prefetch) = 337; Total Cycles = 61; Stall Cycles = 0.
+- BANDWIDTH_REPORT.csv was generated with Filter Metadata SRAM BW = 0.07377049180327869 words/cycle.
+- SPARSE_REPORT.csv was generated with Original Filter Storage = 108, New Storage (Filter+Metadata) = 76.5, and Filter Metadata Storage = 4.5.
+
+This confirms that the repository's native SCALE-Sim sparse execution path is operational and changes the filter/mapping schedule. It does not validate exact-zero activation skipping: the native CLI still receives only topology dimensions and N:M metadata, not an activation mask. The new activation-mask scheduler in Experiment 3 is therefore validated separately by its direct mask tests and Stage 13.1 analytical-count validator; it is not silently represented as native SCALE-Sim output.
+
+Exact-zero activation conclusion
+--------------------------------
+The original native SCALE-Sim path cannot represent Stage 13/13.1 exact-zero activation skipping. The integrated opt-in path can consume an explicit binary im2col mask and report exact-zero useful/skipped MACs and row-wise sparse cycles. Stage 13/13.1 activation statistics are still not silently injected into native N:M runs; they must be converted into validated per-layer mask files before use.
+
+Recommendation for Experiment 3
+--------------------------------
+- Keep Experiment 3's current scientific results unchanged.
+- Keep SparsitySupport=false for the existing dense validation unless a separate, explicitly filter-sparse experiment is intended.
+- Do not fabricate activation-sparse SCALE-Sim cycles, MACs, PE utilization, or energy.
+- Do not compare Stage 13/13.1 exact-zero activation skipping against SCALE-Sim as though this installed version modeled it.
+- For exact-zero activation evaluation, use `scale.py -a <mask.npy>` with a validated per-layer im2col mask and consume only `ACTIVATION_SPARSE_REPORT.csv` for activation-sparse cycles. Do not mix those reports with native N:M `COMPUTE_REPORT.csv` results.
+- Energy remains NOT AVAILABLE from this capability investigation.

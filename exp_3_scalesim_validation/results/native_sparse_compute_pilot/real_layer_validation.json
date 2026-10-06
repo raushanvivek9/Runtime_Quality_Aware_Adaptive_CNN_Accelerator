@@ -1,0 +1,31 @@
+{
+  "active_mask_entries": 150709,
+  "analytical_lower_bound_cycles": 301418,
+  "analytical_lower_bound_label": "ANALYTICAL LOWER BOUND",
+  "array_cols": 8,
+  "array_rows": 4,
+  "dense_compute_cycles": 602495,
+  "dense_cycle_report": "/home/cs25m115/Neural_Acc/exp_3_scalesim_validation/results/final_experiment/scalesim_runs/resnet18_cifar10/layer1.0.conv1/dense_64pe/attempt_001/simulator_output/resnet18_cifar10_layer_01_dense_64pe/COMPUTE_REPORT.csv",
+  "dense_macs": 37748736,
+  "label": 3,
+  "layer": "layer1.0.conv1",
+  "mask_match": true,
+  "mask_path": "/home/cs25m115/Neural_Acc/exp_3_scalesim_validation/masks/resnet18_cifar10/layer_01.npy",
+  "mask_shape": [
+    1024,
+    576
+  ],
+  "max_abs_error": 4.76837158203125e-07,
+  "numerical_match": true,
+  "output_shape": [
+    1024,
+    64
+  ],
+  "schedule_cycle_model": "phase_a_ws_compute_only; no native memory service",
+  "selected_pe": 32,
+  "skipped_macs": 28103360,
+  "sparse_compute_cycles": 382208,
+  "status": "PASS",
+  "useful_macs": 9645376,
+  "workload": "resnet18_cifar10"
+}

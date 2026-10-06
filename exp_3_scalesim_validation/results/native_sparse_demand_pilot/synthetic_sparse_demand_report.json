@@ -1,0 +1,18 @@
+{
+  "synthetic_validation": "PASS",
+  "real_pilot": "FAIL",
+  "mac_conservation": "PASS",
+  "original_k_preservation": "PASS",
+  "ifmap_provenance": "PASS",
+  "filter_provenance": "PASS",
+  "ofmap_provenance": "PASS",
+  "native_memory_compatibility": "FAIL",
+  "fabricated_traffic": "YES",
+  "fabricated_stalls": "YES",
+  "native_scale_sim_execution_launched": "NO",
+  "frozen_evidence_modified": "NO",
+  "summary": {
+    "status": "PHASE_B1_BLOCKED",
+    "reason": "The sparse demand trace is semantically valid but the native memory service still requires dense rectangular demand matrices with native stall generation, so converting sparse MAC events into dense matrices would fabricate traffic and stalls."
+  }
+}

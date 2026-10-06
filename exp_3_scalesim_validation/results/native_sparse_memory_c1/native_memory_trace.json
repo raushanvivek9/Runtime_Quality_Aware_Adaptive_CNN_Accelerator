@@ -1,0 +1,6 @@
+{
+  "first_requests": [],
+  "reason": "No native sparse memory service entry point accepts the sparse Phase-A request stream; the dense demand-matrix API is the actual native contract.",
+  "request_count": 0,
+  "status": "PHASE_C1_BLOCKED"
+}

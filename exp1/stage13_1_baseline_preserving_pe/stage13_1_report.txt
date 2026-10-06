@@ -1,0 +1,34 @@
+Stage 13.1 Baseline-Preserving PE Allocation
+Timestamp: 2026-09-28 10:03:09 UTC
+Project root: /home/cs25m115/Neural_Acc
+Source Stage 13 files used:
+- /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/common.py
+- /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/evaluate_models.py
+- /home/cs25m115/Neural_Acc/stage13_final_freeze/validation/run_stage13_validation.py
+
+Checkpoint paths:
+- resnet18/cifar10: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/resnet18_cifar10_best.pt
+- resnet18/cifar100: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/resnet18_cifar100_best.pt
+- vgg16/cifar10: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar10_best.pt
+- vgg16/cifar100: /home/cs25m115/Neural_Acc/exp1/stage12_final_evaluation_v3/checkpoints/vgg16_cifar100_best.pt
+
+Exact-zero definition: activation == 0; only exact-zero convolution input activations are considered skipped.
+Candidate PEs: 16, 32, 64
+Baseline formula: C_baseline = ceil(MAC_dense / 64)
+Sparse cycle formula: C_P = ceil(MAC_useful / P)
+Selection rule: choose the smallest feasible PE satisfying C_P <= C_baseline. If no feasible candidate exists, default to 64.
+
+Validation summary:
+- resnet18/cifar10: dense_accuracy=0.9513, sparse_accuracy=0.9513, mismatches=0, valid=True
+- resnet18/cifar100: dense_accuracy=0.7697, sparse_accuracy=0.7697, mismatches=0, valid=True
+- vgg16/cifar10: dense_accuracy=0.8846, sparse_accuracy=0.8846, mismatches=0, valid=True
+- vgg16/cifar100: dense_accuracy=0.6557, sparse_accuracy=0.6557, mismatches=0, valid=True
+
+Output files:
+- /home/cs25m115/Neural_Acc/exp1/stage13_1_baseline_preserving_pe/results/layerwise_results.csv
+- /home/cs25m115/Neural_Acc/exp1/stage13_1_baseline_preserving_pe/results/workload_summary.csv
+- /home/cs25m115/Neural_Acc/exp1/stage13_1_baseline_preserving_pe/results/validation_summary.json
+- /home/cs25m115/Neural_Acc/exp1/stage13_1_baseline_preserving_pe/results/stage13_vs_stage13_1.csv
+- /home/cs25m115/Neural_Acc/exp1/stage13_1_baseline_preserving_pe/stage13_1_report.txt
+
+Overall Stage 13.1 status: PASS

@@ -1,0 +1,14 @@
+PHASE_B1_BLOCKED
+
+Synthetic validation: PASS
+Real pilot: FAIL
+MAC conservation: PASS/FAIL (synthetic PASS, real pilot FAIL due native compatibility issue)
+Original-K preservation: PASS
+IFMAP provenance: PASS
+FILTER provenance: PASS
+OFMAP provenance: PASS
+Native memory compatibility: FAIL
+Fabricated traffic: YES
+Fabricated stalls: YES
+Native SCALE-Sim execution launched: NO
+Frozen evidence modified: NO

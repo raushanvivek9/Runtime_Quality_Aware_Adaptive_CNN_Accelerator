@@ -1,0 +1,3539 @@
+{
+  "checks": {
+    "artificial_requests": true,
+    "duplicate_impossible_requests": true,
+    "filter_mapping": false,
+    "ifmap_mapping": false,
+    "native_service_reached": true,
+    "ofmap_mapping": false,
+    "original_k_preserved": true,
+    "psum_mapping": false
+  },
+  "final_status": "PHASE_C1_BLOCKED",
+  "native_service": {
+    "DRAM_traffic": 0,
+    "SRAM_traffic": 0,
+    "accepted_requests": [
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 0,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 1,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 2,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 3,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 4,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_0_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 5,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_0_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 6,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_0_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 7,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_0_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 8,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_0_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 9,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_0_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 10,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_0_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 4,
+        "request_id": 11,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "dependency_id": "mac_0_3_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 12,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_0_3_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 13,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_3_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 14,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_3_0",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 15,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "dependency_id": "mac_0_3_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 16,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_0_3_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 17,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_3_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 18,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_3_1",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 19,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "dependency_id": "mac_0_3_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 20,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_0_3_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 21,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_3_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 22,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_3_2",
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 4,
+        "request_id": 23,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "dependency_id": "mac_0_7_0",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 7,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 24,
+        "size": 1
+      },
+      {
+        "address": [
+          7,
+          0
+        ],
+        "dependency_id": "mac_0_7_0",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 7,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 25,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_7_0",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 7,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 26,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_0_7_0",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 7,
+        "output_channel": 0,
+        "output_position": 0,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 27,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "dependency_id": "mac_0_7_1",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 7,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 28,
+        "size": 1
+      },
+      {
+        "address": [
+          7,
+          1
+        ],
+        "dependency_id": "mac_0_7_1",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 7,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 29,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_7_1",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 7,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 30,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_0_7_1",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 7,
+        "output_channel": 1,
+        "output_position": 0,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 31,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "dependency_id": "mac_0_7_2",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 7,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 32,
+        "size": 1
+      },
+      {
+        "address": [
+          7,
+          2
+        ],
+        "dependency_id": "mac_0_7_2",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 7,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 33,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_7_2",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 7,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 34,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_0_7_2",
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 7,
+        "output_channel": 2,
+        "output_position": 0,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 5,
+        "request_id": 35,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "dependency_id": "mac_1_4_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 4,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 36,
+        "size": 1
+      },
+      {
+        "address": [
+          4,
+          0
+        ],
+        "dependency_id": "mac_1_4_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 4,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 37,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "dependency_id": "mac_1_4_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 4,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 38,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "dependency_id": "mac_1_4_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 4,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 39,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "dependency_id": "mac_1_4_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 4,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 40,
+        "size": 1
+      },
+      {
+        "address": [
+          4,
+          1
+        ],
+        "dependency_id": "mac_1_4_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 4,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 41,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_4_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 4,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 42,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_4_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 4,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 43,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "dependency_id": "mac_1_4_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 4,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 44,
+        "size": 1
+      },
+      {
+        "address": [
+          4,
+          2
+        ],
+        "dependency_id": "mac_1_4_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 4,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 45,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "dependency_id": "mac_1_4_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 4,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 46,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "dependency_id": "mac_1_4_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 4,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 14,
+        "request_id": 47,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 1,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 48,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "dependency_id": "mac_1_1_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 1,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 49,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "dependency_id": "mac_1_1_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 1,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 50,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "dependency_id": "mac_1_1_0",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 1,
+        "output_channel": 0,
+        "output_position": 1,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 51,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 1,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 52,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 1,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 53,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 1,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 54,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_1",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 1,
+        "output_channel": 1,
+        "output_position": 1,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 55,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "dependency_id": "mac_1_1_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 1,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 56,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "dependency_id": "mac_1_1_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 1,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 57,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "dependency_id": "mac_1_1_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 1,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 58,
+        "size": 1
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "dependency_id": "mac_1_1_2",
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 1,
+        "output_channel": 2,
+        "output_position": 1,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 14,
+        "request_id": 59,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_0_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 60,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "dependency_id": "mac_2_0_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 61,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_0_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 62,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_0_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 63,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_0_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 64,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "dependency_id": "mac_2_0_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 65,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_0_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 66,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_0_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 67,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_0_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 68,
+        "size": 1
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "dependency_id": "mac_2_0_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 69,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_0_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 70,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_0_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 0,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 0,
+        "ready_cycle": 23,
+        "request_id": 71,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "dependency_id": "mac_2_5_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 5,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 72,
+        "size": 1
+      },
+      {
+        "address": [
+          5,
+          0
+        ],
+        "dependency_id": "mac_2_5_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 5,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 73,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_5_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 5,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 74,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_5_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 5,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 75,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "dependency_id": "mac_2_5_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 5,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 76,
+        "size": 1
+      },
+      {
+        "address": [
+          5,
+          1
+        ],
+        "dependency_id": "mac_2_5_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 5,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 77,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_5_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 5,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 78,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_5_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 5,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 79,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "dependency_id": "mac_2_5_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 5,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 80,
+        "size": 1
+      },
+      {
+        "address": [
+          5,
+          2
+        ],
+        "dependency_id": "mac_2_5_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 5,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 81,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_5_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 5,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 82,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_5_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 5,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 1,
+        "ready_cycle": 23,
+        "request_id": 83,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 2,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 84,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_2_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 2,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 85,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_2_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 2,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 86,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "dependency_id": "mac_2_2_0",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 2,
+        "output_channel": 0,
+        "output_position": 2,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 87,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 2,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 88,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_2_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 2,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 89,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_2_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 2,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 90,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "dependency_id": "mac_2_2_1",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 2,
+        "output_channel": 1,
+        "output_position": 2,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 91,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 2,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 92,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 2,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 93,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 2,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 94,
+        "size": 1
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "dependency_id": "mac_2_2_2",
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 2,
+        "output_channel": 2,
+        "output_position": 2,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 23,
+        "request_id": 95,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "dependency_id": "mac_3_6_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 6,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 96,
+        "size": 1
+      },
+      {
+        "address": [
+          6,
+          0
+        ],
+        "dependency_id": "mac_3_6_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 6,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 97,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_3_6_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 6,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 98,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_3_6_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 6,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 99,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "dependency_id": "mac_3_6_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 6,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 100,
+        "size": 1
+      },
+      {
+        "address": [
+          6,
+          1
+        ],
+        "dependency_id": "mac_3_6_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 6,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 101,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_3_6_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 6,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 102,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_3_6_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 6,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 103,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "dependency_id": "mac_3_6_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 6,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 104,
+        "size": 1
+      },
+      {
+        "address": [
+          6,
+          2
+        ],
+        "dependency_id": "mac_3_6_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 6,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 105,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_3_6_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 6,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 106,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_3_6_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 6,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 2,
+        "ready_cycle": 32,
+        "request_id": 107,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "dependency_id": "mac_3_3_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 108,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_3_3_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 109,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_3_3_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 110,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "dependency_id": "mac_3_3_0",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 0,
+        "output_position": 3,
+        "pe_col": 0,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 111,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "dependency_id": "mac_3_3_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 112,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_3_3_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 113,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_3_3_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 114,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "dependency_id": "mac_3_3_1",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 1,
+        "output_position": 3,
+        "pe_col": 1,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 115,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "dependency_id": "mac_3_3_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 116,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_3_3_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 117,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_3_3_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 118,
+        "size": 1
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "dependency_id": "mac_3_3_2",
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "original_k": 3,
+        "output_channel": 2,
+        "output_position": 3,
+        "pe_col": 2,
+        "pe_row": 3,
+        "ready_cycle": 32,
+        "request_id": 119,
+        "size": 1
+      }
+    ],
+    "final_cycle": 0,
+    "native_compatibility": "BLOCKED",
+    "reason": "The native SCALE-Sim memory service requires dense 2D demand matrices generated by the compute system; sparse event requests are not accepted as direct native input. No fake dense matrix conversion was performed.",
+    "rejected_requests": [],
+    "request_service_events": [
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 0
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 1
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 2
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 3
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 4
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 5
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 6
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 7
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 8
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 9
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 10
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 11
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 12
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 13
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 14
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 15
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 16
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 17
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 18
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 19
+      },
+      {
+        "address": [
+          0,
+          3
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 4,
+        "request_id": 20
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 4,
+        "request_id": 21
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 4,
+        "request_id": 22
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 3,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 4,
+        "request_id": 23
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 5,
+        "request_id": 24
+      },
+      {
+        "address": [
+          7,
+          0
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 5,
+        "request_id": 25
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 5,
+        "request_id": 26
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 5,
+        "request_id": 27
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 5,
+        "request_id": 28
+      },
+      {
+        "address": [
+          7,
+          1
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 5,
+        "request_id": 29
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 5,
+        "request_id": 30
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 5,
+        "request_id": 31
+      },
+      {
+        "address": [
+          0,
+          7
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 5,
+        "request_id": 32
+      },
+      {
+        "address": [
+          7,
+          2
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 5,
+        "request_id": 33
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 5,
+        "request_id": 34
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 4,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 5,
+        "request_id": 35
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 36
+      },
+      {
+        "address": [
+          4,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 37
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 38
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 39
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 40
+      },
+      {
+        "address": [
+          4,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 41
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 42
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 43
+      },
+      {
+        "address": [
+          1,
+          4
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 44
+      },
+      {
+        "address": [
+          4,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 45
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 46
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 47
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 48
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 49
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 50
+      },
+      {
+        "address": [
+          1,
+          0
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 51
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 52
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 53
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 54
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 55
+      },
+      {
+        "address": [
+          1,
+          1
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 14,
+        "request_id": 56
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 14,
+        "request_id": 57
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 14,
+        "request_id": 58
+      },
+      {
+        "address": [
+          1,
+          2
+        ],
+        "issue_cycle": 13,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 14,
+        "request_id": 59
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 60
+      },
+      {
+        "address": [
+          0,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 61
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 62
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 63
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 64
+      },
+      {
+        "address": [
+          0,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 65
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 66
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 67
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 68
+      },
+      {
+        "address": [
+          0,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 69
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 70
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 71
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 72
+      },
+      {
+        "address": [
+          5,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 73
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 74
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 75
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 76
+      },
+      {
+        "address": [
+          5,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 77
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 78
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 79
+      },
+      {
+        "address": [
+          2,
+          5
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 80
+      },
+      {
+        "address": [
+          5,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 81
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 82
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 83
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 84
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 85
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 86
+      },
+      {
+        "address": [
+          2,
+          0
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 87
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 88
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 89
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 90
+      },
+      {
+        "address": [
+          2,
+          1
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 91
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 23,
+        "request_id": 92
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 23,
+        "request_id": 93
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 23,
+        "request_id": 94
+      },
+      {
+        "address": [
+          2,
+          2
+        ],
+        "issue_cycle": 22,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 23,
+        "request_id": 95
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 96
+      },
+      {
+        "address": [
+          6,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 97
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 98
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 99
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 100
+      },
+      {
+        "address": [
+          6,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 101
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 102
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 103
+      },
+      {
+        "address": [
+          3,
+          6
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 104
+      },
+      {
+        "address": [
+          6,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 105
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 106
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 107
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 108
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 109
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 110
+      },
+      {
+        "address": [
+          3,
+          0
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 111
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 112
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 113
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 114
+      },
+      {
+        "address": [
+          3,
+          1
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 115
+      },
+      {
+        "address": [
+          3,
+          3
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "IFMAP",
+        "ready_cycle": 32,
+        "request_id": 116
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "FILTER",
+        "ready_cycle": 32,
+        "request_id": 117
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "PSUM",
+        "ready_cycle": 32,
+        "request_id": 118
+      },
+      {
+        "address": [
+          3,
+          2
+        ],
+        "issue_cycle": 31,
+        "native_status": "UNRESOLVED",
+        "operand_type": "OFMAP",
+        "ready_cycle": 32,
+        "request_id": 119
+      }
+    ],
+    "stalls": 0,
+    "unresolved_requests": [],
+    "validation": {
+      "duplicate_logical_coordinates": false,
+      "duplicates": [],
+      "mac_event_count": 30,
+      "missing_filter": 0,
+      "missing_ifmap": 0,
+      "missing_ofmap": 0,
+      "missing_psum": 0,
+      "total_requests": 120,
+      "valid": true
+    }
+  },
+  "status": "PASS",
+  "synthetic_schedule": {
+    "analytical_lower_bound": 1,
+    "cycles": 37,
+    "dense_macs": 96,
+    "output_channels": 3,
+    "output_positions": 4,
+    "skipped_macs": 66,
+    "useful_macs": 30
+  },
+  "trace_validation": {
+    "duplicate_logical_coordinates": false,
+    "duplicates": [],
+    "mac_event_count": 30,
+    "missing_filter": 0,
+    "missing_ifmap": 0,
+    "missing_ofmap": 0,
+    "missing_psum": 0,
+    "total_requests": 120,
+    "valid": true
+  }
+}

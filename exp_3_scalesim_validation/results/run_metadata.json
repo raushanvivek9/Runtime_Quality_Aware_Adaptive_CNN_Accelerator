@@ -1,0 +1,19 @@
+{
+  "smoke_test": {
+    "scalesim_cycles": 638,
+    "scalesim_stall_cycles": 0.0,
+    "scalesim_overall_util_%": 75.70093457943925,
+    "scalesim_compute_util_%": 70.8454810495627,
+    "status": "PASS",
+    "output_report": "/home/cs25m115/Neural_Acc/exp_3_scalesim_validation/runs/smoke_test/smoke/layer_00/smoke_test_layer_00_smoke_16pe/COMPUTE_REPORT.csv",
+    "command": "/home/cs25m115/anaconda3/envs/neural_acc/bin/python /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/scripts/run_scalesim_once.py --root /home/cs25m115/Neural_Acc --config /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/configs/smoke_test/layer_00/smoke/16pe.cfg --layout /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/workloads/smoke_test/layer_00/smoke_test_layer_00_smoke_16pe_layout.csv --topology /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/workloads/smoke_test/layer_00/smoke_test_layer_00_smoke_16pe.csv --output /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/runs/smoke_test/smoke/layer_00",
+    "error": ""
+  },
+  "timeout_seconds_per_layer": 300,
+  "sparse_execution": "NOT_SUPPORTED: SparsitySupport=false",
+  "energy": "NOT_AVAILABLE",
+  "aggregation": "sum of successful sequential independent layer cycles",
+  "workloads_attempted": [
+    "resnet18/cifar10"
+  ]
+}

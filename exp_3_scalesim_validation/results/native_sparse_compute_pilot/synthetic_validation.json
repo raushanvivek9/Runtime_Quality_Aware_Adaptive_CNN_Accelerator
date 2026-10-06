@@ -1,0 +1,52 @@
+{
+  "active_k_by_position": [
+    [
+      0,
+      2,
+      5
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      0,
+      3,
+      7,
+      8
+    ],
+    [
+      2,
+      6,
+      9,
+      11
+    ]
+  ],
+  "active_mask_entries": 13,
+  "analytical_lower_bound_cycles": 5,
+  "analytical_lower_bound_label": "ANALYTICAL LOWER BOUND",
+  "array_cols": 8,
+  "array_rows": 4,
+  "checks": {
+    "active_k_sets_differ_by_position": true,
+    "event_count_matches_useful_macs": true,
+    "mac_conservation": true,
+    "not_analytical_cycle_fallback": true,
+    "numerical_match": true,
+    "original_k_indices_preserved": true,
+    "output_channels_valid": true,
+    "output_shape_identical": true,
+    "pe_assignments_valid_and_unique": true
+  },
+  "dense_macs": 480,
+  "event_count": 130,
+  "max_abs_error": 2.384185791015625e-07,
+  "output_channels": 10,
+  "output_positions": 4,
+  "reduction_size": 12,
+  "skipped_macs": 350,
+  "sparse_compute_cycles": 76,
+  "status": "PASS",
+  "test": "synthetic_irregular_activation_mask",
+  "useful_macs": 130
+}

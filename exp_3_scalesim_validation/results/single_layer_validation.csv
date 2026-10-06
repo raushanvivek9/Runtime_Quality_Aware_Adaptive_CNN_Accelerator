@@ -1,0 +1,4 @@
+workload,layer_index,layer_name,pe,scalesim_cycles,scalesim_compute_cycles,scalesim_stall_cycles,overall_util_percent,mapping_efficiency_percent,compute_util_percent,input_shape,output_shape,kernel,stride
+resnet18/cifar10,0,conv1,16,107921,101919,0,95.36985252995025,96.42857142857143,95.05554686277594,1x3x32x32,1x64x32x32,3x3,1
+resnet18/cifar10,0,conv1,32,54341,51183,0,94.9534024969228,96.42857142857143,94.22987436016747,1x3x32x32,1x64x32x32,3x3,1
+resnet18/cifar10,0,conv1,64,33795,29503,0,82.3645053045453,84.375,81.74111948331544,1x3x32x32,1x64x32x32,3x3,1
