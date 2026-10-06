@@ -1,0 +1,30 @@
+{
+  "overall": "PASS",
+  "workloads": [
+    {
+      "model": "resnet18",
+      "dataset": "cifar10",
+      "status": "PASS",
+      "mismatches": 0
+    },
+    {
+      "model": "resnet18",
+      "dataset": "cifar100",
+      "status": "PASS",
+      "mismatches": 0
+    },
+    {
+      "model": "vgg16",
+      "dataset": "cifar10",
+      "status": "PASS",
+      "mismatches": 0
+    },
+    {
+      "model": "vgg16",
+      "dataset": "cifar100",
+      "status": "PASS",
+      "mismatches": 0
+    }
+  ],
+  "mac_accounting": true
+}

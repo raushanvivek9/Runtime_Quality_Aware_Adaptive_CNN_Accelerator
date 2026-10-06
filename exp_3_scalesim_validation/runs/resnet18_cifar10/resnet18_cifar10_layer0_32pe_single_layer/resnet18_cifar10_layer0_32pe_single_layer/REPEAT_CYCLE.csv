@@ -1,0 +1,2 @@
+layer_num,ifmap_sram_repeat,filter_sram_repeat,ofmap_sram_repeat,ifmap_dram_repeat,filter_dram_repeat,ofmap_dram_repeatn,
+0,153784,1024,153784,2390,1358,201880,

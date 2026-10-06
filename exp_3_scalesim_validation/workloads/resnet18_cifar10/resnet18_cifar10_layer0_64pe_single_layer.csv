@@ -1,0 +1,2 @@
+Layer name, IFMAP Height, IFMAP Width, Filter Height, Filter Width, Channels, Num Filter, Strides,
+resnet18_cifar10_layer0_64pe_single_layer, 32, 32, 3, 3, 3, 64, 1,

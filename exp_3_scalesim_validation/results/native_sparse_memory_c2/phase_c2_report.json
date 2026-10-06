@@ -1,0 +1,38 @@
+{
+  "array": "4x8",
+  "checks": {
+    "66_layer_experiment_launched": "NO",
+    "artificial_stalls": "NO",
+    "artificial_traffic": "NO",
+    "dense_demand_matrices_used": "NO",
+    "filter_mapping": "PASS",
+    "frozen_stage13_1_modified": "NO",
+    "frozen_stage13_modified": "NO",
+    "ifmap_mapping": "PASS",
+    "mac_conservation": "PASS",
+    "native_memory_timing_obtained": "NO",
+    "native_sparse_service_reached": "NO",
+    "ofmap_mapping": "PASS",
+    "original_k_preservation": "PASS",
+    "psum_mapping": "PASS",
+    "real_pilot": "BLOCKED",
+    "synthetic_test": "PASS"
+  },
+  "exact_boundary": "The sparse request stream remains valid in compute space, but the native memory service still requires dense demand matrices; therefore the extension stops at the interface boundary.",
+  "input": "first CIFAR10 test image",
+  "interface_blocker": {
+    "artificial_stalls": false,
+    "artificial_traffic": false,
+    "blocked_at": "scalesim/memory/double_buffered_scratchpad_mem.py::service_memory_requests() and scalesim/memory/read_buffer.py::set_fetch_matrix()/service_reads()",
+    "dense_demand_matrices_used": false,
+    "native_memory_timing_obtained": false,
+    "native_service_requires_dense_demand_matrices": true,
+    "native_sparse_admission_path_exists": false,
+    "reason": "The current native memory service still accepts dense demand matrices through `service_memory_requests(ifmap_demand_mat, filter_demand_mat, ofmap_demand_mat)` in `scalesim/memory/double_buffered_scratchpad_mem.py`, and buffer reads still run via dense fetch arrays in `scalesim/memory/read_buffer.py`. There is no native sparse per-request admission path for activation-dependent active-K requests."
+  },
+  "layer": "layer1.0.conv1",
+  "mask_rows_used": 1024,
+  "pe": 32,
+  "status": "PHASE_C2_BLOCKED",
+  "workload": "resnet18_cifar10"
+}

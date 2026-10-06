@@ -1,0 +1,2 @@
+Layer name, IFMAP Height, IFMAP Width, Filter Height, Filter Width, Channels, Num Filter, Strides,
+smoke_test_layer_00_smoke_16pe, 8, 8, 3, 3, 3, 4, 1,

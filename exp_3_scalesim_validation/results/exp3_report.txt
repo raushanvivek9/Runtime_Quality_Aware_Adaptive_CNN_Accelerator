@@ -1,0 +1,23 @@
+EXPERIMENT 3 — LAYER-BY-LAYER SCALE-SIM VALIDATION
+
+Phase 1 — smoke test: PASS
+Phase 2 — single real layer: PASS (preserved ResNet18/CIFAR10 conv1 native reports at 16/32/64 PE)
+Phase 3 — dense layer-by-layer validation
+Phase 4 — adaptive layer-by-layer validation (not reached after dense incompleteness)
+Phase 5 — four workload aggregation (not reached)
+
+Execution: fresh SCALE-Sim subprocess per convolution layer, 300-second per-layer timeout.
+SparsitySupport: false; this is PE allocation and accelerator mapping validation only.
+Energy: unavailable from the current simulator configuration.
+Aggregation: sum of successful sequential layer cycles only.
+Stage 13.1 useful-MAC values and accuracy remain analytical/inherited, not SCALE-Sim measurements.
+
+resnet18/cifar10: layers=20, dense_completed=1, adaptive_completed=0, timed_out_layers=1, failed_layers=0, dense_cycles=NA, adaptive_cycles=NA, status=INCOMPLETE
+  FAILURE dense64 layer 1 layer1.0.conv1: TIMEOUT
+  command: /home/cs25m115/anaconda3/envs/neural_acc/bin/python /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/scripts/run_scalesim_once.py --root /home/cs25m115/Neural_Acc --config /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/configs/resnet18_cifar10/layer_01/dense64/64pe.cfg --layout /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/workloads/resnet18_cifar10/layer_01/resnet18_cifar10_layer_01_dense64_64pe_layout.csv --topology /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/workloads/resnet18_cifar10/layer_01/resnet18_cifar10_layer_01_dense64_64pe.csv --output /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/runs/resnet18_cifar10/dense64/layer_01
+  error: timeout after 300 seconds
+
+Plots: generated only after all four workloads complete; not generated for an incomplete run.
+
+Overall Experiment 3: INCOMPLETE
+Results: /home/cs25m115/Neural_Acc/exp_3_scalesim_validation/results

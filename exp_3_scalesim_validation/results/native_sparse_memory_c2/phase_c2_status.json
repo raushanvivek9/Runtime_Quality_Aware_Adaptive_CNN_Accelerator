@@ -1,0 +1,4 @@
+{
+  "reason": "The sparse request stream remains valid in compute space, but the native memory service still requires dense demand matrices; therefore the extension stops at the interface boundary.",
+  "status": "PHASE_C2_BLOCKED"
+}

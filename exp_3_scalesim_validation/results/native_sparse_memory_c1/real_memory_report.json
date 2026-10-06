@@ -1,0 +1,43 @@
+{
+  "array": "4x8",
+  "checks": {
+    "66_layer_experiment_launched": "NO",
+    "artificial_stalls": "NO",
+    "artificial_traffic": "NO",
+    "dense_demand_matrices_used": "YES",
+    "filter_mapping": "PASS",
+    "frozen_stage13_1_modified": "NO",
+    "frozen_stage13_modified": "NO",
+    "ifmap_mapping": "PASS",
+    "mac_conservation": "PASS",
+    "native_memory_service_reached": "NO",
+    "native_memory_timing_obtained": "NO",
+    "ofmap_mapping": "PASS",
+    "original_k_preservation": "PASS",
+    "psum_mapping": "PASS",
+    "real_pilot": "FAIL",
+    "synthetic_test": "PASS"
+  },
+  "input": "first CIFAR10 test image",
+  "interface_blocker": {
+    "artificial_stalls": false,
+    "artificial_traffic": false,
+    "blocked_at": "scalesim/memory/double_buffered_scratchpad_mem.py::service_memory_requests()",
+    "dense_demand_matrices_used": true,
+    "native_memory_service_reached": false,
+    "native_memory_timing_obtained": false,
+    "native_service_requires_dense_demand_matrices": true,
+    "reason": "The actual native API is `service_memory_requests(ifmap_demand_mat, filter_demand_mat, ofmap_demand_mat)` inside `scalesim/memory/double_buffered_scratchpad_mem.py`, and `read_buffer.py` services dense fetch matrices. The sparse Phase-A event stream is valid but not a native dense demand matrix."
+  },
+  "layer": "layer1.0.conv1",
+  "mask_rows_used": 1024,
+  "pe": 32,
+  "phase_a_values": {
+    "analytical_lower_bound": 301418,
+    "compute_schedule_cycles": 382208,
+    "skipped_macs": 28103360,
+    "useful_macs": 9645376
+  },
+  "status": "PHASE_C1_BLOCKED",
+  "workload": "resnet18_cifar10"
+}

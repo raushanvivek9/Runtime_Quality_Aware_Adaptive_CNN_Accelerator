@@ -1,0 +1,18 @@
+{
+  "synthetic_validation": "PASS",
+  "real_pilot": "FAIL",
+  "mac_conservation": "FAIL",
+  "original_k_preservation": "PASS",
+  "ifmap_provenance": "PASS",
+  "filter_provenance": "PASS",
+  "ofmap_provenance": "PASS",
+  "native_memory_compatibility": "FAIL",
+  "fabricated_traffic": "YES",
+  "fabricated_stalls": "YES",
+  "native_scale_sim_execution_launched": "NO",
+  "frozen_evidence_modified": "NO",
+  "summary": {
+    "status": "PHASE_B1_BLOCKED",
+    "reason": "The real pilot preserves sparse provenance and useful MAC count, but the existing native `ifmap_demand_matrix`/`filter_demand_matrix`/`ofmap_demand_matrix` API requires dense matrix conversion and therefore cannot represent the sparse memory contract without inventing traffic and stalls."
+  }
+}

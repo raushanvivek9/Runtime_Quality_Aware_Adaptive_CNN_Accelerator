@@ -1,0 +1,2 @@
+test,output_positions,reduction_size,output_channels,array_rows,array_cols,active_mask_entries,dense_macs,useful_macs,skipped_macs,event_count,sparse_compute_cycles,analytical_lower_bound_label,analytical_lower_bound_cycles,max_abs_error,original_k_indices_preserved,pe_assignments_valid_and_unique,output_channels_valid,numerical_match,status
+synthetic_irregular_activation_mask,4,12,10,4,8,13,480,130,350,130,76,ANALYTICAL LOWER BOUND,5,2.384185791015625e-07,True,True,True,True,PASS

@@ -1,0 +1,121 @@
+SCALE-Sim timeout diagnosis for Experiment 3
+===========================================
+
+Scope
+-----
+This report diagnoses why the dense64 64-PE run finished for conv1 but timed out for layer1.0.conv1, without modifying Stage 13, Stage 13.1, checkpoints, scientific outputs, or starting the remaining workloads.
+
+Executive summary
+-----------------
+The timeout is not caused by a mismatch in the generated config files.
+The failing layer and the passing conv1 layer use the same dense64/64pe.cfg configuration. The key difference is the workload itself: layer1.0.conv1 is a much larger 64->64 convolution than conv1 (3->64). The actual SCALE-Sim process enters the real simulation call and eventually completes, but only after 396.1 seconds, which exceeds the 120-second diagnostic window. This is a severe runtime amplification in the workload simulation path, not a config-generation bug or an indefinitely hung process.
+
+Evidence 1: generated configs are identical
+-------------------------------------------
+The two config files are effectively the same:
+
+- exp_3_scalesim_validation/configs/resnet18_cifar10/layer_00/dense64/64pe.cfg
+- exp_3_scalesim_validation/configs/resnet18_cifar10/layer_01/dense64/64pe.cfg
+
+They both contain the same architecture settings:
+- ArrayHeight = 8
+- ArrayWidth = 8
+- IfmapSramSzkB = 64
+- FilterSramSzkB = 64
+- OfmapSramSzkB = 64
+- Bandwidth = 10
+- Dataflow = ws
+- SparsitySupport = false
+
+This proves the failing layer is not being assigned a different PE config or an invalid dense64 configuration.
+
+Evidence 2: the workloads are different by topology, not by parameter typo
+--------------------------------------------------------------------------
+The workload CSVs reflect the actual layer shapes.
+
+conv1 workload:
+- Layer name: resnet18_cifar10_layer_00_dense64_64pe
+- IFMAP: 32 x 32
+- Filter: 3 x 3
+- Channels: 3
+- Num Filter: 64
+- Stride: 1
+
+layer1.0.conv1 workload:
+- Layer name: resnet18_cifar10_layer_01_dense64_64pe
+- IFMAP: 32 x 32
+- Filter: 3 x 3
+- Channels: 64
+- Num Filter: 64
+- Stride: 1
+
+This is the expected architectural difference between a stem convolution (3->64) and a residual block conv (64->64). The layer is materially larger in compute and activation/filter footprint.
+
+Evidence 3: MAC comparison confirms the failing layer is much larger
+------------------------------------------------------------------
+Using the model definition for CIFAR ResNet18:
+
+- conv1 MAC = 1,769,472
+- layer1.0.conv1 MAC = 37,748,736
+
+Ratio: 37,748,736 / 1,769,472 = 21.33x
+
+This is a large increase in work and is consistent with the runtime problem appearing only for the larger 64->64 residual conv.
+
+Evidence 4: live timing proves the timeout occurs in the simulator execution phase
+---------------------------------------------------------------------------------
+A direct API timing probe was run against the real SCALE-Sim Python entry point using the exact failing layer and config. The observed output was:
+
+- simulator creation: init_done ≈ 0.000988 seconds
+- run_scale() elapsed: 396.1255 seconds
+- total process API time: approximately 396.2551 seconds
+- the 120-second diagnostic window was exceeded, but the process later completed successfully
+- CPU usage remained around 103%
+- RSS grew to about 948272 kB
+- COMPUTE_REPORT.csv and BANDWIDTH_REPORT.csv were produced
+
+This shows that initialization and config parsing are effectively negligible. The delay occurs after the object is constructed, while the program is inside the real simulator run path. The result is a timeout under the experiment's current per-layer limit, not evidence of a permanent deadlock.
+
+The exact execution pattern matches the call chain:
+- scalesim(...) creates the simulator object
+- simulator.run_scale(top_path=...) begins the actual layer simulation and report generation path
+- completion and reports were produced after the 120s cutoff
+
+This localizes the problem to the actual SCALE-Sim compute/memory/trace stage, not configuration creation.
+
+Code-level localization
+-----------------------
+The execution pipeline is consistent with the underlying SCALE-Sim implementation:
+
+- scalesim.scale_sim creates the simulator object and loads config/topology.
+- single_layer_sim.run() computes operand matrices and then invokes memory service logic.
+- double_buffered_scratchpad.service_memory_requests() iterates through demand matrices and performs per-line memory servicing.
+
+The observed behavior strongly suggests that for the larger 64->64 convolution layer, this memory-simulation/tracing path is taking extremely long, even though the config is identical to the successful conv1 run. The generated compute report records 536,650 total cycles including prefetch, 531,071 total compute cycles, and 0 stall cycles. The bandwidth report was also generated, so the run reached report generation successfully.
+
+Final diagnosis
+---------------
+The timeout is not a "bad cfg" issue and not a naming mismatch. It is a workload-size-driven runtime problem in the SCALE-Sim simulation path for the larger 64->64 residual-block convolution under the dense64/64PE configuration.
+
+The root cause is therefore:
+- config files are identical across the passing and failing case,
+- workload size is substantially larger in the failing case,
+- actual simulator runtime is dominated by the execution path and takes about 396 seconds,
+- the delay is not in config creation or API initialization.
+
+Recommendation
+--------------
+Do not increase the timeout as a first-line fix without a root-cause diagnosis. The evidence says the simulator is processing a substantially larger workload and exceeds the 120-second per-layer limit while executing its compute/memory simulation path. It eventually completes and emits valid reports.
+
+Recommended action:
+1. Treat this as a SCALE-Sim runtime issue for dense64 64-PE on the larger 64->64 layer, not as a config bug.
+2. Keep the current Stage 13 / Stage 13.1 scientific outputs untouched.
+3. Continue with minimal diagnostic probes instead of increasing timeouts blindly:
+   - measure whether runtime is dominated by trace generation or memory servicing,
+   - compare a reduced 64->64 workload under the same config,
+   - check whether a PE sweep or smaller workload reproduces the same slowdown without producing unbounded file growth.
+4. Only after this isolation do we decide whether the issue is temporary runtime overhead, a simulator limitation, or a true pathological case requiring model-specific handling.
+
+Bottom line
+-----------
+The failure is caused by a real workload-size amplification in the target layer, combined with SCALE-Sim runtime of about 396 seconds in the simulation path. The immediate fix is not to change Stage 13 or the config, but to treat the current 120-second result as a timeout-window failure and continue root-cause isolation before changing experiment policy.

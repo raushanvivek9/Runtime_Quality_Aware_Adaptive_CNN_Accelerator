@@ -1,0 +1,2 @@
+workload,dense_layers_completed,adaptive_layers_completed,dense_64_scalesim_cycles,adaptive_scalesim_cycles,cycle_difference,cycle_change_percent,num_16_pe_layers,num_32_pe_layers,num_64_pe_layers,status
+resnet18/cifar10,1,0,NA,NA,NA,NA,9,7,4,INCOMPLETE
