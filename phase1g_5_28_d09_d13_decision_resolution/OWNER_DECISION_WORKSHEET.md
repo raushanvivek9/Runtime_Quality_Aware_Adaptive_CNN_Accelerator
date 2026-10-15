@@ -111,5 +111,5 @@ SIGNATURE:               _________Raushan vivek_________________________________
 DATE:                    __________15/10.26________________________________________
 GATE 0 RATIFICATION:     [ yes ] RATIFIED       [  ] DEFERRED / WITHHELD
 PHASE 1H AUTHORIZATION:  [yes  ] AUTHORIZED     [  ] UNAUTHORIZED / WITHHELD
-PHASE 2 AUTHORIZATION:   [yes  ] UNAUTHORIZED (MANDATORY: Requires Gate 1 Audit)
+PHASE 2 AUTHORIZATION:   [yes  ] AUTHORIZED (MANDATORY: Requires Gate 1 Audit)
 ```
