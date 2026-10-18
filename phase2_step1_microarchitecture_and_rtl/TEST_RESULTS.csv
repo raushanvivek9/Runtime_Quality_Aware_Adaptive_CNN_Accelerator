@@ -1,0 +1,11 @@
+test_id,test_name,module_under_test,tested_invariant,result,details
+TEST-01,Reset Ready State,accelerator_core_top,slot_alloc_ready == 1 && slot_fsm_state == ST_FREE,PASS,Core powers up cleanly and indicates readiness
+TEST-02,FSM Transition to Computing,slot_control_unit,ST_FREE -> ST_ALLOCATED -> ST_COMPUTING,PASS,Slot controller transitions in 2 clock cycles
+TEST-03,Stale Flit Tag Rejection,slot_control_unit,stale_flit_rejected == 1 && flit_accepted == 0,PASS,Flit carrying stale tag 0 is rejected when active tag is 1
+TEST-04,Accumulator Result Equivalence,mac_unit_40b,accum_result == 15000,PASS,Bit-exact match against reference arithmetic (25000 - 12000 + 2000 = 15000)
+TEST-05,Resolved-K Progress,k_progress_tracker,k_resolved == 4 && slot_done == 1,PASS,Scalar progress tracker signals completion when k_resolved == k_total
+TEST-06,K-Executed Count,k_progress_tracker,k_executed == 3,PASS,Tracks active MAC execution flits
+TEST-07,K-Skipped Count,k_progress_tracker,k_skipped == 1,PASS,Tracks exact-zero skipped flits without MAC arithmetic
+TEST-08,Sticky Saturation Inactive on Nominal Sum,mac_unit_40b,sticky_saturation == 0,PASS,Sticky flag remains unasserted during within-bounds accumulation
+TEST-09,Layer Barrier Quiescent Sync,slot_control_unit,slot_quiescent == 1 && slot_alloc_ready == 1,PASS,Pipeline quiesces, returns slot credits, and resets to free state
+
