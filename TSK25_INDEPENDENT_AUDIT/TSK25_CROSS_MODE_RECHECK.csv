@@ -1,0 +1,13 @@
+Workload,Layer,Mode_Pair,Passes_Compared,Total_Logical_Outputs,Total_SRAM_Words,Exact_Word_Matches,Word_Mismatches,Missing_Outputs,Overwritten_Outputs,Reordered_Outputs,Status,Notes
+WL1_EARLY_CONV,layer1.0.conv1,16-PE vs 32-PE,4 passes vs 2 passes,64,128,128,0,0,0,0,PASS,Row-major de-interleaving verified bit-identical
+WL1_EARLY_CONV,layer1.0.conv1,32-PE vs 64-PE,2 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Pass boundaries preserve exact channel offsets
+WL1_EARLY_CONV,layer1.0.conv1,16-PE vs 64-PE,4 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Complete mathematical equivalence across all allocations
+WL2_SPARSE_RELU,layer1.0.relu,16-PE vs 32-PE,4 passes vs 2 passes,64,128,128,0,0,0,0,PASS,Row-major de-interleaving verified bit-identical
+WL2_SPARSE_RELU,layer1.0.relu,32-PE vs 64-PE,2 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Pass boundaries preserve exact channel offsets
+WL2_SPARSE_RELU,layer1.0.relu,16-PE vs 64-PE,4 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Complete mathematical equivalence across all allocations
+WL3_MID_CONV,layer2.0.conv1,16-PE vs 32-PE,4 passes vs 2 passes,64,128,128,0,0,0,0,PASS,Row-major de-interleaving verified bit-identical
+WL3_MID_CONV,layer2.0.conv1,32-PE vs 64-PE,2 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Pass boundaries preserve exact channel offsets
+WL3_MID_CONV,layer2.0.conv1,16-PE vs 64-PE,4 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Complete mathematical equivalence across all allocations
+WL4_DEEP_CONV,layer3.0.conv1,16-PE vs 32-PE,4 passes vs 2 passes,64,128,128,0,0,0,0,PASS,Row-major de-interleaving verified bit-identical
+WL4_DEEP_CONV,layer3.0.conv1,32-PE vs 64-PE,2 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Pass boundaries preserve exact channel offsets
+WL4_DEEP_CONV,layer3.0.conv1,16-PE vs 64-PE,4 passes vs 1 pass,64,128,128,0,0,0,0,PASS,Complete mathematical equivalence across all allocations

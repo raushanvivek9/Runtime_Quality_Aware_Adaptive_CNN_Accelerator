@@ -1,0 +1,5 @@
+Test_ID,Scenario_Description,Status,Invalid_PE_Limit,Execution_Enable,Compute_Started,Sequencer_Error
+1,Valid Configuration Execution,PASS,0,1,1,0
+2,Invalid Pmax=0 Execution Blocking,PASS,1,0,0,0
+3,Sequencer Protocol Error Rejection,PASS,1,0,0,1
+4,Post-Error Recovery Execution,PASS,0,1,1,0

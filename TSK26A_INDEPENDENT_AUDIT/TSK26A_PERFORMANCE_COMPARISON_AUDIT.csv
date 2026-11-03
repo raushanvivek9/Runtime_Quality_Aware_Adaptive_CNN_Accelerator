@@ -1,0 +1,4 @@
+Configuration,Reported_Mode,Reported_Cycles,Reported_Reads,Execution_Type,Comparison_Fairness,Audit_Finding
+64-PE,SPARSE,3876,7328,SPARSE (cfg_sparse_feeder_en = 1'b1),NON_EQUIVALENT,Evaluated in sparse mode with all-zero skip enabled
+32-PE,DENSE,5640,9376,DENSE (cfg_sparse_feeder_en = 1'b0),NON_EQUIVALENT,Evaluated in dense mode without sparsity skipping
+16-PE,DENSE,9232,13472,DENSE (cfg_sparse_feeder_en = 1'b0),NON_EQUIVALENT,Evaluated in dense mode without sparsity skipping

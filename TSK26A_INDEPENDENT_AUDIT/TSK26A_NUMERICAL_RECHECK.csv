@@ -1,0 +1,4 @@
+Comparison,Total_Elements,Exact_Matches,Mismatches,MAE,RMSE,SQNR_dB,Status
+TSK-26A RTL vs TSK-26A SW Reference (64-step),1024,1024,0,0.0,0.0,inf,PASS (Exact Bit-Level RTL Match to 64-step SW model)
+TSK-26A SW INT16 Model vs TSK-26A 64-step FP32 Model,1024,N/A (Float),N/A,5.339692e-05,7.594951e-05,86.60,PASS (Matches Reported 86.60 dB)
+TSK-26A Reference vs TRUE Full PyTorch Conv2D (576-step),1024,0,1024,4.6722,6.1211,0.87,FAIL (K=64 truncates 512/576 inner-product terms)

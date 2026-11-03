@@ -1,0 +1,8 @@
+Config_ID,Config_Name,PE_Allocation,Sparse_Enabled,Adaptive_Enabled,Active_Columns,Channel_Passes,Description
+1,Fixed_16PE_Dense,16-PE,0,0,4,4,Fixed 16-PE mode with dense execution (4 passes)
+2,Fixed_16PE_Sparse,16-PE,1,0,4,4,Fixed 16-PE mode with sparse zero-skipping (4 passes)
+3,Fixed_32PE_Dense,32-PE,0,0,8,2,Fixed 32-PE mode with dense execution (2 passes)
+4,Fixed_32PE_Sparse,32-PE,1,0,8,2,Fixed 32-PE mode with sparse zero-skipping (2 passes)
+5,Fixed_64PE_Dense,64-PE,0,0,16,1,Fixed 64-PE baseline with dense execution (1 pass)
+6,Fixed_64PE_Sparse,64-PE,1,0,16,1,Fixed 64-PE mode with sparse zero-skipping (1 pass)
+7,Adaptive_Sparse,Adaptive,1,1,Dynamic,Dynamic,Adaptive allocation based on degradation constraints with sparse zero-skipping

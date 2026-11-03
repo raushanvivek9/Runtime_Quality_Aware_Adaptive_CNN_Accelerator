@@ -1,0 +1,5 @@
+model_name,dataset,layer_name,tensor_tag,quantization_format,scaling_factor,sqnr_post_relu_db,mae_post_relu,rmse_post_relu,max_abs_err_post_relu,sqnr_pre_relu_db,mae_pre_relu,rmse_pre_relu,bit_exact_integer_match
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,INT16 Q4.12,4096.0,57.18,8.5e-05,0.000171,0.000592,57.61,0.000266,0.000317,True
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,INT16 Q4.12,4096.0,51.65,6.9e-05,0.000123,0.000326,52.38,0.000148,0.000176,True
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,INT16 Q4.12,4096.0,54.78,6.5e-05,0.000163,0.000776,60.38,0.000231,0.000301,True
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,INT16 Q4.12,4096.0,60.71,0.000126,0.000295,0.001158,64.5,0.000396,0.000497,True

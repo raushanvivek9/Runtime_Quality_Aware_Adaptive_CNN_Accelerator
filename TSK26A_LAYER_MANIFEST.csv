@@ -1,0 +1,2 @@
+Layer_Name,Layer_Description,Input_Tensor_Shape,Weight_Tensor_Shape,Output_Tensor_Shape,Kernel_Size,Stride,Padding,Has_Bias,Reduction_K,Requant_Shift,Total_Spatial_Points,Total_Spatial_Tiles,Total_Output_Elements,FP32_MAE,FP32_RMSE,FP32_Rel_L2,FP32_SQNR_dB,Min_Accum,Max_Accum,Min_Requant,Max_Requant
+layer1.0.conv1,"ResNet-18 Complete Spatial Feature-Map (H=8, W=8, C_in=64, C_out=16)","[1, 64, 8, 8]","[16, 64, 3, 3]","[1, 16, 8, 8]",3x3,1,1,False,64,4,64,16,1024,5.339692e-05,7.594951e-05,4.674843e-05,86.60,-427257882,252378107,0,32767

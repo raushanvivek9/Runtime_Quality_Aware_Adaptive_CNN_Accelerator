@@ -1,0 +1,8 @@
+Config_ID,Config_Name,PE_Mode,Active_PEs,Channel_Passes,Sparse_En,Adaptive_En,Total_Cycles,Compute_Cycles,Overhead_Cycles,SRAM_Act_Reads,SRAM_Wt_Reads,SRAM_Writes,Skipped_Zeros,Total_MACs,Output_Checksum,Mismatches,Status
+1,Fixed_16PE_Dense,0,16,4,0,0,38225,36864,1361,36864,147456,256,0,147456,0xfffaa89dce,0,PASS
+2,Fixed_16PE_Sparse,0,16,4,1,0,38225,11468,26757,36864,45872,256,25396,45872,0xfffaa89dce,0,PASS
+3,Fixed_32PE_Dense,1,32,2,0,0,19121,18432,689,18432,147456,256,0,147456,0xffffbdc618,0,PASS
+4,Fixed_32PE_Sparse,1,32,2,1,0,19121,5734,13387,18432,45872,256,12698,45872,0xffffbdc618,0,PASS
+5,Fixed_64PE_Dense,2,64,1,0,0,9569,9216,353,9216,147456,256,0,147456,0xffffbdc618,0,PASS
+6,Fixed_64PE_Sparse,2,64,1,1,0,9569,2867,6702,9216,45872,256,6349,45872,0xffffbdc618,0,PASS
+7,Adaptive_Sparse,1,32,2,1,1,19121,5734,13387,18432,45872,256,12698,45872,0xffffbdc618,0,PASS

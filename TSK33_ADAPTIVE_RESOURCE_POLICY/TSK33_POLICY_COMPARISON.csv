@@ -1,0 +1,17 @@
+Scenario_ID,Scenario_Name,Workload_ID,Latency_Constraint_Cycles,PE_Resource_Constraint,Legacy_Policy_Selected_Mode,Legacy_Total_Cycles,Legacy_Active_PEs,Policy_A_Selected_Mode,Policy_A_Total_Cycles,Policy_A_Active_PEs,Policy_A_PE_Savings_vs_Legacy_Pct,Policy_B_Selected_Mode,Policy_B_Total_Cycles,Policy_B_Active_PEs,Policy_B_Speedup_vs_Legacy,Policy_A_Constraint_Met,Policy_B_Constraint_Met
+SCEN_1,Tight Latency Budget (Real-Time),WL1,10000,64,32-PE,19121,32,64-PE,9569,64,-100.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_1,Tight Latency Budget (Real-Time),WL2,10000,64,32-PE,19121,32,64-PE,9569,64,-100.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_1,Tight Latency Budget (Real-Time),WL3,10000,64,64-PE,9569,64,64-PE,9569,64,0.0,64-PE,9569,64,1.0,YES,YES
+SCEN_1,Tight Latency Budget (Real-Time),WL4,10000,64,16-PE,38225,16,64-PE,9569,64,-300.0,64-PE,9569,64,3.9947,YES,YES
+SCEN_2,Moderate Latency Budget (Balanced),WL1,20000,64,32-PE,19121,32,32-PE,19121,32,0.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_2,Moderate Latency Budget (Balanced),WL2,20000,64,32-PE,19121,32,32-PE,19121,32,0.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_2,Moderate Latency Budget (Balanced),WL3,20000,64,64-PE,9569,64,32-PE,19121,32,50.0,64-PE,9569,64,1.0,YES,YES
+SCEN_2,Moderate Latency Budget (Balanced),WL4,20000,64,16-PE,38225,16,32-PE,19121,32,-100.0,64-PE,9569,64,3.9947,YES,YES
+SCEN_3,Relaxed Latency Budget (Battery-Saver),WL1,40000,64,32-PE,19121,32,16-PE,38225,16,50.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_3,Relaxed Latency Budget (Battery-Saver),WL2,40000,64,32-PE,19121,32,16-PE,38225,16,50.0,64-PE,9569,64,1.9982,YES,YES
+SCEN_3,Relaxed Latency Budget (Battery-Saver),WL3,40000,64,64-PE,9569,64,16-PE,38225,16,75.0,64-PE,9569,64,1.0,YES,YES
+SCEN_3,Relaxed Latency Budget (Battery-Saver),WL4,40000,64,16-PE,38225,16,16-PE,38225,16,0.0,64-PE,9569,64,3.9947,YES,YES
+SCEN_4,Peak Power / Thermal Capped,WL1,50000,32,32-PE,19121,32,16-PE,38225,16,50.0,32-PE,19121,32,1.0,YES,YES
+SCEN_4,Peak Power / Thermal Capped,WL2,50000,32,32-PE,19121,32,16-PE,38225,16,50.0,32-PE,19121,32,1.0,YES,YES
+SCEN_4,Peak Power / Thermal Capped,WL3,50000,32,64-PE,9569,64,16-PE,38225,16,75.0,32-PE,19121,32,0.5004,YES,YES
+SCEN_4,Peak Power / Thermal Capped,WL4,50000,32,16-PE,38225,16,16-PE,38225,16,0.0,32-PE,19121,32,1.9991,YES,YES

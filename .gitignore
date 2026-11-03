@@ -8,6 +8,13 @@ __pycache__/
 .venv/
 venv/
 env/
+Neural_Acc_env/
+
+# Simulation binaries & dumps
+sim_*
+*.vvp
+*.vcd
+sim_out.txt
 
 # Environment files
 .env

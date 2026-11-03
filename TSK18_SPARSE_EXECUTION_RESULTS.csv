@@ -1,0 +1,13 @@
+workload_id,layer_name,pe_mode,active_pe_count,k_reduction_steps,activation_sparsity_percent,dense_compute_cycles,sparse_compute_cycles,dense_total_layer_cycles,sparse_total_layer_cycles,total_cycle_saving_percent,dense_sram_reads,sparse_sram_reads,sram_read_reduction_percent,dense_useful_macs,sparse_useful_macs,skipped_macs,mac_activity_reduction_percent,ofmap_bit_exact_equivalence,ofmap_words_written
+SYNTH-00,Synthetic_0pct_Sparse,64-PE,64,16,0.0,16,16,183,183,0.0,160,160,0.0,1024,1024,0,0.0,EXACT_MATCH,128
+SYNTH-25,Synthetic_25pct_Sparse,64-PE,64,16,25.0,16,12,183,171,6.56,160,128,20.0,1024,768,256,25.0,EXACT_MATCH,128
+SYNTH-50,Synthetic_50pct_Sparse,64-PE,64,16,50.0,16,8,183,160,12.57,160,96,40.0,1024,512,512,50.0,EXACT_MATCH,128
+SYNTH-75,Synthetic_75pct_Sparse,64-PE,64,16,75.0,16,4,183,156,14.75,160,64,60.0,1024,256,768,75.0,EXACT_MATCH,128
+SYNTH-90,Synthetic_90pct_Sparse,64-PE,64,20,90.0,20,2,195,154,21.03,200,56,72.0,1280,128,1152,90.0,EXACT_MATCH,128
+SYNTH-100,Synthetic_100pct_Sparse,64-PE,64,16,100.0,16,0,183,152,16.94,160,32,80.0,1024,0,1024,100.0,EXACT_MATCH,128
+R18-C10-L1,layer1.0.conv1_R18,64-PE,64,64,73.45,64,17,327,233,28.75,640,264,58.75,4096,1088,3008,73.44,EXACT_MATCH,128
+R18-C10-L8,layer2.1.conv1_R18,64-PE,64,128,64.75,128,45,519,353,31.98,1280,620,51.56,8192,2880,5312,64.84,EXACT_MATCH,128
+V16-C10-L5,features.12_V16,64-PE,64,256,91.37,256,22,903,435,51.83,2560,688,73.12,16384,1408,14976,91.41,EXACT_MATCH,128
+V16-C10-L8,features.19_V16,64-PE,64,512,97.76,512,11,1671,669,59.96,5120,1112,78.28,32768,704,32064,97.85,EXACT_MATCH,128
+MODE-16PE-S50,16PE_50pct_Sparse,16-PE,16,16,50.0,16,8,87,71,18.39,64,48,25.0,256,128,128,50.0,EXACT_MATCH,32
+MODE-32PE-S50,32PE_50pct_Sparse,32-PE,32,16,50.0,16,8,119,103,13.45,96,64,33.33,512,256,256,50.0,EXACT_MATCH,64

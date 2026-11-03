@@ -1,0 +1,11 @@
+Test_Name,Category,Condition,Status,Notes
+All-Zero Window,Sparsity,100% Skip,PASS,All 64 steps skipped
+Fully Dense Tile,Coverage,Non-Zero Computations,PASS,Interior points verified
+Partial-Zero Rows,Gating,PE-Level Clock Gating,PASS,Partial zero rows gated
+Corner (0,0) Coordinate,Boundary,Dual Zero Padding,PASS,Verified exact match
+Corner (7,7) Coordinate,Boundary,Dual Zero Padding,PASS,Verified exact match
+Edge Coordinates,Boundary,Single Zero Padding,PASS,24 edge positions verified
+12-Channel Tail Tile,Tiling,Channel Count Tail (12 cols),PASS,Supported via 32-PE + 16-PE pass
+Partial Final Tile,Spatial,Tail Tile (2 points),PASS,Padded rows clamp to 0
+Accumulator Saturation,Arithmetic,Large Product Accumulation,PASS,40-bit saturating add verified
+Requant Clamping & ReLU,Requantization,Saturation [-32768, 32767],PASS,Clamping and ReLU verified

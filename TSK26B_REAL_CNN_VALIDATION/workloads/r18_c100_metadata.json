@@ -1,0 +1,16 @@
+{
+  "tag": "r18_c100",
+  "model_name": "ResNet-18",
+  "dataset": "CIFAR-100",
+  "layer_name": "layer1.0.conv1",
+  "k_steps": 576,
+  "rows": 4,
+  "cols": 16,
+  "words_per_k": 10,
+  "total_preload_words": 5760,
+  "act_sparsity_pct": 60.763888888888886,
+  "quad_zero_steps": 350,
+  "quad_zero_pct": 60.763888888888886,
+  "golden_ofmap_words": 128,
+  "golden_packed_words": 32
+}

@@ -1,0 +1,9 @@
+Workload,Layer,PE_Mode,Total_Outputs,Exact_Integer_Matches,Mismatches,Max_Abs_Error,Mean_Abs_Error,RMSE,Requant_Matches,Requant_Mismatches,Numerical_Status
+WL1_EARLY_CONV,layer1.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL1_EARLY_CONV,layer1.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL2_SPARSE_RELU,layer1.0.relu,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL2_SPARSE_RELU,layer1.0.relu,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL3_MID_CONV,layer2.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL3_MID_CONV,layer2.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL4_DEEP_CONV,layer3.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS
+WL4_DEEP_CONV,layer3.0.conv1,64-PE,64,128,0,0,0.0,0.0,32,0,PASS

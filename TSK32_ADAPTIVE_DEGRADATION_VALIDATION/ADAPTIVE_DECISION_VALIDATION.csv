@@ -1,0 +1,5 @@
+Workload_ID,Workload_Name,Supplied_D_Hat_16,Supplied_D_Hat_32,Threshold_D_MAX,RTL_Selected_Mode,Fallback_Asserted,Actual_RTL_Degradation_Pct,Actual_RTL_Constraint_Satisfied,ChannelPrune_Proxy_Degradation_Pct,ChannelPrune_Constraint_Satisfied,Decision_Correctness_Logic,Estimator_Fidelity_Verdict
+WL1,ResNet-18_C10_L1Conv1,0.2441,0.0153,0.05,32-PE,NO,0.0,YES,2.11,YES,CORRECT (Strict comparator evaluation),OVERLY_CONSERVATIVE (Rejected 16-PE based on phantom pruning estimate; RTL 16-PE has 0% error)
+WL2,ResNet-18_C100_L1Conv1,0.2823,0.0336,0.05,32-PE,NO,0.0,YES,49.37,NO,CORRECT (Strict comparator evaluation),OVERLY_CONSERVATIVE (Rejected 16-PE based on phantom pruning estimate; RTL 16-PE has 0% error)
+WL3,VGG16_C10_Features3,0.3738,0.0885,0.05,64-PE,YES,0.0,YES,0.0,YES,CORRECT (Strict comparator evaluation),OVERLY_CONSERVATIVE_FALLBACK (Fell back to 64-PE based on phantom pruning estimate; RTL 16/32-PE have 0% error)
+WL4,ResNet-18_C10_L2Conv2,0.0183,0.0061,0.05,16-PE,NO,0.0,YES,14.74,NO,CORRECT (Strict comparator evaluation),OPTIMAL_SELECTION (Selected 16-PE satisfies both estimated and actual constraint)

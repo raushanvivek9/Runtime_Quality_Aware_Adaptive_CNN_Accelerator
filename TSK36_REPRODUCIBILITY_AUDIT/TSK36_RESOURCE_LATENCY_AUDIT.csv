@@ -1,0 +1,4 @@
+PE_Mode,Active_PEs,Channel_Passes,Verified_Total_Cycles,Verified_Compute_Cycles,Verified_Overhead_Cycles,Execution_Time_us_at_100MHz,Latency_Ratio_vs_64PE,Relative_Throughput_vs_64PE,Active_PE_Hardware_Reduction_Pct,Activation_SRAM_Reads,Activation_Read_Overhead_vs_64PE_Pct,Formula_Verification,Energy_Claim_Status,Audit_Verdict
+64-PE,64,1,9569,9216,353,95.69,1.0,1.0,0.0,9216,0.0,CONFIRMED_EXACT,NOT_MEASURED (Lower PE count DOES NOT imply lower energy),VERIFIED
+32-PE,32,2,19121,18432,689,191.21,1.9982,0.5004,50.0,18432,100.0,CONFIRMED_EXACT,NOT_MEASURED (Lower PE count DOES NOT imply lower energy),VERIFIED
+16-PE,16,4,38225,36864,1361,382.25,3.9947,0.2503,75.0,36864,300.0,CONFIRMED_EXACT,NOT_MEASURED (Lower PE count DOES NOT imply lower energy),VERIFIED

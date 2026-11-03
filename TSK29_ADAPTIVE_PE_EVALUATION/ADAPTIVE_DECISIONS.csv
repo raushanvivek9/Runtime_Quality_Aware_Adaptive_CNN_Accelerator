@@ -1,0 +1,2 @@
+Config_ID,Config_Name,Degradation_Hat_16,Degradation_Hat_32,Degradation_Hat_64,Threshold_D_MAX,Resolved_Mode,Fallback_Asserted,Decision_Rationale,Defect_Detected
+7,Adaptive_Sparse,16000,1000,0,3277,1,0,Selected 32-PE (Degradation <= D_MAX),NO

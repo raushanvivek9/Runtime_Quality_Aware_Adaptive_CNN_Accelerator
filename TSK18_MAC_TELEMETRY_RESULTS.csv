@@ -1,0 +1,15 @@
+scenario_id,workload_description,pe_mode,active_pe_count,k_reduction_steps,sparsity_pattern,activation_sparsity_percent,enabled_mac_opportunities,executed_mac_operations,skipped_mac_operations,zero_activation_opportunities,identity_verified,compute_cycles,total_layer_cycles,sram_read_requests,sram_read_accepted
+S1_Dense_64PE,All Activations Non-Zero (Dense Baseline),64-PE,64,16,Dense Uniform Non-Zero,0.0,1024,1024,0,0,TRUE,16,183,160,160
+S1_Sparse_64PE,All Activations Non-Zero (Sparse Mode),64-PE,64,16,Dense Uniform Non-Zero,0.0,1024,1024,0,0,TRUE,16,183,160,160
+S2_Dense_64PE,All Activations Zero (Dense Baseline),64-PE,64,16,100% Exact-Zero Activations,100.0,1024,0,1024,1024,TRUE,16,183,160,160
+S2_Sparse_64PE,All Activations Zero (Sparse Feeder Gated),64-PE,64,16,100% Exact-Zero Activations,100.0,0,0,0,0,TRUE,0,152,32,32
+S3_Dense_64PE,Mixed Zero/Non-Zero (Dense Baseline),64-PE,64,16,Alternating 50% Zero Steps,50.0,1024,512,512,512,TRUE,16,183,160,160
+S3_Sparse_64PE,Mixed Zero/Non-Zero (Sparse Mode),64-PE,64,16,Alternating 50% Zero Steps,50.0,512,512,0,0,TRUE,8,160,96,96
+S4_Dense_64PE,Row-Pattern Zero (Dense Baseline),64-PE,64,16,Rows 0 & 2 Zero; Rows 1 & 3 Active,50.0,1024,512,512,512,TRUE,16,183,160,160
+S4_Sparse_64PE,Row-Pattern Zero (Sparse Mode),64-PE,64,16,Rows 0 & 2 Zero; Rows 1 & 3 Active,50.0,1024,512,512,512,TRUE,16,183,160,160
+S5_Dense_64PE,Signed Negative Operands (Dense),64-PE,64,16,Signed Non-Zero Two's Complement,0.0,1024,1024,0,0,TRUE,16,183,160,160
+S5_Sparse_64PE,Signed Negative Operands (Sparse),64-PE,64,16,Signed Non-Zero Two's Complement,0.0,1024,1024,0,0,TRUE,16,183,160,160
+S6_Dense_64PE,40-bit Saturation Boundary (Dense),64-PE,64,513,Max Magnitude Saturation,0.0,32832,32832,0,0,TRUE,513,1674,5130,5130
+S6_Sparse_64PE,40-bit Saturation Boundary (Sparse),64-PE,64,513,Max Magnitude Saturation,0.0,32832,32832,0,0,TRUE,513,1674,5130,5130
+S9_Sparse_16PE,16-PE Mode Operands,16-PE,16,16,Non-Zero Columns 0..3,0.0,256,256,0,0,TRUE,16,87,64,64
+S9_Sparse_32PE,32-PE Mode Operands,32-PE,32,16,Non-Zero Columns 0..7,0.0,512,512,0,0,TRUE,16,119,96,96

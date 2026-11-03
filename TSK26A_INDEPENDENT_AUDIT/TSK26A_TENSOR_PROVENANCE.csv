@@ -1,0 +1,7 @@
+Property,Reported_Value,Audited_Ground_Truth,Verification_Status,Notes
+Original Torchvision Layer Name,layer1.0.conv1,layer1.0.conv1,PASS,Extracted from torchvision pretrained ResNet-18
+Original Weight Tensor Shape,"[16, 64, 3, 3]","[64, 64, 3, 3]",PASS_WITH_LIMITATIONS,"Original weight shape is [64, 64, 3, 3]. Evaluated shape [16, 64, 3, 3] is sliced (only 16/64 output channels, 25%)."
+Original Input Tensor Shape,"[1, 64, 8, 8]","[1, 64, 56, 56]",PASS_WITH_LIMITATIONS,"Original input shape is [1, 64, 56, 56]. Evaluated shape [1, 64, 8, 8] is a spatial sub-slice (64/3136 spatial points, 2.04%)."
+Input Activation Source,Real CNN activations,Deterministic pseudo-random forward pass (seed 20261102),PASS_WITH_LIMITATIONS,"Input is synthetic standard normal noise fed to ResNet-18 forward pass, not ImageNet photos"
+Quantization Scheme,INT16 Symmetric,"Act Scale=1676.0850, Wt Scale=40994.2099",PASS,"Symmetric per-tensor INT16 [-32767, 32767]"
+Workload Classification,Category C (Complete Single-Layer Feature Map),Category B+ (Spatial Subgrid with Truncated Kernel Fragment),FAIL,"Workload computes 64 spatial points and 16 channels, but only 64 of 576 reduction steps per point"

@@ -1,0 +1,5 @@
+Workload,Workload_Nature,Dense_Cycles,Sparse_Cycles,Cycle_Reduction_Pct,Dense_Rd_Transactions,Sparse_Rd_Transactions,Transaction_Reduction_Pct,Physical_Energy_Claim
+R18-C10,Synthetic Alternating Sparsity Pattern,184,161,12.50%,160,96,40.00%,UNSUPPORTED (Requires physical cell-library power extraction; marked NOT_RUN)
+R18-C100,Synthetic Alternating Sparsity Pattern,120,97,19.17%,96,64,33.33%,UNSUPPORTED (Requires physical cell-library power extraction; marked NOT_RUN)
+V16-C10,Synthetic Alternating Sparsity Pattern,112,77,31.25%,96,72,25.00%,UNSUPPORTED (Requires physical cell-library power extraction; marked NOT_RUN)
+V16-C100,Synthetic Alternating Sparsity Pattern,208,173,16.83%,240,144,40.00%,UNSUPPORTED (Requires physical cell-library power extraction; marked NOT_RUN)

@@ -1,0 +1,193 @@
+Test_ID,Policy,Policy_Select,PE_Limit_Pmax,Latency_Budget_Lmax,Ref_Selected_Mode,Ref_Mode_Code,Ref_Active_PEs,Ref_Channel_Passes,Ref_Fallback_Asserted,Ref_Budget_Violation,Ref_Decision_Status,RTL_Selected_Mode,RTL_Active_PEs,RTL_Fallback_Asserted,RTL_Budget_Violation,Validation_Status,Decision_Notes
+1,Policy_A_Min_Resource,0,0,0,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+2,Policy_A_Min_Resource,0,0,5000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+3,Policy_A_Min_Resource,0,0,9568,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+4,Policy_A_Min_Resource,0,0,9569,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+5,Policy_A_Min_Resource,0,0,9570,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+6,Policy_A_Min_Resource,0,0,19120,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+7,Policy_A_Min_Resource,0,0,19121,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+8,Policy_A_Min_Resource,0,0,19122,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+9,Policy_A_Min_Resource,0,0,38224,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+10,Policy_A_Min_Resource,0,0,38225,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+11,Policy_A_Min_Resource,0,0,38226,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+12,Policy_A_Min_Resource,0,0,100000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+13,Policy_A_Min_Resource,0,15,0,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+14,Policy_A_Min_Resource,0,15,5000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+15,Policy_A_Min_Resource,0,15,9568,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+16,Policy_A_Min_Resource,0,15,9569,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+17,Policy_A_Min_Resource,0,15,9570,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+18,Policy_A_Min_Resource,0,15,19120,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+19,Policy_A_Min_Resource,0,15,19121,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+20,Policy_A_Min_Resource,0,15,19122,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+21,Policy_A_Min_Resource,0,15,38224,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+22,Policy_A_Min_Resource,0,15,38225,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+23,Policy_A_Min_Resource,0,15,38226,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+24,Policy_A_Min_Resource,0,15,100000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+25,Policy_A_Min_Resource,0,16,0,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+26,Policy_A_Min_Resource,0,16,5000,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+27,Policy_A_Min_Resource,0,16,9568,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+28,Policy_A_Min_Resource,0,16,9569,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+29,Policy_A_Min_Resource,0,16,9570,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+30,Policy_A_Min_Resource,0,16,19120,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+31,Policy_A_Min_Resource,0,16,19121,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+32,Policy_A_Min_Resource,0,16,19122,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+33,Policy_A_Min_Resource,0,16,38224,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+34,Policy_A_Min_Resource,0,16,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+35,Policy_A_Min_Resource,0,16,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+36,Policy_A_Min_Resource,0,16,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+37,Policy_A_Min_Resource,0,31,0,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+38,Policy_A_Min_Resource,0,31,5000,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+39,Policy_A_Min_Resource,0,31,9568,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+40,Policy_A_Min_Resource,0,31,9569,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+41,Policy_A_Min_Resource,0,31,9570,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+42,Policy_A_Min_Resource,0,31,19120,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+43,Policy_A_Min_Resource,0,31,19121,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+44,Policy_A_Min_Resource,0,31,19122,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+45,Policy_A_Min_Resource,0,31,38224,16-PE,0,16,4,1,1,FALLBACK_BUDGET_EXCEEDED,0,16,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+46,Policy_A_Min_Resource,0,31,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+47,Policy_A_Min_Resource,0,31,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+48,Policy_A_Min_Resource,0,31,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+49,Policy_A_Min_Resource,0,32,0,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+50,Policy_A_Min_Resource,0,32,5000,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+51,Policy_A_Min_Resource,0,32,9568,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+52,Policy_A_Min_Resource,0,32,9569,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+53,Policy_A_Min_Resource,0,32,9570,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+54,Policy_A_Min_Resource,0,32,19120,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+55,Policy_A_Min_Resource,0,32,19121,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+56,Policy_A_Min_Resource,0,32,19122,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+57,Policy_A_Min_Resource,0,32,38224,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+58,Policy_A_Min_Resource,0,32,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+59,Policy_A_Min_Resource,0,32,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+60,Policy_A_Min_Resource,0,32,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+61,Policy_A_Min_Resource,0,63,0,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+62,Policy_A_Min_Resource,0,63,5000,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+63,Policy_A_Min_Resource,0,63,9568,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+64,Policy_A_Min_Resource,0,63,9569,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+65,Policy_A_Min_Resource,0,63,9570,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+66,Policy_A_Min_Resource,0,63,19120,32-PE,1,32,2,1,1,FALLBACK_BUDGET_EXCEEDED,1,32,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+67,Policy_A_Min_Resource,0,63,19121,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+68,Policy_A_Min_Resource,0,63,19122,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+69,Policy_A_Min_Resource,0,63,38224,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+70,Policy_A_Min_Resource,0,63,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+71,Policy_A_Min_Resource,0,63,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+72,Policy_A_Min_Resource,0,63,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+73,Policy_A_Min_Resource,0,64,0,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+74,Policy_A_Min_Resource,0,64,5000,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+75,Policy_A_Min_Resource,0,64,9568,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+76,Policy_A_Min_Resource,0,64,9569,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+77,Policy_A_Min_Resource,0,64,9570,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+78,Policy_A_Min_Resource,0,64,19120,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+79,Policy_A_Min_Resource,0,64,19121,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+80,Policy_A_Min_Resource,0,64,19122,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+81,Policy_A_Min_Resource,0,64,38224,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+82,Policy_A_Min_Resource,0,64,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+83,Policy_A_Min_Resource,0,64,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+84,Policy_A_Min_Resource,0,64,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+85,Policy_A_Min_Resource,0,128,0,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+86,Policy_A_Min_Resource,0,128,5000,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+87,Policy_A_Min_Resource,0,128,9568,64-PE,2,64,1,1,1,FALLBACK_BUDGET_EXCEEDED,2,64,1,1,PASS,No mode met latency; clamped to highest allowed PEs
+88,Policy_A_Min_Resource,0,128,9569,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+89,Policy_A_Min_Resource,0,128,9570,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+90,Policy_A_Min_Resource,0,128,19120,64-PE,2,64,1,0,0,FEASIBLE_OPTIMAL,2,64,0,0,PASS,Smallest PE configuration meeting both constraints
+91,Policy_A_Min_Resource,0,128,19121,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+92,Policy_A_Min_Resource,0,128,19122,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+93,Policy_A_Min_Resource,0,128,38224,32-PE,1,32,2,0,0,FEASIBLE_OPTIMAL,1,32,0,0,PASS,Smallest PE configuration meeting both constraints
+94,Policy_A_Min_Resource,0,128,38225,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+95,Policy_A_Min_Resource,0,128,38226,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+96,Policy_A_Min_Resource,0,128,100000,16-PE,0,16,4,0,0,FEASIBLE_OPTIMAL,0,16,0,0,PASS,Smallest PE configuration meeting both constraints
+97,Policy_B_Min_Latency,1,0,0,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+98,Policy_B_Min_Latency,1,0,5000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+99,Policy_B_Min_Latency,1,0,9568,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+100,Policy_B_Min_Latency,1,0,9569,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+101,Policy_B_Min_Latency,1,0,9570,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+102,Policy_B_Min_Latency,1,0,19120,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+103,Policy_B_Min_Latency,1,0,19121,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+104,Policy_B_Min_Latency,1,0,19122,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+105,Policy_B_Min_Latency,1,0,38224,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+106,Policy_B_Min_Latency,1,0,38225,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+107,Policy_B_Min_Latency,1,0,38226,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+108,Policy_B_Min_Latency,1,0,100000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+109,Policy_B_Min_Latency,1,15,0,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+110,Policy_B_Min_Latency,1,15,5000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+111,Policy_B_Min_Latency,1,15,9568,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+112,Policy_B_Min_Latency,1,15,9569,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+113,Policy_B_Min_Latency,1,15,9570,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+114,Policy_B_Min_Latency,1,15,19120,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+115,Policy_B_Min_Latency,1,15,19121,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+116,Policy_B_Min_Latency,1,15,19122,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+117,Policy_B_Min_Latency,1,15,38224,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+118,Policy_B_Min_Latency,1,15,38225,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+119,Policy_B_Min_Latency,1,15,38226,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+120,Policy_B_Min_Latency,1,15,100000,INVALID_BLOCKED,3,0,0,1,1,INVALID_PE_LIMIT_BLOCKED,3,0,1,1,PASS,PE limit < 16 is invalid; execution blocked with active_pes=0 and mode=2'b11
+121,Policy_B_Min_Latency,1,16,0,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+122,Policy_B_Min_Latency,1,16,5000,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+123,Policy_B_Min_Latency,1,16,9568,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+124,Policy_B_Min_Latency,1,16,9569,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+125,Policy_B_Min_Latency,1,16,9570,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+126,Policy_B_Min_Latency,1,16,19120,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+127,Policy_B_Min_Latency,1,16,19121,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+128,Policy_B_Min_Latency,1,16,19122,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+129,Policy_B_Min_Latency,1,16,38224,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+130,Policy_B_Min_Latency,1,16,38225,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+131,Policy_B_Min_Latency,1,16,38226,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+132,Policy_B_Min_Latency,1,16,100000,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+133,Policy_B_Min_Latency,1,31,0,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+134,Policy_B_Min_Latency,1,31,5000,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+135,Policy_B_Min_Latency,1,31,9568,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+136,Policy_B_Min_Latency,1,31,9569,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+137,Policy_B_Min_Latency,1,31,9570,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+138,Policy_B_Min_Latency,1,31,19120,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+139,Policy_B_Min_Latency,1,31,19121,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+140,Policy_B_Min_Latency,1,31,19122,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+141,Policy_B_Min_Latency,1,31,38224,16-PE,0,16,4,0,1,PERMITTED_MAX_THROUGHPUT,0,16,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+142,Policy_B_Min_Latency,1,31,38225,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+143,Policy_B_Min_Latency,1,31,38226,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+144,Policy_B_Min_Latency,1,31,100000,16-PE,0,16,4,0,0,PERMITTED_MAX_THROUGHPUT,0,16,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+145,Policy_B_Min_Latency,1,32,0,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+146,Policy_B_Min_Latency,1,32,5000,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+147,Policy_B_Min_Latency,1,32,9568,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+148,Policy_B_Min_Latency,1,32,9569,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+149,Policy_B_Min_Latency,1,32,9570,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+150,Policy_B_Min_Latency,1,32,19120,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+151,Policy_B_Min_Latency,1,32,19121,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+152,Policy_B_Min_Latency,1,32,19122,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+153,Policy_B_Min_Latency,1,32,38224,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+154,Policy_B_Min_Latency,1,32,38225,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+155,Policy_B_Min_Latency,1,32,38226,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+156,Policy_B_Min_Latency,1,32,100000,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+157,Policy_B_Min_Latency,1,63,0,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+158,Policy_B_Min_Latency,1,63,5000,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+159,Policy_B_Min_Latency,1,63,9568,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+160,Policy_B_Min_Latency,1,63,9569,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+161,Policy_B_Min_Latency,1,63,9570,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+162,Policy_B_Min_Latency,1,63,19120,32-PE,1,32,2,0,1,PERMITTED_MAX_THROUGHPUT,1,32,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+163,Policy_B_Min_Latency,1,63,19121,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+164,Policy_B_Min_Latency,1,63,19122,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+165,Policy_B_Min_Latency,1,63,38224,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+166,Policy_B_Min_Latency,1,63,38225,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+167,Policy_B_Min_Latency,1,63,38226,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+168,Policy_B_Min_Latency,1,63,100000,32-PE,1,32,2,0,0,PERMITTED_MAX_THROUGHPUT,1,32,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+169,Policy_B_Min_Latency,1,64,0,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+170,Policy_B_Min_Latency,1,64,5000,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+171,Policy_B_Min_Latency,1,64,9568,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+172,Policy_B_Min_Latency,1,64,9569,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+173,Policy_B_Min_Latency,1,64,9570,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+174,Policy_B_Min_Latency,1,64,19120,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+175,Policy_B_Min_Latency,1,64,19121,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+176,Policy_B_Min_Latency,1,64,19122,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+177,Policy_B_Min_Latency,1,64,38224,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+178,Policy_B_Min_Latency,1,64,38225,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+179,Policy_B_Min_Latency,1,64,38226,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+180,Policy_B_Min_Latency,1,64,100000,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+181,Policy_B_Min_Latency,1,128,0,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+182,Policy_B_Min_Latency,1,128,5000,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+183,Policy_B_Min_Latency,1,128,9568,64-PE,2,64,1,0,1,PERMITTED_MAX_THROUGHPUT,2,64,0,1,PASS,Fastest permitted mode; violation flagged if cycles > budget
+184,Policy_B_Min_Latency,1,128,9569,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+185,Policy_B_Min_Latency,1,128,9570,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+186,Policy_B_Min_Latency,1,128,19120,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+187,Policy_B_Min_Latency,1,128,19121,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+188,Policy_B_Min_Latency,1,128,19122,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+189,Policy_B_Min_Latency,1,128,38224,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+190,Policy_B_Min_Latency,1,128,38225,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+191,Policy_B_Min_Latency,1,128,38226,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget
+192,Policy_B_Min_Latency,1,128,100000,64-PE,2,64,1,0,0,PERMITTED_MAX_THROUGHPUT,2,64,0,0,PASS,Fastest permitted mode; violation flagged if cycles > budget

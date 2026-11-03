@@ -1,0 +1,32 @@
+Test_ID,Description,Status,Mode,PEs,Passes,Fallback,Violation,Invalid_PE_Limit,Execution_Enable
+1,Policy A: Pmax = 0 (Invalid) -> Block compute,PASS,11,0,0,1,1,1,0
+2,Policy A: Pmax = 15 (Invalid) -> Block compute,PASS,11,0,0,1,1,1,0
+3,Policy A: Pmax = 16 (Valid Boundary) -> Select 16-PE,PASS,0,16,4,0,0,0,1
+4,Policy A: Pmax = 31 (Valid Intermediate Cap) -> Select 16-PE,PASS,0,16,4,0,0,0,1
+5,Policy A: Pmax = 32, Budget 20k -> Select 32-PE,PASS,1,32,2,0,0,0,1
+6,Policy A: Pmax = 63, Budget 20k -> Select 32-PE,PASS,1,32,2,0,0,0,1
+7,Policy A: Pmax = 64, Budget 10k -> Select 64-PE,PASS,10,64,1,0,0,0,1
+8,Policy A: Pmax = 128 (Above 64 Cap), Budget 10k -> Select 64-PE,PASS,10,64,1,0,0,0,1
+9,Policy A: Pmax = 255 (Max Byte Cap), Budget 50k -> Select 16-PE,PASS,0,16,4,0,0,0,1
+10,Policy B: Pmax = 0 (Invalid) -> Block compute,PASS,11,0,0,1,1,1,0
+11,Policy B: Pmax = 15 (Invalid) -> Block compute,PASS,11,0,0,1,1,1,0
+12,Policy B: Pmax = 16 -> Select 16-PE,PASS,0,16,4,0,0,0,1
+13,Policy B: Pmax = 31 -> Select 16-PE,PASS,0,16,4,0,0,0,1
+14,Policy B: Pmax = 32 -> Select 32-PE,PASS,1,32,2,0,0,0,1
+15,Policy B: Pmax = 63 -> Select 32-PE,PASS,1,32,2,0,0,0,1
+16,Policy B: Pmax = 64 -> Select 64-PE,PASS,10,64,1,0,0,0,1
+17,Policy B: Pmax = 128 -> Select 64-PE,PASS,10,64,1,0,0,0,1
+18,Policy B: Pmax = 255 -> Select 64-PE,PASS,10,64,1,0,0,0,1
+19,Boundary: 38,224 cyc (1 below 16-PE) -> Expect 32-PE,PASS,1,32,2,0,0,0,1
+20,Boundary: 38,225 cyc (exact 16-PE) -> Expect 16-PE,PASS,0,16,4,0,0,0,1
+21,Boundary: 38,226 cyc (1 above 16-PE) -> Expect 16-PE,PASS,0,16,4,0,0,0,1
+22,Boundary: 19,120 cyc (1 below 32-PE) -> Expect 64-PE,PASS,10,64,1,0,0,0,1
+23,Boundary: 19,121 cyc (exact 32-PE) -> Expect 32-PE,PASS,1,32,2,0,0,0,1
+24,Boundary: 19,122 cyc (1 above 32-PE) -> Expect 32-PE,PASS,1,32,2,0,0,0,1
+25,Boundary: 9,568 cyc (1 below 64-PE) -> Fallback 64-PE,PASS,10,64,1,1,1,0,1
+26,Boundary: 9,569 cyc (exact 64-PE) -> Expect 64-PE,PASS,10,64,1,0,0,0,1
+27,Boundary: 9,570 cyc (1 above 64-PE) -> Expect 64-PE,PASS,10,64,1,0,0,0,1
+28,Sequence: Apply Invalid Pmax = 0,PASS,11,0,0,1,1,1,0
+29,Sequence: Immediate Valid Pmax = 64 (Verify Clean Single-Cycle Recovery),PASS,0,16,4,0,0,0,1
+30,Reset Test: Force Invalid Pmax = 15,PASS,11,0,0,1,1,1,0
+31,Reset while invalid recovery,PASS,2'b10,64,1,0,0,0,0

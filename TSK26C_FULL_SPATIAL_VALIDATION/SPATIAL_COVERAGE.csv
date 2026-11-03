@@ -1,0 +1,6 @@
+workload_tag,model_name,dataset,layer_name,depth_category,feature_map_height,feature_map_width,total_spatial_positions,spatial_positions_executed,spatial_coverage_pct,output_channels_evaluated,total_output_elements,all_9_kernel_positions_included,reduction_depth_k,max_accum_magnitude,sqnr_post_relu_db,mae_post_relu,status
+deep,VGG-16-BN,CIFAR-10,features.37,Deep,2,2,4,4,100.0,16,64,True,576,59679,21.28,2.04e-05,PASS
+mid,VGG-16-BN,CIFAR-10,features.14,Middle,8,8,64,4,6.25,16,64,True,576,4792115,58.18,4.02e-05,PASS_WITH_LIMITATIONS
+early,ResNet-18,CIFAR-10,layer1.0.conv1,Early,32,32,1024,4,0.39,16,64,True,576,5782708,62.79,1.12e-05,PASS_WITH_LIMITATIONS
+chain_c1,ResNet-18,CIFAR-10,layer1.0.conv1,Early,32,32,1024,4,0.39,16,64,True,576,5622290,66.1,8.9e-06,PASS_WITH_LIMITATIONS
+chain_c2,ResNet-18,CIFAR-10,layer1.0.conv2,Early,32,32,1024,4,0.39,16,64,True,576,4135023,62.71,4.46e-05,PASS_WITH_LIMITATIONS

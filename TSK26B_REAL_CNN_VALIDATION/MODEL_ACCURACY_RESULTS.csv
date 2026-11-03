@@ -1,0 +1,5 @@
+model_name,dataset,num_classes,total_parameters,reported_top1_acc_pct,eval_sample_count,eval_top1_acc_pct,eval_top5_acc_pct,model_sha256,source_repository
+ResNet-18,CIFAR-10,10,11173962,94.98,100,94.9999988079071,100.0,ee0e4efc476cc7b116d9350430fd70c2a19e3f30e170762314e9187fc03e01f7,https://huggingface.co/edadaltocg/resnet18_cifar10
+ResNet-18,CIFAR-100,100,11220132,79.26,100,79.00000214576721,94.0,e71011071af235a01f9c0983f302feac94f6fafa49d40c39ad7aa0753f1cbf5c,https://huggingface.co/edadaltocg/resnet18_cifar100
+VGG-16-BN,CIFAR-10,10,15253578,93.96,100,94.9999988079071,100.0,0607244ff73ea0679feb66791d39a9cc5dd0e41feedca8e0573b4156eae5bcf8,https://github.com/chenyaofo/pytorch-cifar-models (cifar10_vgg16_bn)
+VGG-16-BN,CIFAR-100,100,15299748,74.01,100,70.99999785423279,87.0,7fdd177a9880e3c0b48c13894242db6c32fda0fcf4ac1aabb5722ba6bb647311,https://github.com/chenyaofo/pytorch-cifar-models (cifar100_vgg16_bn)

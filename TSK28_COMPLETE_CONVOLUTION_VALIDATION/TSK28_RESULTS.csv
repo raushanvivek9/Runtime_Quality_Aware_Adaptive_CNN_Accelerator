@@ -1,0 +1,2 @@
+Test_ID,Scenario_Description,Grid_Dim,Cout,Total_Chunks,K_Reduction,Total_Outputs,Total_MACs,Clear_Pulses,Drain_Pulses,Mismatches,Status
+S1,ResNet18_L1_C1_Full_4x4_Conv,4x4,16,9,576,256,147456,16,16,0,PASS

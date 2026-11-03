@@ -1,0 +1,5 @@
+model_name,dataset,layer_name,tensor_tag,total_k_reduction_dim,k_steps_evaluated,reduction_completion_pct,all_9_kernel_positions_included,output_channels_evaluated,pyt_conv2d_equivalent,accumulator_40b_peak_magnitude,accumulator_overflow
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,576,576,100.0,True,64,True,10497337,False
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,576,576,100.0,True,64,True,3970585,False
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,576,576,100.0,True,64,True,15048968,False
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,576,576,100.0,True,64,True,39687983,False

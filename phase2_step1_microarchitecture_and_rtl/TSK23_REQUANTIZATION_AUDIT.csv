@@ -1,0 +1,55 @@
+Category,TestCase,Accum_Input,Shift,Round_En,ReLU_En,RTL_Output,Expected_Output,Status,Notes
+Tie-Breaking,Pos_Half_0.5,1,1,True,False,1,1,PASS,+0.5 -> +1 (rounds toward +inf)
+Tie-Breaking,Pos_Half_1.5,3,1,True,False,2,2,PASS,+1.5 -> +2 (rounds toward +inf)
+Tie-Breaking,Pos_Half_2.5,5,1,True,False,3,3,PASS,+2.5 -> +3 (rounds toward +inf)
+Tie-Breaking,Neg_Half_0.5,-1,1,True,False,0,0,PASS,"-0.5 -> 0 (rounds toward +inf, asymmetric)"
+Tie-Breaking,Neg_Half_1.5,-3,1,True,False,-1,-1,PASS,"-1.5 -> -1 (rounds toward +inf, asymmetric)"
+Tie-Breaking,Neg_Half_2.5,-5,1,True,False,-2,-2,PASS,"-2.5 -> -2 (rounds toward +inf, asymmetric)"
+Tie-Breaking,Pos_Half_S2,2,2,True,False,1,1,PASS,+0.5 (2/4) -> +1
+Tie-Breaking,Neg_Half_S2,-2,2,True,False,0,0,PASS,-0.5 (-2/4) -> 0
+Tie-Breaking,Pos_Below_Half,1,2,True,False,0,0,PASS,+0.25 (1/4) -> 0
+Tie-Breaking,Pos_Above_Half,3,2,True,False,1,1,PASS,+0.75 (3/4) -> 1
+Tie-Breaking,Neg_Below_Half,-1,2,True,False,0,0,PASS,-0.25 (-1/4) -> 0
+Tie-Breaking,Neg_Above_Half,-3,2,True,False,-1,-1,PASS,-0.75 (-3/4) -> -1
+Shift-Boundary,Shift_0,10,0,True,False,10,10,PASS,2^0 scale factor normalized to 10
+Shift-Boundary,Shift_1,20,1,True,False,10,10,PASS,2^1 scale factor normalized to 10
+Shift-Boundary,Shift_2,40,2,True,False,10,10,PASS,2^2 scale factor normalized to 10
+Shift-Boundary,Shift_3,80,3,True,False,10,10,PASS,2^3 scale factor normalized to 10
+Shift-Boundary,Shift_4,160,4,True,False,10,10,PASS,2^4 scale factor normalized to 10
+Shift-Boundary,Shift_5,320,5,True,False,10,10,PASS,2^5 scale factor normalized to 10
+Shift-Boundary,Shift_6,640,6,True,False,10,10,PASS,2^6 scale factor normalized to 10
+Shift-Boundary,Shift_7,1280,7,True,False,10,10,PASS,2^7 scale factor normalized to 10
+Shift-Boundary,Shift_8,2560,8,True,False,10,10,PASS,2^8 scale factor normalized to 10
+Shift-Boundary,Shift_9,5120,9,True,False,10,10,PASS,2^9 scale factor normalized to 10
+Shift-Boundary,Shift_10,10240,10,True,False,10,10,PASS,2^10 scale factor normalized to 10
+Shift-Boundary,Shift_11,20480,11,True,False,10,10,PASS,2^11 scale factor normalized to 10
+Shift-Boundary,Shift_12,40960,12,True,False,10,10,PASS,2^12 scale factor normalized to 10
+Shift-Boundary,Shift_13,81920,13,True,False,10,10,PASS,2^13 scale factor normalized to 10
+Shift-Boundary,Shift_14,163840,14,True,False,10,10,PASS,2^14 scale factor normalized to 10
+Shift-Boundary,Shift_15,327680,15,True,False,10,10,PASS,2^15 scale factor normalized to 10
+Shift-Boundary,Shift_16,655360,16,True,False,10,10,PASS,2^16 scale factor normalized to 10
+Shift-Boundary,Shift_17,1310720,17,True,False,10,10,PASS,2^17 scale factor normalized to 10
+Shift-Boundary,Shift_18,2621440,18,True,False,10,10,PASS,2^18 scale factor normalized to 10
+Shift-Boundary,Shift_19,5242880,19,True,False,10,10,PASS,2^19 scale factor normalized to 10
+Shift-Boundary,Shift_20,10485760,20,True,False,10,10,PASS,2^20 scale factor normalized to 10
+Shift-Boundary,Shift_21,20971520,21,True,False,10,10,PASS,2^21 scale factor normalized to 10
+Shift-Boundary,Shift_22,41943040,22,True,False,10,10,PASS,2^22 scale factor normalized to 10
+Shift-Boundary,Shift_23,83886080,23,True,False,10,10,PASS,2^23 scale factor normalized to 10
+Shift-Boundary,Shift_24,167772160,24,True,False,10,10,PASS,2^24 scale factor normalized to 10
+Shift-Boundary,Shift_25,335544320,25,True,False,10,10,PASS,2^25 scale factor normalized to 10
+Shift-Boundary,Shift_26,671088640,26,True,False,10,10,PASS,2^26 scale factor normalized to 10
+Shift-Boundary,Shift_27,1342177280,27,True,False,10,10,PASS,2^27 scale factor normalized to 10
+Shift-Boundary,Shift_28,2684354560,28,True,False,10,10,PASS,2^28 scale factor normalized to 10
+Shift-Boundary,Shift_29,5368709120,29,True,False,10,10,PASS,2^29 scale factor normalized to 10
+Shift-Boundary,Shift_30,10737418240,30,True,False,10,10,PASS,2^30 scale factor normalized to 10
+Shift-Boundary,Shift_31,21474836480,31,True,False,10,10,PASS,2^31 scale factor normalized to 10
+Extreme-Saturation,Max_Pos_40b_Shift0,549755813887,0,False,False,32767,32767,PASS,"ClipMax=True, ClipMin=False"
+Extreme-Saturation,Max_Neg_40b_Shift0,-549755813888,0,False,False,-32768,-32768,PASS,"ClipMax=False, ClipMin=True"
+Extreme-Saturation,Max_Pos_40b_Shift31,549755813887,31,True,False,256,256,PASS,"ClipMax=False, ClipMin=False"
+Extreme-Saturation,Max_Neg_40b_Shift31,-549755813888,31,True,False,-256,-256,PASS,"ClipMax=False, ClipMin=False"
+Extreme-Saturation,Exact_Clip_Max_Bound,524272,4,False,False,32767,32767,PASS,"ClipMax=False, ClipMin=False"
+Extreme-Saturation,Above_Clip_Max_Bound,524288,4,False,False,32767,32767,PASS,"ClipMax=True, ClipMin=False"
+Extreme-Saturation,Exact_Clip_Min_Bound,-524288,4,False,False,-32768,-32768,PASS,"ClipMax=False, ClipMin=False"
+Extreme-Saturation,Below_Clip_Min_Bound,-524304,4,False,False,-32768,-32768,PASS,"ClipMax=False, ClipMin=True"
+Extreme-Saturation,ReLU_Neg_Clamp,-1600,4,False,True,0,0,PASS,"ClipMax=False, ClipMin=False"
+Extreme-Saturation,ReLU_Pos_Pass,1600,4,False,True,100,100,PASS,"ClipMax=False, ClipMin=False"

@@ -1,0 +1,16 @@
+Model,Dataset,Workload,Layer,PE_Mode,Total_Outputs,Matches,Mismatches,Max_Abs_Error,Status
+VGG-16-BN,CIFAR-10,deep,features.37,64-PE,64,64,0,0.000000,PASS
+VGG-16-BN,CIFAR-10,deep,features.37,32-PE,64,64,0,0.000000,PASS
+VGG-16-BN,CIFAR-10,deep,features.37,16-PE,64,64,0,0.000000,PASS
+VGG-16-BN,CIFAR-10,mid,features.14,64-PE,64,64,0,0.000000,PASS
+VGG-16-BN,CIFAR-10,mid,features.14,32-PE,64,64,0,0.000000,PASS
+VGG-16-BN,CIFAR-10,mid,features.14,16-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,early,layer1.0.conv1,64-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,early,layer1.0.conv1,32-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,early,layer1.0.conv1,16-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c1,layer1.0.conv1,64-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c1,layer1.0.conv1,32-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c1,layer1.0.conv1,16-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c2,layer1.0.conv2,64-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c2,layer1.0.conv2,32-PE,64,64,0,0.000000,PASS
+ResNet-18,CIFAR-10,chain_c2,layer1.0.conv2,16-PE,64,64,0,0.000000,PASS

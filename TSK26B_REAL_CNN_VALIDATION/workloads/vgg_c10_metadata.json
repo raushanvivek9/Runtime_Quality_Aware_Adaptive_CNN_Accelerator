@@ -1,0 +1,16 @@
+{
+  "tag": "vgg_c10",
+  "model_name": "VGG-16-BN",
+  "dataset": "CIFAR-10",
+  "layer_name": "features.3",
+  "k_steps": 576,
+  "rows": 4,
+  "cols": 16,
+  "words_per_k": 10,
+  "total_preload_words": 5760,
+  "act_sparsity_pct": 40.45138888888889,
+  "quad_zero_steps": 233,
+  "quad_zero_pct": 40.45138888888889,
+  "golden_ofmap_words": 128,
+  "golden_packed_words": 32
+}

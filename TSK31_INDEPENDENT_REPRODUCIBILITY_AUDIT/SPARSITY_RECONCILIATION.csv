@@ -1,0 +1,5 @@
+Workload_ID,Workload_Name,Total_Activation_Elements,Exact_Zero_Activation_Elements,Calculated_Activation_Sparsity_Pct,Reported_Activation_Sparsity_Pct,Sparsity_Discrepancy,Dense_Weight_SRAM_Reads,Sparse_Weight_SRAM_Reads,Calculated_SRAM_Reduction_Pct,Reported_SRAM_Reduction_Pct,Hash_Verification_Status
+WL1,ResNet-18_C10_L1Conv1,9216,6349,68.89,68.89,0.0,147456,45872,68.89,68.89,VERIFIED_BIT_EXACT
+WL2,ResNet-18_C100_L1Conv1,9216,6135,66.57,66.57,0.0,147456,49296,66.57,66.57,VERIFIED_BIT_EXACT
+WL3,VGG16_C10_Features3,9216,4434,48.11,48.11,0.0,147456,76512,48.11,48.11,VERIFIED_BIT_EXACT
+WL4,ResNet-18_C10_L2Conv2,9216,7826,84.92,84.92,0.0,147456,22240,84.92,84.92,VERIFIED_BIT_EXACT

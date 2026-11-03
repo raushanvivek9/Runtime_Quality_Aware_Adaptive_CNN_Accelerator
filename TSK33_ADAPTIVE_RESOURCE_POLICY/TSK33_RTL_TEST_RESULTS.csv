@@ -1,0 +1,18 @@
+Test_ID,Test_Description,Status,Active_PEs,Fallback_Asserted,Budget_Violation
+1,Policy A: Relaxed budget (50k cyc, 64 PEs) -> Expect 16-PE,PASS,16,0,0
+2,Policy A: Boundary exactly 38,225 cyc -> Expect 16-PE,PASS,16,0,0
+3,Policy A: 38,224 cyc (below 16-PE) -> Expect 32-PE,PASS,32,0,0
+4,Policy A: Boundary exactly 19,121 cyc -> Expect 32-PE,PASS,32,0,0
+5,Policy A: 19,120 cyc (below 32-PE) -> Expect 64-PE,PASS,64,0,0
+6,Policy A: Boundary exactly 9,569 cyc -> Expect 64-PE,PASS,64,0,0
+7,Policy A: Impossible deadline (5k cyc) -> Fallback 64-PE with violation,PASS,64,1,1
+8,Policy A: 50k cyc, Max 32 PEs -> Expect 16-PE,PASS,16,0,0
+9,Policy A: 20k cyc, Max 32 PEs -> Expect 32-PE,PASS,32,0,0
+10,Policy A: 10k cyc, Max 32 PEs -> Fallback to 32-PE (respects PE limit),PASS,32,1,1
+11,Policy B: Max 64 PEs -> Expect 64-PE (Lowest Latency),PASS,64,0,0
+12,Policy B: Max 32 PEs -> Expect 32-PE,PASS,32,0,0
+13,Policy B: Max 16 PEs -> Expect 16-PE,PASS,16,0,0
+14,Policy B: 5k cyc, 64 PEs -> Select 64-PE with violation,PASS,64,0,1
+15,Defensive: Invalid PE limit (8 PEs) -> Block with Mode=2'b11, PEs=0,PASS,0,1,1
+16,Defensive: 0 cycle budget -> Fallback with violation,PASS,64,1,1
+17,Asynchronous Reset Verification,PASS,64,0,0

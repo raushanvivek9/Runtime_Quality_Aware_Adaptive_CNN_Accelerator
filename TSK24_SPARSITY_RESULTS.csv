@@ -1,0 +1,5 @@
+Workload,Layer,K_Steps,Total_Activations,Zero_Activations,Sparsity_Pct,Dense_Cycles,Sparse_Cycles,Cycle_Reduction_Pct,Dense_Reads,Sparse_Reads,Read_Reduction_Pct,Skipped_MAC_Opportunities
+WL1_EARLY_CONV,layer1.0.conv1,64,256,56,21.88,328,255,22.26%,640,560,12.50%,256
+WL2_SPARSE_RELU,layer1.0.relu,64,256,96,37.50,328,253,22.87%,640,544,15.00%,768
+WL3_MID_CONV,layer2.0.conv1,64,256,82,32.03,328,259,21.04%,640,592,7.50%,928
+WL4_DEEP_CONV,layer3.0.conv1,128,512,291,56.84,520,358,31.15%,1280,1000,21.88%,2416

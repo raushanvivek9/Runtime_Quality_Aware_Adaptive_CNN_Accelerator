@@ -1,0 +1,5 @@
+Workload_ID,Layer_Name,Description,K_Steps,Shift,Act_Sparsity_Pct,Zero_Act_Count,Total_Act_Count,SRAM_Preload_Words_64PE,Golden_OFMAP_Words,Golden_Packed_Words,Min_Accum,Max_Accum,Min_Requant,Max_Requant
+WL1_EARLY_CONV,layer1.0.conv1,"ResNet-18 Layer1.0.Conv1 (Early Conv, K=64)",64,4,21.88%,56,256,640,128,32,-100169117,110184153,0,32767
+WL2_SPARSE_RELU,layer1.0.relu,"ResNet-18 Post-ReLU Sparsity (K=64, ~39% zeros)",64,4,37.50%,96,256,640,128,32,-131325957,120848876,0,32767
+WL3_MID_CONV,layer2.0.conv1,"ResNet-18 Layer2.0.Conv1 (Middle Conv, K=64)",64,5,32.03%,82,256,640,128,32,-515282886,392329917,0,32767
+WL4_DEEP_CONV,layer3.0.conv1,"ResNet-18 Layer3.0.Conv1 (Deep Conv, K=128, ~60% zeros)",128,6,56.84%,291,512,1280,128,32,-333996666,171480270,0,32767

@@ -1,0 +1,9 @@
+Policy_Name,Selected_Mode,Count,Total_Evaluations,Percentage
+Policy_A,BLOCKED_INVALID,120,280,42.86
+Policy_A,16-PE,76,280,27.14
+Policy_A,32-PE,52,280,18.57
+Policy_A,64-PE,32,280,11.43
+Policy_B,BLOCKED_INVALID,120,280,42.86
+Policy_B,64-PE,80,280,28.57
+Policy_B,16-PE,40,280,14.29
+Policy_B,32-PE,40,280,14.29

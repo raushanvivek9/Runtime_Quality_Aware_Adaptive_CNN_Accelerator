@@ -1,0 +1,7 @@
+Workload_ID,Model,Dataset,Layer,Type,Cin,Cout,K,Activation_Sparsity_Pct,Quantization_Rel_Error_Pct,SQNR_dB,RTL_Validation_Status
+WL1,ResNet-18,CIFAR-10,layer1.0.conv1,Residual Early Conv,64,16,576,68.89%,0.1353%,57.37,VALIDATED
+WL2,ResNet-18,CIFAR-100,layer1.0.conv1,Residual Early Conv (Fine-Grained),64,16,576,66.57%,0.2231%,53.03,VALIDATED
+WL3,VGG-16-BN,CIFAR-10,features.3,VGG Dense Early Conv,64,16,576,48.11%,0.0788%,62.07,VALIDATED
+WL4,ResNet-18,CIFAR-10,layer2.1.conv2,Residual Deep Conv,64,16,576,84.92%,0.1999%,53.98,VALIDATED
+WL5,ResNet-18,CIFAR-10,layer3.0.conv1,Residual Deep Conv (Stage 3),128,16,1152,89.45% (Profiled),0.0142% (Simulated),76.84 (Simulated),EXTENDED_ANALYSIS
+WL6,VGG-16-BN,CIFAR-10,features.7,VGG Mid-Depth Conv,128,16,1152,72.30% (Profiled),0.0185% (Simulated),74.60 (Simulated),EXTENDED_ANALYSIS

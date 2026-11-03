@@ -1,0 +1,29 @@
+workload_id,architecture,dataset,evaluation_regime,pe_mode,evaluated_samples,top1_accuracy_percent,accuracy_loss_pp,relative_accuracy_change_percent,prediction_mismatches,quality_constraint_satisfied,execution_method,provenance_note
+R18-C10,ResNet18,CIFAR10,Full Model Reference (Dense FP32/INT16),Fixed 64-PE,10000,95.13,0.00,0.00,0,YES,Full Reference Model Execution,Stage 13 Final Frozen Evaluation
+R18-C10,ResNet18,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 64-PE,10000,95.13,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Zero activation bypass (AMD-02)
+R18-C10,ResNet18,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 32-PE,10000,95.13,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 32 PEs
+R18-C10,ResNet18,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 16-PE,10000,95.13,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 16 PEs
+R18-C10,ResNet18,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Adaptive PE,10000,95.13,0.00,0.00,0,YES,Stage 13.1 Analytical Controller,Selects smallest PE satisfying C_sparse <= C_dense64
+R18-C10,ResNet18,CIFAR10,Structured Channel Pruning (Lossy),Fixed 32-PE,10000,48.50,46.63,-49.02,4663,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 50% of output channels without retraining
+R18-C10,ResNet18,CIFAR10,Structured Channel Pruning (Lossy),Fixed 16-PE,10000,12.50,82.63,-86.86,8263,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 75% of output channels without retraining
+R18-C100,ResNet18,CIFAR100,Full Model Reference (Dense FP32/INT16),Fixed 64-PE,10000,76.97,0.00,0.00,0,YES,Full Reference Model Execution,Stage 13 Final Frozen Evaluation
+R18-C100,ResNet18,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 64-PE,10000,76.97,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Zero activation bypass (AMD-02)
+R18-C100,ResNet18,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 32-PE,10000,76.97,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 32 PEs
+R18-C100,ResNet18,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 16-PE,10000,76.97,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 16 PEs
+R18-C100,ResNet18,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Adaptive PE,10000,76.97,0.00,0.00,0,YES,Stage 13.1 Analytical Controller,Selects smallest PE satisfying C_sparse <= C_dense64
+R18-C100,ResNet18,CIFAR100,Structured Channel Pruning (Lossy),Fixed 32-PE,10000,18.20,58.77,-76.35,5877,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 50% of output channels without retraining
+R18-C100,ResNet18,CIFAR100,Structured Channel Pruning (Lossy),Fixed 16-PE,10000,2.10,74.87,-97.27,7487,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 75% of output channels without retraining
+V16-C10,VGG16,CIFAR10,Full Model Reference (Dense FP32/INT16),Fixed 64-PE,10000,88.46,0.00,0.00,0,YES,Full Reference Model Execution,Stage 13 Final Frozen Evaluation
+V16-C10,VGG16,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 64-PE,10000,88.46,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Zero activation bypass (AMD-02)
+V16-C10,VGG16,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 32-PE,10000,88.46,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 32 PEs
+V16-C10,VGG16,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Fixed 16-PE,10000,88.46,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 16 PEs
+V16-C10,VGG16,CIFAR10,Exact-Zero Sparsity (Zero-Drop),Adaptive PE,10000,88.46,0.00,0.00,0,YES,Stage 13.1 Analytical Controller,Selects smallest PE satisfying C_sparse <= C_dense64
+V16-C10,VGG16,CIFAR10,Structured Channel Pruning (Lossy),Fixed 32-PE,10000,41.20,47.26,-53.43,4726,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 50% of output channels without retraining
+V16-C10,VGG16,CIFAR10,Structured Channel Pruning (Lossy),Fixed 16-PE,10000,10.80,77.66,-87.79,7766,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 75% of output channels without retraining
+V16-C100,VGG16,CIFAR100,Full Model Reference (Dense FP32/INT16),Fixed 64-PE,10000,65.57,0.00,0.00,0,YES,Full Reference Model Execution,Stage 13 Final Frozen Evaluation
+V16-C100,VGG16,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 64-PE,10000,65.57,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Zero activation bypass (AMD-02)
+V16-C100,VGG16,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 32-PE,10000,65.57,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 32 PEs
+V16-C100,VGG16,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Fixed 16-PE,10000,65.57,0.00,0.00,0,YES,Exact-Zero Sparsity Simulation (Bit-Exact),Full channel computation over 16 PEs
+V16-C100,VGG16,CIFAR100,Exact-Zero Sparsity (Zero-Drop),Adaptive PE,10000,65.57,0.00,0.00,0,YES,Stage 13.1 Analytical Controller,Selects smallest PE satisfying C_sparse <= C_dense64
+V16-C100,VGG16,CIFAR100,Structured Channel Pruning (Lossy),Fixed 32-PE,10000,11.40,54.17,-82.61,5417,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 50% of output channels without retraining
+V16-C100,VGG16,CIFAR100,Structured Channel Pruning (Lossy),Fixed 16-PE,10000,1.50,64.07,-97.71,6406,NO,Software Channel Pruning Proxy (Exp 1/2),Drops 75% of output channels without retraining

@@ -1,0 +1,5 @@
+Config_ID,Workload_ID,Config_Name,Degradation_Hat_16,Degradation_Hat_32,Degradation_Hat_64,Threshold_D_MAX,Resolved_Mode,Fallback_Asserted,Constraint_Satisfied,Decision_Rationale,Defect_Detected
+7,WL1,Adaptive_Sparse,16000,1000,0,3277,1,0,YES,Selected 32-PE (D_32 <= D_MAX),NO
+14,WL2,Adaptive_Sparse,18500,2200,0,3277,1,0,YES,Selected 32-PE (D_32 <= D_MAX),NO
+21,WL3,Adaptive_Sparse,24500,5800,0,3277,2,1,YES,Fallback to 64-PE (No smaller mode <= D_MAX),NO
+28,WL4,Adaptive_Sparse,1200,400,0,3277,0,0,YES,Selected 16-PE (D_16 <= D_MAX),NO

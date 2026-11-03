@@ -1,0 +1,4 @@
+PE_Mode,Regime,Total_Cycles,Compute_Cycles,Drain_Cycles,Reads_Accepted,Writes_Accepted,Executed_MACs,Skipped_MACs
+64-PE,SPARSE,3876,0,0,7328,2048,65536,0
+32-PE,DENSE,5640,0,0,9376,2048,65536,0
+16-PE,DENSE,9232,0,0,13472,2048,65536,0

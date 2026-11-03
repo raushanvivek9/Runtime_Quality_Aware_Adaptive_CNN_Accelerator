@@ -1,0 +1,5 @@
+Workload_ID,Workload_Name,Selected_Mode,False_Safe_Violation,False_Safe_Defect_Detected,Overly_Conservative_Decision,Viable_Unselected_Smaller_Modes,Root_Cause
+WL1,ResNet-18_C10_L1Conv1,32-PE,NO (Actual RTL error is 0.00% <= 5.0%),False,YES,16-PE,"Estimates originated from lossy channel-pruning proxy, but RTL performs multi-pass accumulation without channel loss."
+WL2,ResNet-18_C100_L1Conv1,32-PE,NO (Actual RTL error is 0.00% <= 5.0%),False,YES,16-PE,"Estimates originated from lossy channel-pruning proxy, but RTL performs multi-pass accumulation without channel loss."
+WL3,VGG16_C10_Features3,64-PE,NO (Actual RTL error is 0.00% <= 5.0%),False,YES,"16-PE, 32-PE","Estimates originated from lossy channel-pruning proxy, but RTL performs multi-pass accumulation without channel loss."
+WL4,ResNet-18_C10_L2Conv2,16-PE,NO (Actual RTL error is 0.00% <= 5.0%),False,NO,None,"Estimates originated from lossy channel-pruning proxy, but RTL performs multi-pass accumulation without channel loss."

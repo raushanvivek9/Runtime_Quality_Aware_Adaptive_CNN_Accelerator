@@ -1,0 +1,7 @@
+Step_Name,Command,Working_Directory,Duration_Sec,Exit_Code,Log_File,Status
+TSK24 Workload Generation,/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python generate_rtl_workloads.py,/mnt/e/MTech/LanChain/MTP/TSK24_REAL_CNN_VALIDATION,2.12,0,log_tsk24_workload_generation.log,PASS
+TSK24 Real CNN Simulation,/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_tsk24_simulation.py,/mnt/e/MTech/LanChain/MTP/TSK24_REAL_CNN_VALIDATION,19.92,0,log_tsk24_real_cnn_simulation.log,PASS
+TSK24 Numerical Accuracy Analysis,/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python analyze_numerical_accuracy.py,/mnt/e/MTech/LanChain/MTP/TSK24_REAL_CNN_VALIDATION,1.25,0,log_tsk24_numerical_accuracy_analysis.log,PASS
+TSK24 Real CNN Sparsity Analysis,/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python analyze_real_cnn_sparsity.py,/mnt/e/MTech/LanChain/MTP/TSK24_REAL_CNN_VALIDATION,1.22,0,log_tsk24_real_cnn_sparsity_analysis.log,PASS
+Baseline 20-Suite RTL Regression,/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_regression.py,/mnt/e/MTech/LanChain/MTP/phase2_step1_microarchitecture_and_rtl,27.27,0,log_baseline_20_suite_rtl_regression.log,PASS
+TSK23 Master Unified Regression (8 Suites),/mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_tsk23_unified_regression.py,/mnt/e/MTech/LanChain/MTP/phase2_step1_microarchitecture_and_rtl,97.27,0,log_tsk23_master_unified_regression_(8_suites).log,PASS

@@ -1,0 +1,4 @@
+PE_Mode,Total_Outputs,Exact_Integer_Matches,Mismatches,Max_Abs_Error,MAE,RMSE,Status
+64-PE,1024,1024,0,0,0.0,0.0,PASS
+32-PE,1024,1024,0,0,0.0,0.0,PASS
+16-PE,1024,1024,0,0,0.0,0.0,PASS

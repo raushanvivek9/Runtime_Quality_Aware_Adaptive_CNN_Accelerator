@@ -1,0 +1,4 @@
+Mode_Pair,Total_Outputs,Exact_Matches,Mismatches,Max_Abs_Error,Channel_Passes,Total_Cycles,Status
+32-PE vs 64-PE,1024,1024,0,0,2,5640,PASS
+16-PE vs 32-PE,1024,1024,0,0,4,9232,PASS
+16-PE vs 64-PE,1024,1024,0,0,4,9232,PASS

@@ -1,0 +1,5 @@
+TestCase,Shift,Round_En,ReLU_En,Input_Accums,Output_Words,Clips_Min,Clips_Max,ReLU_Zeros,Min_Quant_Val,Max_Quant_Val
+Linear_Shift4_Round,4,True,False,64,32,0,0,0,-1391,2566
+Linear_Shift6_Trunc,6,False,False,64,32,0,0,0,-348,641
+ReLU_Shift5_Round,5,True,True,64,32,0,0,19,0,1283
+ReLU_Shift8_Round,8,True,True,64,32,0,0,19,0,160

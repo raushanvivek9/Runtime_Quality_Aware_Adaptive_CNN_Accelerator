@@ -1,0 +1,17 @@
+model_name,dataset,layer_name,tensor_tag,description,filename,data_type,shape,sha256
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,Input receptive field patch (FP32),r18_c10_input_patch_fp32.npy,float32,"(576,)",a231348e912b03c36dfa8ac246b83688f6cdae397b73cb9da0bbd77a5365392c
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,Input receptive field patch (INT16 Q4.12),r18_c10_input_patch_int16.npy,int16,"(576,)",44df9a941d4b0f1153787cb7d6881fadc93e66d638cb10d89c81b744f1ec9751
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,Kernel weights (FP32),r18_c10_weights_fp32.npy,float32,"(64, 576)",e2449f52d047ca32860bd6ff1beda5326f94cf78bab03aab3e6951112ec2b7cf
+ResNet-18,CIFAR-10,layer1.0.conv1,r18_c10,Kernel weights (INT16 Q4.12),r18_c10_weights_int16.npy,int16,"(64, 576)",82386157a3ab1fe31b12dff4bacc7e10fea8a280cd1efe1313a72f6dcda59b27
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,Input receptive field patch (FP32),r18_c100_input_patch_fp32.npy,float32,"(576,)",1afce1c3c51da272ea481935e41385ead3791c77e27e5da454e02c1b4ffc3dd8
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,Input receptive field patch (INT16 Q4.12),r18_c100_input_patch_int16.npy,int16,"(576,)",03bc6a5d9bce1b54669dd40d215003c4eb1bfbe24cae7a3311b6788cf47a4bab
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,Kernel weights (FP32),r18_c100_weights_fp32.npy,float32,"(64, 576)",a9857d7ca22e8c15aa2a7acb2647edd5faebe9e8884ea4171925ca50274ae77e
+ResNet-18,CIFAR-100,layer1.0.conv1,r18_c100,Kernel weights (INT16 Q4.12),r18_c100_weights_int16.npy,int16,"(64, 576)",621eb7566889909525216d4b5ff6375ea7de479463c8869a2034bd04708eec7c
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,Input receptive field patch (FP32),vgg_c10_input_patch_fp32.npy,float32,"(576,)",5589e28f47e7acb95f68ecef994c0db1923b30dad7e46952c29fa5b766c9b794
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,Input receptive field patch (INT16 Q4.12),vgg_c10_input_patch_int16.npy,int16,"(576,)",373945793112df073138b31fe4ecfa05c1034723bcc93b51a05df1f7d91a02e7
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,Kernel weights (FP32),vgg_c10_weights_fp32.npy,float32,"(64, 576)",c34ec77a78a13ff47e13d9b9152794d7c2221eb1220b95a8f0a2ba90c8940906
+VGG-16-BN,CIFAR-10,features.3,vgg_c10,Kernel weights (INT16 Q4.12),vgg_c10_weights_int16.npy,int16,"(64, 576)",15f3b8bd9270e53691c3317f369f33276fe5676fee5b80476e8672d29c4f581b
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,Input receptive field patch (FP32),vgg_c100_input_patch_fp32.npy,float32,"(576,)",55a515209d69a56ddf8ef10d74684107852f71785bbe67bffe4ff6e034c88a38
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,Input receptive field patch (INT16 Q4.12),vgg_c100_input_patch_int16.npy,int16,"(576,)",e32a167122db401c6350a7662df100fe7ad8eebf9834351abda94c5705dc6ab0
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,Kernel weights (FP32),vgg_c100_weights_fp32.npy,float32,"(64, 576)",06c4d1e6d67c7093c166747ac94f5820e94307cfa9dcecb1e0a63c8bd112dfe4
+VGG-16-BN,CIFAR-100,features.3,vgg_c100,Kernel weights (INT16 Q4.12),vgg_c100_weights_int16.npy,int16,"(64, 576)",0193d40cbaa8e9bf9c983aece034503bd19664a8e8680cdf00daa890919e619d

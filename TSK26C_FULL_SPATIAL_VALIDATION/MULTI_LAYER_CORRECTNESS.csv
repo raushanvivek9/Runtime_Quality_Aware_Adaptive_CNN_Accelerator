@@ -1,0 +1,5 @@
+stage,layer_name,input_source,output_elements,matches,mismatches,max_abs_error,execution_target,status
+Layer_1_Execution,layer1.0.conv1,Model_Input_Activations,64,64,0,0.0,Neural_Acc_RTL_Core,PASS
+Inter_Layer_Requantization,Requant_Unit_Scale12_ReLU,Layer_1_Drained_Buffer_B,64,64,0,0.0,Hardware_Requant_Unit,PASS
+Inter_Layer_Padding_and_Im2Col,Spatial_Pad1_Im2Col,Hardware_Requant_Activations,2304,2304,0,0.0,Host_Software_Driver,PASS
+Layer_2_Execution,layer1.0.conv2,Chained_Layer_1_HW_Outputs,64,64,0,0.0,Neural_Acc_RTL_Core,PASS

@@ -1,0 +1,47 @@
+# ==============================================================================
+# Project: Neural_Acc (Phase 2 RTL Implementation)
+# Task: TSK-22 RTL Synthesis Script for Yosys
+# Top Module: neural_acc_integrated_top
+# Usage: yosys -s synth_yosys.ys
+# ==============================================================================
+
+# 1. Read SystemVerilog Source Files
+read_verilog -sv mac_unit_40b.sv
+read_verilog -sv pe_array_40b.sv
+read_verilog -sv adaptive_pe_controller.sv
+read_verilog -sv ping_pong_buffer_controller.sv
+read_verilog -sv hybrid_sram_bank.sv
+read_verilog -sv multibank_sram_subsystem.sv
+read_verilog -sv dma_controller.sv
+read_verilog -sv layer_command_sequencer.sv
+read_verilog -sv dma_to_sram_write_adapter.sv
+read_verilog -sv datapath_compute_feeder.sv
+read_verilog -sv ofmap_drain_controller.sv
+read_verilog -sv memory_telemetry_monitor.sv
+read_verilog -sv channel_tile_controller.sv
+read_verilog -sv requantization_unit.sv
+read_verilog -sv neural_acc_integrated_top.sv
+
+# 2. Elaboration and Hierarchy Check
+hierarchy -check -top neural_acc_integrated_top
+
+# 3. High-Level Synthesis Passes
+proc
+opt
+fsm
+opt
+memory -nomap
+opt
+
+# 4. Target Architecture Mapping (Generic Gates)
+techmap
+opt
+abc -g AND,NAND,OR,NOR,XOR,XNOR,MUX
+
+# 5. Clean Up and Resource Reporting
+clean
+stat -top neural_acc_integrated_top
+
+# 6. Optional: Write Gate-Level Verilog Netlist
+# write_verilog -noattr synth_netlist_yosys.v
+

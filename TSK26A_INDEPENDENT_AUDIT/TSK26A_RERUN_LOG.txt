@@ -1,0 +1,133 @@
+================================================================================
+TSK-26A INDEPENDENT AUDIT EXECUTION AND RERUN LOG
+================================================================================
+Timestamp: 2026-11-03T01:33:00+05:30
+Environment: Ubuntu (WSL2), Python 3.10.12 (Neural_Acc_env), Icarus Verilog 12.0
+Repository Root: /mnt/e/MTech/LanChain/MTP
+Branch: main (0 commits created)
+
+--------------------------------------------------------------------------------
+1. RERUN: TSK-26A Full Spatial Feature-Map Validation Harness
+--------------------------------------------------------------------------------
+Command:
+  cd /mnt/e/MTech/LanChain/MTP/TSK26A_FULL_LAYER_VALIDATION && /mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_tsk26a_validation.py
+
+Exit Code: 0
+Duration: 34.5s
+Status: PASS (31 / 31 Checks Passed, 0 Failures)
+Log Path: /mnt/e/MTech/LanChain/MTP/TSK26A_FULL_LAYER_VALIDATION/sim_output.log
+
+Summary Output:
+  Total Checks Evaluated : 31
+  Passed Checks          : 31
+  Failed Checks          : 0
+  - 64-PE Mode (16 Tiles): 2048 words matched golden OFMAP (1,024 elements), 3876 cycles, 7328 reads
+  - 32-PE Mode (32 Passes): 1024 elements matched 64-PE bit-exact, 5640 cycles, 9376 reads
+  - 16-PE Mode (64 Passes): 1024 elements matched 64-PE bit-exact, 9232 cycles, 13472 reads
+  - Phase 8 Boundary Tests: 10 / 10 passed (All-Zero skip, Dense interior, Clock gating, Corner/Edge padding, 12-ch tail, 2-pt spatial tail, 68.7B saturation, Requant clamp/ReLU)
+
+--------------------------------------------------------------------------------
+2. RERUN: Independent Verification and Recheck Script
+--------------------------------------------------------------------------------
+Command:
+  cd /mnt/e/MTech/LanChain/MTP && /mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python TSK26A_INDEPENDENT_AUDIT/audit_tsk26a.py
+
+Exit Code: 0
+Duration: 2.1s
+Status: COMPLETE
+Log Path: /mnt/e/MTech/LanChain/MTP/TSK26A_INDEPENDENT_AUDIT/audit_tsk26a.py execution log
+
+Key Numerical Findings:
+  - TSK-26A Reduction Depth: K=64 evaluated out of K=576 required for true 3x3 convolution (11.11%).
+  - Input Channels Covered: 8 out of 64 (Channels 0..6 all 9 kernel points, Channel 7 point (0,0)).
+  - Input Channels Omitted: 56 out of 64 (Channels 8..63, 87.5% missing).
+  - True PyTorch Conv2D Comparison:
+      MAE: 4.6722
+      RMSE: 6.1211
+      Max Abs Error: 19.3270
+      SQNR: 0.87 dB (Confirms severe distortion against true mathematical convolution)
+  - TSK-26A Self-Consistency Recheck (64-step FP32 vs 64-step INT16):
+      MAE: 5.339692e-05
+      RMSE: 7.594951e-05
+      SQNR: 86.60 dB (Confirms reported 86.60 dB was purely quantization error of truncated inner product)
+
+--------------------------------------------------------------------------------
+3. RERUN: Baseline 20-Suite Regression Runner
+--------------------------------------------------------------------------------
+Command:
+  cd /mnt/e/MTech/LanChain/MTP/phase2_step1_microarchitecture_and_rtl && /mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_regression.py
+
+Exit Code: 0
+Duration: 36.2s
+Status: PASS (20 / 20 Testbenches Passed, 12,202 / 12,202 Checks Passed, 0 Failures)
+Log Path: /mnt/e/MTech/LanChain/MTP/phase2_step1_microarchitecture_and_rtl/sim_out.txt
+
+Suite Results:
+  1. tb_accelerator_core            : 4 checks   [PASS]
+  2. tb_mac_saturation             : 11 checks  [PASS]
+  3. tb_k_progress_tracker         : 4 checks   [PASS]
+  4. tb_hybrid_sram_bank           : 13 checks  [PASS]
+  5. tb_drain_backpressure         : 15 checks  [PASS]
+  6. tb_acceptance_integrated      : 29 checks  [PASS]
+  7. tb_pe_array_40b               : 28 checks  [PASS]
+  8. tb_adaptive_pe_controller     : 53 checks  [PASS]
+  9. tb_multibank_sram_subsystem   : 137 checks [PASS]
+  10. tb_ping_pong_buffer_controller: 117 checks [PASS]
+  11. tb_layer_command_sequencer   : 110 checks [PASS]
+  12. tb_dma_controller            : 87 checks  [PASS]
+  13. tb_ofmap_drain_controller    : 732 checks [PASS]
+  14. tb_neural_acc_integrated_top : 132 checks [PASS]
+  15. tb_workload_validation       : 58 checks  [PASS]
+  16. tb_parallel_pe_operand_delivery: 226 checks [PASS]
+  17. tb_tsk10_cnn_workload        : 667 checks [PASS]
+  18. tb_tsk11_ofmap_integration   : 3443 checks [PASS]
+  19. tb_tsk12_adaptive_experiment : 5846 checks [PASS]
+  20. tb_tsk18_sparse_feeder       : 490 checks [PASS]
+
+--------------------------------------------------------------------------------
+4. RERUN: TSK-23 Master Unified Regression Runner
+--------------------------------------------------------------------------------
+Command:
+  cd /mnt/e/MTech/LanChain/MTP/phase2_step1_microarchitecture_and_rtl && /mnt/e/MTech/LanChain/MTP/Neural_Acc_env/bin/python run_tsk23_unified_regression.py
+
+Exit Code: 0
+Duration: 44.8s
+Status: PASS (8 / 8 Suites Passed, 0 Failures)
+
+Sub-Suite Results:
+  - Baseline_20_Suites                   : [PASS]
+  - TSK18B_Cycle_Reconciliation          : [PASS]
+  - TSK20_Memory_Telemetry               : [PASS]
+  - TSK20_Memory_Replay                  : [PASS]
+  - TSK20_Trace_Reconciliation_Audit     : [PASS]
+  - TSK21_Requantization_Semantics_Audit : [PASS]
+  - TSK21_MultiPass_Tiling_And_Tails     : [PASS]
+  - TSK22_Switching_Activity_VCD         : [PASS]
+
+--------------------------------------------------------------------------------
+5. Protected Baseline RTL Verification
+--------------------------------------------------------------------------------
+Command:
+  git diff --exit-code phase2_step1_microarchitecture_and_rtl/accelerator_core_top.sv phase2_step1_microarchitecture_and_rtl/mac_unit_40b.sv phase2_step1_microarchitecture_and_rtl/k_progress_tracker.sv phase2_step1_microarchitecture_and_rtl/slot_control_unit.sv phase2_step1_microarchitecture_and_rtl/hybrid_sram_bank.sv
+
+Exit Code: 0
+Output: 0 diffs (All 5 protected baseline RTL files strictly unchanged)
+
+--------------------------------------------------------------------------------
+6. Summary of Test Distinctions
+--------------------------------------------------------------------------------
+Tests ACTUALLY RERUN during this audit:
+  1. TSK-26A Full Spatial Feature-Map Validation Harness (`run_tsk26a_validation.py`)
+  2. Baseline 20-Suite Regression Suite (`run_regression.py`)
+  3. Master Unified Regression Suite (`run_tsk23_unified_regression.py`)
+  4. Independent Mathematical & Numerical Audit Harness (`audit_tsk26a.py`)
+  5. Git Baseline File Integrity Diff (`git diff --exit-code`)
+
+Historical Artifacts ONLY INSPECTED:
+  1. TSK-24 Model Extraction Tensors (`TSK24_REAL_CNN_VALIDATION/*_int16.npy`, `*_fp32.npy`)
+  2. TSK-24 Manifest and Limitations (`TSK24_LAYER_MANIFEST.csv`, `TSK24_LIMITATIONS.md`)
+  3. TSK-26A Design and Scope Document (`TSK26A_DESIGN_AND_SCOPE.md`)
+  4. TSK-26A Validation Report (`TSK26A_VALIDATION_REPORT.md`)
+  5. RTL Architecture Specifications (`datapath_compute_feeder.sv`, `layer_command_sequencer.sv`, etc.)
+================================================================================
+

@@ -1,0 +1,14 @@
+workload_id,layer_name,pe_mode,active_pe_count,k_reduction_steps,zero_steps,nonzero_steps,sparsity_percent,historical_csv_dense_cycles,historical_csv_sparse_cycles,measured_rtl_dense_cycles,measured_rtl_sparse_cycles,reconstructed_expected_sparse_cycles,difference_measured_vs_expected,dense_reference_cycles,total_latency_reduction_percent,inner_loop_reduction_cycles,dense_accepted_sram_reads,sparse_accepted_sram_reads,sram_read_reduction_percent,ofmap_equivalence_status
+SYNTH-00,Synthetic_0pct_Sparse,64-PE,64,16,0,16,0.00,183,183,183,168,168,0,183,8.20,15,160,160,0.00,BIT_EXACT_MATCH
+SYNTH-25,Synthetic_25pct_Sparse,64-PE,64,16,4,12,25.00,183,171,183,164,164,0,183,10.38,19,160,128,20.00,BIT_EXACT_MATCH
+SYNTH-50,Synthetic_50pct_Sparse,64-PE,64,16,8,8,50.00,183,160,183,160,160,0,183,12.57,23,160,96,40.00,BIT_EXACT_MATCH
+SYNTH-75,Synthetic_75pct_Sparse,64-PE,64,16,12,4,75.00,183,156,183,156,156,0,183,14.75,27,160,64,60.00,BIT_EXACT_MATCH
+SYNTH-90,Synthetic_90pct_Sparse,64-PE,64,20,18,2,90.00,195,154,195,158,158,0,195,18.97,37,200,56,72.00,BIT_EXACT_MATCH
+SYNTH-100,Synthetic_100pct_Sparse,64-PE,64,16,16,0,100.00,183,152,183,152,152,0,183,16.94,31,160,32,80.00,BIT_EXACT_MATCH
+R18-C10-L1,layer1.0.conv1_R18,64-PE,64,64,47,17,73.44,327,233,327,217,217,0,327,33.64,110,640,264,58.75,BIT_EXACT_MATCH
+R18-C10-L8,layer2.1.conv1_R18,64-PE,64,128,83,45,64.84,519,353,519,309,309,0,519,40.46,210,1280,616,51.88,BIT_EXACT_MATCH
+V16-C10-L5,features.12_V16,64-PE,64,256,234,22,91.41,903,435,903,414,414,0,903,54.15,489,2560,688,73.12,BIT_EXACT_MATCH
+V16-C10-L8,features.19_V16,64-PE,64,512,501,11,97.85,1671,669,1671,659,659,0,1671,60.56,1012,5120,1112,78.28,BIT_EXACT_MATCH
+MODE-16PE,16PE_50pct_Sparse,16-PE,16,16,8,8,50.00,87,71,87,64,64,0,87,26.44,23,64,48,25.00,BIT_EXACT_MATCH
+MODE-32PE,32PE_50pct_Sparse,32-PE,32,16,8,8,50.00,119,103,119,96,96,0,119,19.33,23,96,64,33.33,BIT_EXACT_MATCH
+

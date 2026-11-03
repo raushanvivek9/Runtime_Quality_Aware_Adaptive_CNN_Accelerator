@@ -1,0 +1,7 @@
+Buffer_Region,Base_Word_Addr,Base_Byte_Addr,Size_Words,Size_Bytes,Data_Format,Port_Access,Function
+Ping_Pong_Buf_A,0x0000,0x0000,1024,4096,16-bit Packed Act,Port A (Wr) / Port B (Rd),Primary Input Activations (Layer N)
+Ping_Pong_Buf_B,0x1000,0x4000,1024,4096,16-bit Packed Act,Port A (Wr) / Port B (Rd),Secondary Input Activations (Layer N+1)
+OFMAP_Accum_Buffer,0x2000,0x8000,1024,4096,40-bit Partial Sums (2 Words/Val),Port A1 (Wr) / Port B (Rd),Raw Layer Compute Accumulators
+Requant_Act_Buffer,0x2400,0x9000,512,2048,16-bit Packed Act,Port A (Wr) / Port B (Rd),Requantized Output Activations
+Scratchpad_Weights,0x0800,0x2000,2048,8192,16-bit Packed Weights,Port A (Wr) / Port B (Rd),Channel-Tiled Filter Weights
+
